@@ -26,7 +26,7 @@ START:
 					; JMP - jump only 32K bits 
 */
 
-/*
+
 ACT1:
 	ldi r20, 0xA0	; Load 0xA0 to R20 
 	inc r20			; increment the R20 value by 1
@@ -38,8 +38,7 @@ ACT1:
 	inc r20			; increment the R20 value by 1
 	sts 0x103, r20	; store content of r20 to 0x103
 	rjmp ACT1
-*/
-
+/*
 ACT2: 
 	ldi r20, 0x20	; load a number 0x20 to R20 
 	sts 0x110, r20	; store 0x20 into the memory location 0x110
@@ -49,7 +48,7 @@ ACT2:
 	lds r0, 0x110	; load the contents of 0x110 to R0 
 	lds r1, 0x111	; load the contents of 0x111 to R1
 	rjmp ACT2
-
+*/
 /*
 ACT3: 
 	ldi r16, 0xb3	; load 0xb3 to r16
