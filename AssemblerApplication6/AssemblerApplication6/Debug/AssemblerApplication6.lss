@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\main.asm Wed Feb 03 15:47:19 2021
+AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\main.asm Wed Feb 03 15:51:38 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PAdef.inc'
                                  
@@ -1171,7 +1171,7 @@ AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerAppli
 000004 9310 0201                 	STS 0X201,R17	;STORE R17 VALUE TO 0X201
 000006 0f01                      	ADD R16,R17		;ADD R16 AND R17 AND STORE IN R16
 000007 9300 0202                 	STS 0X202,R16	;STORE THE SUM INTO 0X202
-000009 cff6                      	RJMP START		;JUMP BACK TO THE LABEL START
+000009 cff6                      	RJMP START		;JUMP BACK TO THE LABEL START - relative jump 32-bit cmd - only 64k back & forth
 
 
 RESOURCE USE INFORMATION
