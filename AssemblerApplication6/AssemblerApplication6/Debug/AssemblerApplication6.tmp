@@ -1,18 +1,18 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.8</VERSION>
  <DEVICE>"ATmega324PA"</DEVICE>
- <WORKING_DIR>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\Debug</WORKING_DIR>
+ <WORKING_DIR>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
   <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
   <DIR></DIR>
  </INCLUDE_PATH>
- <SOURCE_FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\main.asm</SOURCE_FILE>
+ <SOURCE_FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\main.asm</SOURCE_FILE>
  <INCLUDED_FILES>
   <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PAdef.inc</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
-  <FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\Debug\AssemblerApplication6.obj</FILE>
+  <FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\Debug\AssemblerApplication6.obj</FILE>
  </OBJECT_FILES>
  <HEX_FILES>
   <FILE>AssemblerApplication6.hex</FILE>
@@ -22,6 +22,6 @@
   <FILE>AssemblerApplication6.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <ACT1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\main.asm</FILE><LINE>30</LINE></ACT1>
+  <ACT1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\main.asm</FILE><LINE>30</LINE></ACT1>
  </LABELS>
 </ASSEMBLER_INFO>
