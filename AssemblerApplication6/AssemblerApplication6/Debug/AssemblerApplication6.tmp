@@ -22,6 +22,6 @@
   <FILE>AssemblerApplication6.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <START><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\main.asm</FILE><LINE>16</LINE></START>
+  <ACT1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\main.asm</FILE><LINE>30</LINE></ACT1>
  </LABELS>
 </ASSEMBLER_INFO>
