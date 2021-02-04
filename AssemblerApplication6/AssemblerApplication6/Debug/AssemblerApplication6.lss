@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\main.asm Wed Feb 03 18:07:17 2021
+AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication6\AssemblerApplication6\main.asm Wed Feb 03 20:14:38 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PAdef.inc'
                                  
@@ -1177,18 +1177,19 @@ AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerAppli
                                  					; JMP - jump only 32K bits 
                                  */
                                  
-                                 
+                                 /*
                                  ACT1:
-000000 ea40                      	ldi r20, 0xA0	; Load 0xA0 to R20 
-000001 9543                      	inc r20			; increment the R20 value by 1
-000002 9340 0100                 	sts 0x100, r20	; store content of r20 to 0x100
-000004 9543                      	inc r20			; increment the R20 value by 1
-000005 9340 0101                 	sts 0x101, r20	; store content of r20 to 0x101
-000007 9543                      	inc r20			; increment the R20 value by 1
-000008 9340 0102                 	sts 0x102, r20	; store content of r20 to 0x102
-00000a 9543                      	inc r20			; increment the R20 value by 1
-00000b 9340 0103                 	sts 0x103, r20	; store content of r20 to 0x103
-00000d cff2                      	rjmp ACT1
+                                 	ldi r20, 0xA0	; Load 0xA0 to R20 
+                                 	inc r20			; increment the R20 value by 1
+                                 	sts 0x100, r20	; store content of r20 to 0x100
+                                 	inc r20			; increment the R20 value by 1
+                                 	sts 0x101, r20	; store content of r20 to 0x101
+                                 	inc r20			; increment the R20 value by 1
+                                 	sts 0x102, r20	; store content of r20 to 0x102
+                                 	inc r20			; increment the R20 value by 1
+                                 	sts 0x103, r20	; store content of r20 to 0x103
+                                 	rjmp ACT1
+                                 	*/
                                  /*
                                  ACT2: 
                                  	ldi r20, 0x20	; load a number 0x20 to R20 
@@ -1212,13 +1213,13 @@ AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerAppli
                                  	rjmp ACT3
                                  */
                                  
-                                 /*
+                                 
                                  ACT4:
-                                 	in r1, PINA		; read $20 through PINA
-                                 	in r2, PINB		; read $3 through PINB
-                                 	add r1,r2		; add r2 to r1
-                                 	out PORTC,r1	; OUT --> 1 cycle instruction
-                                 	rjmp ACT4		; --> infinite loop back
+000000 b010                      	in r1, PINA		; read $20 through PINA
+000001 b023                      	in r2, PINB		; read $3 through PINB
+000002 0c12                      	add r1,r2		; add r2 to r1
+000003 b818                      	out PORTC,r1	; OUT --> 1 cycle instruction
+000004 cffb                      	rjmp ACT4		; --> infinite loop back
 
 
 RESOURCE USE INFORMATION
@@ -1236,15 +1237,15 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega324PA" register use summary:
-x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
+x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   3 r2 :   2 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   0 r17:   0 r18:   0 r19:   0 r20:   9 
+r13:   0 r14:   0 r15:   0 r16:   0 r17:   0 r18:   0 r19:   0 r20:   0 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
-Registers used: 1 out of 35 (2.9%)
+Registers used: 2 out of 35 (5.7%)
 
 "ATmega324PA" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
+.lds  :   0 .sts  :   0 adc   :   0 add   :   1 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
 brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
@@ -1253,22 +1254,22 @@ brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
 cpi   :   0 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   4 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :   1 lds   :   0 lpm   :   0 lsl   :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   2 inc   :   0 jmp   :   0 
+ld    :   0 ldd   :   0 ldi   :   0 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   0 pop   :   0 
+neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   1 pop   :   0 
 push  :   0 rcall :   0 ret   :   0 reti  :   0 rjmp  :   1 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
-sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   4 
+sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
 Instructions used: 4 out of 113 (3.5%)
 
 "ATmega324PA" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x00001c     28      0     28   32768   0.1%
+[.cseg] 0x000000 0x00000a     10      0     10   32768   0.0%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 

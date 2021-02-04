@@ -26,7 +26,7 @@ START:
 					; JMP - jump only 32K bits 
 */
 
-
+/*
 ACT1:
 	ldi r20, 0xA0	; Load 0xA0 to R20 
 	inc r20			; increment the R20 value by 1
@@ -38,6 +38,7 @@ ACT1:
 	inc r20			; increment the R20 value by 1
 	sts 0x103, r20	; store content of r20 to 0x103
 	rjmp ACT1
+	*/
 /*
 ACT2: 
 	ldi r20, 0x20	; load a number 0x20 to R20 
@@ -61,11 +62,11 @@ ACT3:
 	rjmp ACT3
 */
 
-/*
+
 ACT4:
 	in r1, PINA		; read $20 through PINA
 	in r2, PINB		; read $3 through PINB
 	add r1,r2		; add r2 to r1
 	out PORTC,r1	; OUT --> 1 cycle instruction
 	rjmp ACT4		; --> infinite loop back
-	*/
+	
