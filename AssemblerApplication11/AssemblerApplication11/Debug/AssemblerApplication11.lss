@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm Wed Feb 10 17:32:19 2021
+AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm Wed Feb 10 21:02:24 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
@@ -1624,6 +1624,42 @@ AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerAppli
                                  ; Created: 2/10/2021 3:30:53 PM
                                  ; Author : KhaiNguyen
                                  ;
+                                 /*
+                                 // Activity 1-1s
+                                 LDI R16, 0xa1	; load 0xa1 to r16
+                                 LDI R17, 0x08	; load 0x08 to r17
+                                 LDI R18, 0x9c	; load 0x9c to r18
+                                 LDI R19, 0x14	; load 0x14 to r19
+                                 LDI R20, 0xf7	; load 0xf7 to 20
+                                 
+                                 ADD R16, R17	; add R17 to R16
+                                 ADD R16, R18	; add R18 to R16
+                                 ADD R16, R19	; add R19 to R16
+                                 ADD R16, R20	; add R20 to R16
+                                 */
+                                 
+                                 // Activity 1-2
+                                 	BLOCK1:
+000000 e247                      	LDI	R20,$27
+000001 e155                      	LDI	R21,$15
+000002 1b45                      	SUB	R20, R21 ;Look at the Status Register and check by hand
+                                 	
+                                 	BLOCK2:
+000003 e240                      	LDI	R20,$20
+000004 e155                      	LDI	R21,$15
+000005 1b45                      	SUB	R20, R21 ;Look at the Status Register and check by hand 
+                                  	
+                                 	BLOCK3:
+000006 e58f                      	LDI	R24,95
+000007 e59f                      	LDI	R25,95
+000008 1b89                      	SUB	R24, R25 ;Look at the Status Register and check by hand
+                                 	
+                                 	BLOCK4:
+000009 e362                      	LDI	R22,50
+00000a e476                      	LDI	R23,70
+00000b 1b67                      	SUB	R22, R23 ;Look at the Status Register and check by hand
+                                 
+00000c cfff                      L1:	RJMP	L1 ;Stay here forever
                                  
                                  
                                  // Activity 3-1
@@ -1641,40 +1677,72 @@ AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerAppli
                                  Follow the flowchart3-1 below. Add a video result of running the code for all cases.  
                                  */
                                  
-000000 e02a                      ldi r18, 10 ; for 4 loading times
+                                 /*
+                                 ldi r18, 10 ; for 10 loading times
                                  load: 
-000001 e000                      	LDI R16, 0	; clear mem
-000002 b103                      	IN R16, PINB ; read 0 to 3 
-000003 3000                      	CPI R16, 0 ; compare immediate
-000004 f031                      	BREQ store0
-000005 3001                      	CPI R16, 1 ; compare immediate
-000006 f049                      	BREQ store1
-000007 3002                      	CPI R16, 2 ; compare immediate
-000008 f061                      	BREQ store2
-000009 3003                      	CPI R16, 3 ; compare immediate
-00000a f079                      	BREQ store3
+                                 	LDI R16, 0	; clear mem
+                                 	IN R16, PINB ; read 0 to 3 
+                                 	CPI R16, 0 ; compare immediate
+                                 	BREQ store0
+                                 	CPI R16, 1 ; compare immediate
+                                 	BREQ store1
+                                 	CPI R16, 2 ; compare immediate
+                                 	BREQ store2
+                                 	CPI R16, 3 ; compare immediate
+                                 	BREQ store3
                                  	
                                  	store0:
-00000b ef0f                      		ldi r16, 0xFF	; load val to r16
-00000c 9300 0100                 		sts 0x100, r16	;store 1 into 0x101
-00000e 952a                      		dec r18			; decrement r18
-00000f f789                      		brne load		; go back to "load" if r18 is not 0
+                                 		ldi r16, 0xFF	; load val to r16
+                                 		sts 0x100, r16	;store 1 into 0x101
+                                 		dec r18			; decrement r18
+                                 		brne load		; go back to "load" if r18 is not 0
                                  	store1:
-000010 e001                      		ldi r16, 1		; load val to r16
-000011 9300 0101                 		sts 0x101, r16	;store 1 into 0x101
-000013 952a                      		dec r18			; decrement r18
-000014 f761                      		brne load		; go back to "load" if r18 is not 0
+                                 		ldi r16, 1		; load val to r16
+                                 		sts 0x101, r16	;store 1 into 0x101
+                                 		dec r18			; decrement r18
+                                 		brne load		; go back to "load" if r18 is not 0
                                  	store2:
-000015 e002                      		ldi r16, 2		; load val to r16
-000016 9300 0102                 		sts 0x102, r16	;store 2 into 0x102
-000018 952a                      		dec r18			; decrement r18
-000019 f739                      		brne load		; go back to "load" if r18 is not 0
+                                 		ldi r16, 2		; load val to r16
+                                 		sts 0x102, r16	;store 2 into 0x102
+                                 		dec r18			; decrement r18
+                                 		brne load		; go back to "load" if r18 is not 0
                                  	store3:
-00001a e003                      		ldi r16, 3		; load val to r16
-00001b 9300 0103                 		sts 0x103, r16	;store 2 into 0x102
-00001d 952a                      		dec r18			; decrement r18
-00001e f711                      		brne load		;go back to "load" if r18 is not 0
-00001f 0000                      nop
+                                 		ldi r16, 3		; load val to r16
+                                 		sts 0x103, r16	;store 2 into 0x102
+                                 		dec r18			; decrement r18
+                                 		brne load		;go back to "load" if r18 is not 0
+                                 nop
+                                 
+                                 */
+                                 
+                                 // Activity 3-2
+                                 /*
+                                 This assembly code loads value $10 to R20. 
+                                 Decrement the value by 1 until the value becomes zero. 
+                                 Output each value through PORTA if the number becomes an odd number 
+                                 and through PORTB if the number is an even number. 
+                                 Follow the flowchart 3-2.
+                                 */
+                                 
+                                 /*
+                                 LDI R20, 0x10			; load 0x10 - cannot be 0x00
+                                 LDI R18, 0				; clear mem
+                                 LDI R17, 0b0000001		; masking-register
+                                 LOOP:
+                                 	MOV R18, R20
+                                 	AND R18, R17
+                                 	brne odd			; Z bit not on - odd num
+                                 	
+                                 	OUT PORTB, R20		; even num - out to portB
+                                 	DEC R20				; decrement R20
+                                 	brne LOOP			; back to loop
+                                 
+                                 	odd: 
+                                 		OUT PORTA, R20	; odd num - out to portA
+                                 		DEC R20			; decrement R20
+                                 		brne LOOP		; back to loop
+                                 nop
+                                 */
                                  
                                  /*
                                  //Activity 3-3. masking
@@ -1760,37 +1828,37 @@ counted separately from r26..r31 here.
 "ATmega324PB" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  14 r17:   0 r18:   5 r19:   0 r20:   0 
-r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
+r13:   0 r14:   0 r15:   0 r16:   0 r17:   0 r18:   0 r19:   0 r20:   4 
+r21:   4 r22:   2 r23:   2 r24:   2 r25:   2 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
-Registers used: 2 out of 35 (5.7%)
+Registers used: 6 out of 35 (17.1%)
 
 "ATmega324PB" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   4 brge  :   0 brhc  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   4 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brne  :   0 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   4 cpse  :   0 dec   :   4 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   0 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :   6 lds   :   0 lpm   :   0 lsl   :   0 
+cpi   :   0 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :   0 
+ld    :   0 ldd   :   0 ldi   :   8 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   1 or    :   0 ori   :   0 out   :   0 pop   :   0 
-push  :   0 rcall :   0 ret   :   0 reti  :   0 rjmp  :   0 rol   :   0 
+neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   0 pop   :   0 
+push  :   0 rcall :   0 ret   :   0 reti  :   0 rjmp  :   1 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
-sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   4 
-sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 8 out of 113 (7.1%)
+sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
+sub   :   4 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
+Instructions used: 3 out of 113 (2.7%)
 
 "ATmega324PB" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000040     64      0     64   32768   0.2%
+[.cseg] 0x000000 0x00001a     26      0     26   32768   0.1%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 

@@ -22,10 +22,10 @@
   <FILE>AssemblerApplication11.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <load><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm</FILE><LINE>25</LINE></load>
-  <store0><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm</FILE><LINE>37</LINE></store0>
-  <store1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm</FILE><LINE>42</LINE></store1>
-  <store2><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm</FILE><LINE>47</LINE></store2>
-  <store3><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm</FILE><LINE>52</LINE></store3>
+  <BLOCK1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm</FILE><LINE>22</LINE></BLOCK1>
+  <BLOCK2><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm</FILE><LINE>27</LINE></BLOCK2>
+  <BLOCK3><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm</FILE><LINE>32</LINE></BLOCK3>
+  <BLOCK4><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm</FILE><LINE>37</LINE></BLOCK4>
+  <L1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm</FILE><LINE>42</LINE></L1>
  </LABELS>
 </ASSEMBLER_INFO>
