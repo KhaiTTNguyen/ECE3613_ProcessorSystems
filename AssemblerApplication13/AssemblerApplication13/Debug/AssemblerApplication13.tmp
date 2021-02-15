@@ -22,10 +22,8 @@
   <FILE>AssemblerApplication13.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <BACK><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>39</LINE></BACK>
-  <DELAY><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>49</LINE></DELAY>
-  <L1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>51</LINE></L1>
-  <L2><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>52</LINE></L2>
-  <L3><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>53</LINE></L3>
+  <FUNC_NAME><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>18</LINE></FUNC_NAME>
+  <L1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>17</LINE></L1>
+  <SUB_1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>24</LINE></SUB_1>
  </LABELS>
 </ASSEMBLER_INFO>
