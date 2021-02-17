@@ -6,7 +6,7 @@
 ;
 
 /*
-//LED 0 Blinking
+//LED 0 Blinking - PortA&B connected
 LDI R16,HIGH(RAMEND)
 OUT SPH,R16
 LDI R16,LOW(RAMEND)
@@ -24,7 +24,7 @@ CALL DELAY		;DELAY before next one
 RJMP HERE
 
 //0.15 seconds time delay
-DELAY: LDI R20,32			; 64 for 1 sec
+DELAY: LDI R20,64			; 64 for 1 sec
 	L1: LDI R21, 200
 	L2: LDI R22, 250		;  250 - 0.5 sec
 	L3: NOP
@@ -36,40 +36,138 @@ DELAY: LDI R20,32			; 64 for 1 sec
 		DEC R20
 		BRNE L1
 	RET
+*/
 
-	*/
 
+/*
+Write code so that when switch PB0 is closed a binary 0 is sent to LEDs and no LEDs are
+on, when LEDs switch PB1 is closed a binary 1 is displayed on LEDs, when LEDs
+switch PB2 is closed a binary 2 is displayed on LEDs, when switch PB3 is closed a
+binary 3 is displayed on LEDs, keep doing all the way up to when PB7 is closed a binary
+7 is displayed on the LEDs.
+• Note: Operate the switches one at a time. 
+*/
+/*
+// Activity 3 Part1 - PortA&B not connected
 ldi r16, 0x00
-out ddrb,r16		; make portb an input --> need to actiate pullup resistors
+out ddrb,r16		; make portb an input --> need to activate pullup resistors
 ldi r16, 0xFF
 out ddra, r16		; make porta an output
 out portb, r16		; activate portb pullup resistors
 ldi r16, 0x00
 ldi r17, 0x01
 ldi r18, 0x02
-ldi r19, 0x03
-;.... r20-24 for 0x04 - 0x07
+ldi r19, 0x03 ;.... r20-24 for 0x04 - 0x07
+ldi r20, 0x04
+ldi r21, 0x05
+ldi r22, 0x06
+ldi r23, 0x07
 mainloop:
 	sbis pinb,0				; skip if bit 0 is set
 	out porta, r16			; send out 
 
-	sbis pinb,1				; skip if switch is opened / bit 1 is set
+	sbis pinb,1				; skip if bit 1 is set
 	out porta, r17			; send a "1"
-	sbic pinb, 1			; skip if swithc open
+	sbic pinb, 1			; skip if switch open
 	out porta, r16
 
-	sbis pinb,2				; skip if switch is opened / bit 1 is set
-	out porta, r18			; send a "1"
+	sbis pinb,2				; skip if bit 2 is set
+	out porta, r18			; send a "2"
 	sbic pinb, 2			; skip if swithc open
 	out porta, r16
 
 
-	sbis pinb,3 			; skip if switch is opened / bit 1 is set
-	out porta, r19			; send a "1"
-	sbic pinb, 3			; skip if swithc open
+	sbis pinb,3 			; skip if bit 3 is set
+	out porta, r19			; send a "3"
+	sbic pinb, 3			; skip if switch open
+	out porta, r16
+
+	sbis pinb,4 			; skip if bit 4 is set
+	out porta, r20			; send a "4"
+	sbic pinb,4				; skip if switch open
+	out porta, r16
+
+	sbis pinb,5 			; skip if bit 5 is set
+	out porta, r21			; send a "5"
+	sbic pinb,5				; skip if switch open
+	out porta, r16
+
+	sbis pinb,6 			; skip if bit 6 is set
+	out porta, r22			; send a "6"
+	sbic pinb,6				; skip if switch open
+	out porta, r16
+
+	sbis pinb,7 			; skip if bit 7 is set
+	out porta, r23			; send a "7"
+	sbic pinb,7				; skip if swithc open
 	out porta, r16
 
 	rjmp mainloop
+*/
+
+/*
+• Write assembly code so that when switch on PB0 is closed (PB0=0) and PB1 is open
+(PB1=1), the LEDs sequentially light up starting at PA0 through PA7. In the same code
+when switch on PB0 is open (PB0=1) and PB1 is closed (PB1=0), the LEDs sequentially
+light up starting at PA7 through PA0.
+• Use a subroutine for a 0.5 second DELAY between sequentially turning on the LEDs.
+• The LEDs must be turned off when PB0 and PB1 are both open, or closed.
+*/
+// Activity 3 Part2 - PortA&B not connected
+ldi r16, 0x00
+out ddrb,r16		; make portb an input --> need to activate pullup resistors
+ldi r16, 0xFF
+out ddra, r16		; make porta an output
+out portb, r16		; activate portb pullup resistors
+
+ldi r16, 0x00
+ldi r17, 0x01
+ldi r18, 0x02
+ldi r19, 0x03 ;.... r20-24 for 0x04 - 0x07
+ldi r20, 0x04
+ldi r21, 0x05
+ldi r22, 0x06
+ldi r23, 0x07
+mainloop:
+	sbis pinb,0				; skip if bit 0 is set
+	out porta, r16			; send out 
+							; on PB0 is closed (PB0=0) and PB1 is open
+							; (PB1=1), the LEDs sequentially light up starting at PA0 through PA7
+	
+	sbis pinb,1				; skip if bit 1 is set - close = clear
+	out porta, r17			; send a "1"
+	sbic pinb, 1			; skip if switch open - open = set
+	out porta, r16
+
+	sbis pinb,2				; skip if bit 2 is set
+	out porta, r18			; send a "2"
+	sbic pinb, 2			; skip if swithc open
+	out porta, r16
 
 
+	sbis pinb,3 			; skip if bit 3 is set
+	out porta, r19			; send a "3"
+	sbic pinb, 3			; skip if switch open
+	out porta, r16
 
+	sbis pinb,4 			; skip if bit 4 is set
+	out porta, r20			; send a "4"
+	sbic pinb,4				; skip if switch open
+	out porta, r16
+
+	sbis pinb,5 			; skip if bit 5 is set
+	out porta, r21			; send a "5"
+	sbic pinb,5				; skip if switch open
+	out porta, r16
+
+	sbis pinb,6 			; skip if bit 6 is set
+	out porta, r22			; send a "6"
+	sbic pinb,6				; skip if switch open
+	out porta, r16
+
+	sbis pinb,7 			; skip if bit 7 is set
+	out porta, r23			; send a "7"
+	sbic pinb,7				; skip if swithc open
+	out porta, r16
+
+	rjmp mainloop

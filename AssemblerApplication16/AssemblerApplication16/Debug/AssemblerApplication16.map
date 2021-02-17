@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm Wed Feb 17 17:09:41 2021
+AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication16\AssemblerApplication16\main.asm Wed Feb 17 16:27:43 2021
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1189,4 +1189,8 @@ EQU  USART2_TXaddr 00000062
 EQU  USART2_RXSaddr 00000064
 EQU  USART2_STARTaddr 00000064
 EQU  INT_VECTORS_SIZE 00000066
-CSEG mainloop     0000000d
+CSEG HERE         00000006
+CSEG DELAY        0000000d
+CSEG L1           0000000e
+CSEG L2           0000000f
+CSEG L3           00000010
