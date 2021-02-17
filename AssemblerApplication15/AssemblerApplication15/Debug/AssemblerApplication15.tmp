@@ -22,10 +22,6 @@
   <FILE>AssemblerApplication15.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <HERE><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>18</LINE></HERE>
-  <DELAY><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>27</LINE></DELAY>
-  <L1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>28</LINE></L1>
-  <L2><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>29</LINE></L2>
-  <L3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>30</LINE></L3>
+  <mainloop><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>52</LINE></mainloop>
  </LABELS>
 </ASSEMBLER_INFO>
