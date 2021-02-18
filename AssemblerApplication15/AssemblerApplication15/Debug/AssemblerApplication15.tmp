@@ -22,6 +22,14 @@
   <FILE>AssemblerApplication15.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <mainloop><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>57</LINE></mainloop>
+  <mainloop><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>126</LINE></mainloop>
+  <forward><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>135</LINE></forward>
+  <backward><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>161</LINE></backward>
+  <turnforward><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>143</LINE></turnforward>
+  <DELAY><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>188</LINE></DELAY>
+  <turnbackward><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>169</LINE></turnbackward>
+  <L1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>190</LINE></L1>
+  <L2><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>191</LINE></L2>
+  <L3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication15\AssemblerApplication15\main.asm</FILE><LINE>192</LINE></L3>
  </LABELS>
 </ASSEMBLER_INFO>
