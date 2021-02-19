@@ -11,9 +11,9 @@
     <OutputFileExtension>.obj</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
     <Language>ASSEMBLY</Language>
-    <AssemblyName>AssemblerApplication16</AssemblyName>
-    <Name>AssemblerApplication16</Name>
-    <RootNamespace>AssemblerApplication16</RootNamespace>
+    <AssemblyName>pullup_resistors</AssemblyName>
+    <Name>pullup_resistors</Name>
+    <RootNamespace>pullup_resistors</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <EntryFile>$(MSBuildProjectDirectory)\main.asm</EntryFile>
     <KeepTimersRunning>true</KeepTimersRunning>
