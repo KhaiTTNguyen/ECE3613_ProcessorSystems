@@ -22,6 +22,6 @@
   <FILE>pullup_resistors.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <here><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\pullup_resistors\pullup_resistors\main.asm</FILE><LINE>13</LINE></here>
+  <L1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\pullup_resistors\pullup_resistors\main.asm</FILE><LINE>87</LINE></L1>
  </LABELS>
 </ASSEMBLER_INFO>

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\pullup_resistors\pullup_resistors\main.asm Fri Feb 19 16:19:47 2021
+AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\pullup_resistors\pullup_resistors\main.asm Fri Feb 19 16:49:10 2021
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1189,4 +1189,4 @@ EQU  USART2_TXaddr 00000062
 EQU  USART2_RXSaddr 00000064
 EQU  USART2_STARTaddr 00000064
 EQU  INT_VECTORS_SIZE 00000066
-CSEG here         00000004
+CSEG L1           00000004
