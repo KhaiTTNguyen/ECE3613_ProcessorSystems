@@ -22,8 +22,7 @@
   <FILE>AssemblerApplication16.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <L1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication16\AssemblerApplication16\main.asm</FILE><LINE>14</LINE></L1>
-  <L2><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication16\AssemblerApplication16\main.asm</FILE><LINE>22</LINE></L2>
-  <IS_LOW><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication16\AssemblerApplication16\main.asm</FILE><LINE>17</LINE></IS_LOW>
+  <BACK><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication16\AssemblerApplication16\main.asm</FILE><LINE>32</LINE></BACK>
+  <HERE><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication16\AssemblerApplication16\main.asm</FILE><LINE>34</LINE></HERE>
  </LABELS>
 </ASSEMBLER_INFO>

@@ -5,7 +5,7 @@
 ; Author : KhaiNguyen
 ;
 
-
+/*
 cbi ddrb,5
 cbi ddrb,6
 
@@ -25,3 +25,18 @@ L2:
 	ldi r17, $AA
 	out porta, r17
 	rjmp L1
+
+	*/
+	LDI R20, 10
+
+BACK: LDI R21, 20
+
+ HERE: DEC R21
+
+ BRNE HERE
+
+ DEC R20
+
+ BRNE BACK
+
+nop
