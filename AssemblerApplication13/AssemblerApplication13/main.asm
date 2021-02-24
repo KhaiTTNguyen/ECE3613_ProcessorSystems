@@ -78,6 +78,7 @@ nop
 
 */
 
+/*
 LDI r16, $3F
 
 LDI r17, $D6
@@ -97,3 +98,28 @@ SUB R16, r17
 rjmp EXIT
 
 EXIT: RJMP  EXIT
+*/
+
+/*
+Write a program to continuously monitor the PB0 and PB3 bits. When both of them are LOW, send ASCII ‘L’ to PORTD; otherwise, send ASCII ‘H’ to PORTD. */
+
+cbi ddrb,0
+cbi ddrb,3
+
+ldi r16, $ff
+out ddrd, r16 ; make portd output
+L1:
+	sbic pinb,0		; or low, send 'L' = clear = 0
+	rjmp L2			; exec if pinb5 high
+	IS_LOW:
+	ldi r17, 'L'
+	out portd, r17
+	rjmp L1
+
+L2: 
+	sbis pinb,3		; if 3 Low exec next
+	rjmp IS_LOW
+	ldi r17, 'H'
+	out portd, r17
+	rjmp L1
+nop

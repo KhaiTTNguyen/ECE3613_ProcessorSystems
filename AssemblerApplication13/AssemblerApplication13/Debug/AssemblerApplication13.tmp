@@ -22,8 +22,8 @@
   <FILE>AssemblerApplication13.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <INVERT><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>91</LINE></INVERT>
-  <SUBT><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>95</LINE></SUBT>
-  <EXIT><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>99</LINE></EXIT>
+  <L1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>111</LINE></L1>
+  <L2><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>119</LINE></L2>
+  <IS_LOW><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm</FILE><LINE>114</LINE></IS_LOW>
  </LABELS>
 </ASSEMBLER_INFO>
