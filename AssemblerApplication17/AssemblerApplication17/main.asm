@@ -61,30 +61,46 @@ OUT DDRB,R16			;PORTB as INPUT PORT
 OUT PORTB,R17			;SET UP PULL-UP REGISTER
 OUT DDRA,R17			;PORTA as OUTPUT PORT
 
-IN R0,PINB		;read PINA
-OUT PORTA,R0	;output read PINA value through PORTB
-
-
-clr r16
 // READ PINB & OUTPUT PORTA w/ time delay
+clr r16
+ldi r24, 0x00
+
 read:
 	in R16, PINB
-	cpi r16, 0xFE		; 0xFE
-	breq loopback
+	cpi r16, 0x7F		; 0x7F = 0b01111111
+	breq R1_out			; output to porta w/ value in R1
+	cpi r16, 0xBF		; 0xBF = 0b10111111
+	breq R2_out			; output to porta w/ value in R2
+	cpi r16, 0xDF		; 0xDF = 0b11011111
+	breq R3_out			; output to porta w/ value in R3
+	cpi r16, 0xEF		; 0xEF = 0b11101111
+	breq R4_out			; output to porta w/ value in R4
+	cpi r16, 0xDF		; 0xF7 = 0b11110111sssss
+	breq R5_out			; output to porta w/ value in R5
+
 	rjmp read
-loopback:
+
+R1_out:
 	out porta, r1
-	;call delay
+	call Delay_P15sec
 	out porta, r24
-	;call delay
+	call Delay_P15sec
 	rjmp read
+
+R2_out:
+	out porta, r2
+	call Delay_P3sec
+	out porta, r24
+	call Delay_P3sec
+	rjmp read
+
 
 
 /// TIME DELAY options
 Delay_P15sec:	
-	LDI R20,10
-	L1_P15: LDI R21, 20
-		L2_P15: LDI R22, 250
+	LDI R20,32
+	L1_P15: LDI R21, 200
+		L2_P15: LDI R22, 75
 			L3_P15:NOP
 				NOP
 				DEC R22
