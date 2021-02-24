@@ -61,44 +61,32 @@ DEC R20
 BRNE L1
 RET
 */
-/*
-LDI R20, 200
 
-BACK: LDI R21, 100
+ldi r18, $ff
+out ddrd, r18 ; make portd output
+out ddra, r18 ; make porta output
 
-HERE: DEC R21
-
-BRNE HERE
-
-DEC R20
-
-BRNE BACK
-
-nop
-
-*/
-
-/*
 LDI r16, $3F
-
 LDI r17, $D6
-
 ADD R16, R17
 
-BRCS INVERT ; or BRHS 
+BRCS TO_A ; or BRHS 
+BRCC TO_D ;
 
-BRCC SUBT ;
+TO_A:
+ldi r18, $55
+OUT porta,r18				; send to porta 
+STS 0x0201, r16				; store at 0x0201
+rjmp  EXIT
 
-INVERT:
-COM R16
-RJMP  EXIT
-
-SUBT:
-SUB R16, r17
+TO_D:
+ldi r18, $AA
+OUT portd, r18				; send to portd 
+STS 0x0202, r16				;store result at 0x0202
 rjmp EXIT
 
 EXIT: RJMP  EXIT
-*/
+
 
 /*
 Write a program to continuously monitor the PB0 and PB3 bits. When both of them are LOW, 
@@ -127,7 +115,7 @@ L2:
 nop
 */
 
-
+/*
 cbi ddrb,0
 
 ldi r16, $ff
@@ -149,3 +137,4 @@ L2:
 	out porta, r17
 	rjmp L1
 nop
+*/

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm Wed Feb 24 11:15:08 2021
+AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm Wed Feb 24 11:44:25 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
@@ -1681,44 +1681,32 @@ AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerAppli
                                  BRNE L1
                                  RET
                                  */
-                                 /*
-                                 LDI R20, 200
                                  
-                                 BACK: LDI R21, 100
+000000 ef2f                      ldi r18, $ff
+000001 b92a                      out ddrd, r18 ; make portd output
+000002 b921                      out ddra, r18 ; make porta output
                                  
-                                 HERE: DEC R21
+000003 e30f                      LDI r16, $3F
+000004 ed16                      LDI r17, $D6
+000005 0f01                      ADD R16, R17
                                  
-                                 BRNE HERE
+000006 f008                      BRCS TO_A ; or BRHS 
+000007 f428                      BRCC TO_D ;
                                  
-                                 DEC R20
+                                 TO_A:
+000008 e525                      ldi r18, $55
+000009 b922                      OUT porta,r18				; send to porta 
+00000a 9300 0201                 STS 0x0201, r16				; store at 0x0201
+00000c c005                      rjmp  EXIT
                                  
-                                 BRNE BACK
+                                 TO_D:
+00000d ea2a                      ldi r18, $AA
+00000e b92b                      OUT portd, r18				; send to portd 
+00000f 9300 0202                 STS 0x0202, r16				;store result at 0x0202
+000011 c000                      rjmp EXIT
                                  
-                                 nop
+000012 cfff                      EXIT: RJMP  EXIT
                                  
-                                 */
-                                 
-                                 /*
-                                 LDI r16, $3F
-                                 
-                                 LDI r17, $D6
-                                 
-                                 ADD R16, R17
-                                 
-                                 BRCS INVERT ; or BRHS 
-                                 
-                                 BRCC SUBT ;
-                                 
-                                 INVERT:
-                                 COM R16
-                                 RJMP  EXIT
-                                 
-                                 SUBT:
-                                 SUB R16, r17
-                                 rjmp EXIT
-                                 
-                                 EXIT: RJMP  EXIT
-                                 */
                                  
                                  /*
                                  Write a program to continuously monitor the PB0 and PB3 bits. When both of them are LOW, 
@@ -1747,28 +1735,28 @@ AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerAppli
                                  nop
                                  */
                                  
+                                 /*
+                                 cbi ddrb,0
                                  
-000000 9820                      cbi ddrb,0
-                                 
-000001 ef0f                      ldi r16, $ff
-000002 b90a                      out ddrd, r16 ; make portd output
-000003 b901                      out ddra, r16 ; make porta output
+                                 ldi r16, $ff
+                                 out ddrd, r16 ; make portd output
+                                 out ddra, r16 ; make porta output
                                  
                                  L1:
-000004 9918                      	sbic pinb,0		; or low, send 'L' = clear = 0
-000005 c003                      	rjmp L2			; exec if pinb0 high
+                                 	sbic pinb,0		; or low, send 'L' = clear = 0
+                                 	rjmp L2			; exec if pinb0 high
                                  	IS_LOW:
-000006 e41c                      	ldi r17, 'L'
-000007 b91b                      	out portd, r17
-000008 cffb                      	rjmp L1
+                                 	ldi r17, 'L'
+                                 	out portd, r17
+                                 	rjmp L1
                                  
                                  L2: 
-000009 9b18                      	sbis pinb,0		; if 0 low go back else send 'H' to porta
-00000a cffb                      	rjmp IS_LOW
-00000b e418                      	ldi r17, 'H'
-00000c b912                      	out porta, r17
-00000d cff6                      	rjmp L1
-00000e 0000                      nop
+                                 	sbis pinb,0		; if 0 low go back else send 'H' to porta
+                                 	rjmp IS_LOW
+                                 	ldi r17, 'H'
+                                 	out porta, r17
+                                 	rjmp L1
+                                 nop
 
 
 RESOURCE USE INFORMATION
@@ -1788,37 +1776,37 @@ counted separately from r26..r31 here.
 "ATmega324PB" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   3 r17:   4 r18:   0 r19:   0 r20:   0 
+r13:   0 r14:   0 r15:   0 r16:   4 r17:   2 r18:   7 r19:   0 r20:   0 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
-Registers used: 2 out of 35 (5.7%)
+Registers used: 3 out of 35 (8.6%)
 
 "ATmega324PB" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
+.lds  :   0 .sts  :   0 adc   :   0 add   :   1 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
+brcc  :   1 brcs  :   1 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
 brne  :   0 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   1 cbr   :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
 cpi   :   0 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :   3 lds   :   0 lpm   :   0 lsl   :   0 
+ld    :   0 ldd   :   0 ldi   :   5 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   1 or    :   0 ori   :   0 out   :   4 pop   :   0 
-push  :   0 rcall :   0 ret   :   0 reti  :   0 rjmp  :   4 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   1 sbis  :   1 
+neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   4 pop   :   0 
+push  :   0 rcall :   0 ret   :   0 reti  :   0 rjmp  :   3 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
-sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
+sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   2 
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
 Instructions used: 7 out of 113 (6.2%)
 
 "ATmega324PB" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x00001e     30      0     30   32768   0.1%
+[.cseg] 0x000000 0x000026     38      0     38   32768   0.1%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
