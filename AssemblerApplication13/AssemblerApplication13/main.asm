@@ -101,8 +101,10 @@ EXIT: RJMP  EXIT
 */
 
 /*
-Write a program to continuously monitor the PB0 and PB3 bits. When both of them are LOW, send ASCII ‘L’ to PORTD; otherwise, send ASCII ‘H’ to PORTD. */
+Write a program to continuously monitor the PB0 and PB3 bits. When both of them are LOW, 
+send ASCII ‘L’ to PORTD; otherwise, send ASCII ‘H’ to PORTD. */
 
+/*
 cbi ddrb,0
 cbi ddrb,3
 
@@ -121,5 +123,29 @@ L2:
 	rjmp IS_LOW
 	ldi r17, 'H'
 	out portd, r17
+	rjmp L1
+nop
+*/
+
+
+cbi ddrb,0
+
+ldi r16, $ff
+out ddrd, r16 ; make portd output
+out ddra, r16 ; make porta output
+
+L1:
+	sbic pinb,0		; or low, send 'L' = clear = 0
+	rjmp L2			; exec if pinb0 high
+	IS_LOW:
+	ldi r17, 'L'
+	out portd, r17
+	rjmp L1
+
+L2: 
+	sbis pinb,0		; if 0 low go back else send 'H' to porta
+	rjmp IS_LOW
+	ldi r17, 'H'
+	out porta, r17
 	rjmp L1
 nop

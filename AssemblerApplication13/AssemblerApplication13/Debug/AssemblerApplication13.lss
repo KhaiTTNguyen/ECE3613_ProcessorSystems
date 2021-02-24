@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm Tue Feb 23 19:30:01 2021
+AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication13\AssemblerApplication13\main.asm Wed Feb 24 11:15:08 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
@@ -1721,27 +1721,54 @@ AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerAppli
                                  */
                                  
                                  /*
-                                 Write a program to continuously monitor the PB0 and PB3 bits. When both of them are LOW, send ASCII ‘L’ to PORTD; otherwise, send ASCII ‘H’ to PORTD. */
+                                 Write a program to continuously monitor the PB0 and PB3 bits. When both of them are LOW, 
+                                 send ASCII ‘L’ to PORTD; otherwise, send ASCII ‘H’ to PORTD. */
+                                 
+                                 /*
+                                 cbi ddrb,0
+                                 cbi ddrb,3
+                                 
+                                 ldi r16, $ff
+                                 out ddrd, r16 ; make portd output
+                                 L1:
+                                 	sbic pinb,0		; or low, send 'L' = clear = 0
+                                 	rjmp L2			; exec if pinb5 high
+                                 	IS_LOW:
+                                 	ldi r17, 'L'
+                                 	out portd, r17
+                                 	rjmp L1
+                                 
+                                 L2: 
+                                 	sbis pinb,3		; if 3 Low exec next
+                                 	rjmp IS_LOW
+                                 	ldi r17, 'H'
+                                 	out portd, r17
+                                 	rjmp L1
+                                 nop
+                                 */
+                                 
                                  
 000000 9820                      cbi ddrb,0
-000001 9823                      cbi ddrb,3
                                  
-000002 ef0f                      ldi r16, $ff
-000003 b90a                      out ddrd, r16 ; make portd output
+000001 ef0f                      ldi r16, $ff
+000002 b90a                      out ddrd, r16 ; make portd output
+000003 b901                      out ddra, r16 ; make porta output
+                                 
                                  L1:
 000004 9918                      	sbic pinb,0		; or low, send 'L' = clear = 0
-000005 c003                      	rjmp L2			; exec if pinb5 high
+000005 c003                      	rjmp L2			; exec if pinb0 high
                                  	IS_LOW:
 000006 e41c                      	ldi r17, 'L'
 000007 b91b                      	out portd, r17
 000008 cffb                      	rjmp L1
                                  
                                  L2: 
-000009 9b1b                      	sbis pinb,3		; if 3 Low exec next
+000009 9b18                      	sbis pinb,0		; if 0 low go back else send 'H' to porta
 00000a cffb                      	rjmp IS_LOW
 00000b e418                      	ldi r17, 'H'
-00000c b91b                      	out portd, r17
+00000c b912                      	out porta, r17
 00000d cff6                      	rjmp L1
+00000e 0000                      nop
 
 
 RESOURCE USE INFORMATION
@@ -1761,7 +1788,7 @@ counted separately from r26..r31 here.
 "ATmega324PB" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   2 r17:   4 r18:   0 r19:   0 r20:   0 
+r13:   0 r14:   0 r15:   0 r16:   3 r17:   4 r18:   0 r19:   0 r20:   0 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
 Registers used: 2 out of 35 (5.7%)
@@ -1772,14 +1799,14 @@ andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0
 brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
 brne  :   0 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   2 cbr   :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   1 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
 cpi   :   0 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :   0 
 ld    :   0 ldd   :   0 ldi   :   3 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   1 or    :   0 ori   :   0 out   :   3 pop   :   0 
+neg   :   0 nop   :   1 or    :   0 ori   :   0 out   :   4 pop   :   0 
 push  :   0 rcall :   0 ret   :   0 reti  :   0 rjmp  :   4 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   1 sbis  :   1 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
