@@ -1,0 +1,48 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega324PB"</DEVICE>
+ <WORKING_DIR>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\Debug\AssemblerApplication17.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication17.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication17.map</FILE>
+  <FILE>AssemblerApplication17.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <read><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>51</LINE></read>
+  <loopback><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>56</LINE></loopback>
+  <Delay_P15sec><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>65</LINE></Delay_P15sec>
+  <L1_P15><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>67</LINE></L1_P15>
+  <L2_P15><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>68</LINE></L2_P15>
+  <L3_P15><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>69</LINE></L3_P15>
+  <Delay_P3sec><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>80</LINE></Delay_P3sec>
+  <L1_P3><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>82</LINE></L1_P3>
+  <L2_P3><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>83</LINE></L2_P3>
+  <L3_P3><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>84</LINE></L3_P3>
+  <Delay_P5sec><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>95</LINE></Delay_P5sec>
+  <L1_P5><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>97</LINE></L1_P5>
+  <L2_P5><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>98</LINE></L2_P5>
+  <L3_P5><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>99</LINE></L3_P5>
+  <Delay_1sec><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>109</LINE></Delay_1sec>
+  <L1_1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>111</LINE></L1_1>
+  <L2_1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>112</LINE></L2_1>
+  <L3_1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>113</LINE></L3_1>
+  <Delay_1P5sec><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>124</LINE></Delay_1P5sec>
+  <L1_1P5><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>126</LINE></L1_1P5>
+  <L2_1P5><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>127</LINE></L2_1P5>
+  <L3_1P5><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>128</LINE></L3_1P5>
+ </LABELS>
+</ASSEMBLER_INFO>
