@@ -5,7 +5,7 @@
 ; Author : KhaiNguyen
 ; Add nums using 2 regs/2bytes
 
-/*
+
 .equ n1=1	;start
 .equ n2=100 ;end
 start:
@@ -23,7 +23,7 @@ start:
 		done:
 			nop
 
-*/
+/*
 
 
         LDI R16,HIGH(RAMEND)	; $(08)FF high byte
@@ -39,3 +39,4 @@ FUNC_NAME:
         ADD  R20,R21
         SUBI  R20,3
         RET
+		*/
