@@ -22,31 +22,6 @@
   <FILE>AssemblerApplication17.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <read><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>68</LINE></read>
-  <R1_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>82</LINE></R1_out>
-  <R2_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>89</LINE></R2_out>
-  <R3_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>96</LINE></R3_out>
-  <R4_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>103</LINE></R4_out>
-  <R5_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>110</LINE></R5_out>
-  <Delay_P15sec><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>118</LINE></Delay_P15sec>
-  <Delay_P3sec><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>133</LINE></Delay_P3sec>
-  <Delay_P5sec><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>148</LINE></Delay_P5sec>
-  <Delay_1sec><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>162</LINE></Delay_1sec>
-  <Delay_1P5sec><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>177</LINE></Delay_1P5sec>
-  <L1_P15><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>120</LINE></L1_P15>
-  <L2_P15><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>121</LINE></L2_P15>
-  <L3_P15><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>122</LINE></L3_P15>
-  <L1_P3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>135</LINE></L1_P3>
-  <L2_P3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>136</LINE></L2_P3>
-  <L3_P3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>137</LINE></L3_P3>
-  <L1_P5><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>150</LINE></L1_P5>
-  <L2_P5><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>151</LINE></L2_P5>
-  <L3_P5><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>152</LINE></L3_P5>
-  <L1_1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>164</LINE></L1_1>
-  <L2_1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>165</LINE></L2_1>
-  <L3_1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>166</LINE></L3_1>
-  <L1_1P5><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>179</LINE></L1_1P5>
-  <L2_1P5><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>180</LINE></L2_1P5>
-  <L3_1P5><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>181</LINE></L3_1P5>
+  <OUT_B><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>50</LINE></OUT_B>
  </LABELS>
 </ASSEMBLER_INFO>

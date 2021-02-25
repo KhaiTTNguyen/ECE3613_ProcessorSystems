@@ -28,21 +28,29 @@ PUSH R20
 PUSH R21
 PUSH R22
 
-//POP values in the STACK
-POP R20
+//POP values from the STACK
+POP R22
 POP R21
-
-
+POP R20
+POP R19
+POP R18
+POP R17
+POP R16
 
 ;2. I/O configuration
-LDI R16,$00
-LDI R17,$FF
-OUT DDRB,R16 ;PORTB IS INPUT PORT
-OUT PORTB,R17 ;SET UP PULL-UP REGISTER
-OUT DDRA,R17 ;PORTA IS OUTPUT PORT
+LDI R23,$FF
+OUT DDRB,R23	;PORTB IS OUTPUT PORT
+OUT DDRA,R23	;PORTA IS OUTPUT PORT
 
-LDI R24,$00
+ADD R16, R17	; add $77 + $19 
+SUB R16, R18	; sub ($77 + $19)-$A2
+OUT PORTA, r16
+BRCS OUT_B
 
+OUT_B:
+	LDI r23, 0b00000001		; to output to portB
+	out portb, r23
+	ret
 /*
 
 //------------------------------------Activity2--------------------------
@@ -209,3 +217,4 @@ Delay_1P5sec:
 		DEC R20
 		BRNE L1_1P5
 RET
+*/

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm Wed Feb 24 20:45:26 2021
+AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm Thu Feb 25 17:12:45 2021
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1189,34 +1189,4 @@ EQU  USART2_TXaddr 00000062
 EQU  USART2_RXSaddr 00000064
 EQU  USART2_STARTaddr 00000064
 EQU  INT_VECTORS_SIZE 00000066
-EQU  num1         00000100
-EQU  num2         00000101
-EQU  num3         00000102
-EQU  num4         00000103
-EQU  num5         00000104
-CSEG read         00000020
-CSEG R1_out       0000002c
-CSEG R2_out       00000033
-CSEG R3_out       0000003a
-CSEG R4_out       00000041
-CSEG R5_out       00000048
-CSEG Delay_P15sec 0000004f
-CSEG Delay_P3sec  0000005b
-CSEG Delay_P5sec  00000067
-CSEG Delay_1sec   00000073
-CSEG Delay_1P5sec 0000007f
-CSEG L1_P15       00000050
-CSEG L2_P15       00000051
-CSEG L3_P15       00000052
-CSEG L1_P3        0000005c
-CSEG L2_P3        0000005d
-CSEG L3_P3        0000005e
-CSEG L1_P5        00000068
-CSEG L2_P5        00000069
-CSEG L3_P5        0000006a
-CSEG L1_1         00000074
-CSEG L2_1         00000075
-CSEG L3_1         00000076
-CSEG L1_1P5       00000080
-CSEG L2_1P5       00000081
-CSEG L3_1P5       00000082
+CSEG OUT_B        00000020
