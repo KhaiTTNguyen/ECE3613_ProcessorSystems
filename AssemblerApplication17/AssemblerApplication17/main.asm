@@ -5,12 +5,34 @@
 ; Author : KhaiNguyen
 ;
 //------------------------------------Activity1--------------------------
-/*
 ;1 setup stack pointer
-LDI R16,HIGH(0X0110)	;Set high byte of address for SP
+LDI R16,HIGH(0x0110)	;Set high byte of address for SP
 OUT SPH,R16
-LDI R16,LOW(0X0110)		;Set low byte of address for SP
+LDI R16,LOW(0x0110)		;Set low byte of address for SP
 OUT SPL,R16
+
+LDI R16,$77
+LDI R17,$19
+LDI R18,$A2
+LDI R19,$08
+LDI R20,$6C
+LDI R21,$30
+LDI R22,$F2
+
+//PUSH values in the STACK
+PUSH R16
+PUSH R17
+PUSH R18
+PUSH R19
+PUSH R20
+PUSH R21
+PUSH R22
+
+//POP values in the STACK
+POP R20
+POP R21
+
+
 
 ;2. I/O configuration
 LDI R16,$00
@@ -21,7 +43,7 @@ OUT DDRA,R17 ;PORTA IS OUTPUT PORT
 
 LDI R24,$00
 
-*/
+/*
 
 //------------------------------------Activity2--------------------------
 ; PART 1
@@ -51,22 +73,22 @@ STS num5,R20
 LDS r1, num1			; load results from num1 to r1
 LDS r2, num2			; load results from num2 to r2
 LDS r3, num3			; load results from num3 to r3
-LDS r4, num4
-LDS r5, num5	
+LDS r4, num4			; load results from num4 to r4
+LDS r5, num5			; load results from num5 to r5
 
 ;2 I/O configuration: setup porta as output & portb as input
 LDI R16,$00
 LDI R17,$FF
-OUT DDRB,R16			;PORTB as INPUT PORT
-OUT PORTB,R17			;SET UP PULL-UP REGISTER
-OUT DDRA,R17			;PORTA as OUTPUT PORT
+OUT DDRB,R16			; PORTB as INPUT PORT
+OUT PORTB,R17			; SET UP PULL-UP REGISTER
+OUT DDRA,R17			; PORTA as OUTPUT PORT
 
 // READ PINB & OUTPUT PORTA w/ time delay
 clr r16
 ldi r24, 0x00
 
 read:
-	in R16, PINB
+	in R16, PINB		; read pinb to r16
 	cpi r16, 0x7F		; 0x7F = 0b01111111
 	breq R1_out			; output to porta w/ value in R1
 	cpi r16, 0xBF		; 0xBF = 0b10111111
@@ -75,9 +97,8 @@ read:
 	breq R3_out			; output to porta w/ value in R3
 	cpi r16, 0xEF		; 0xEF = 0b11101111
 	breq R4_out			; output to porta w/ value in R4
-	cpi r16, 0xDF		; 0xF7 = 0b11110111sssss
+	cpi r16, 0xF7		; 0xF7 = 0b11110111
 	breq R5_out			; output to porta w/ value in R5
-
 	rjmp read
 
 R1_out:
@@ -94,7 +115,26 @@ R2_out:
 	call Delay_P3sec
 	rjmp read
 
+R3_out:
+	out porta, r3
+	call Delay_P5sec
+	out porta, r24
+	call Delay_P5sec
+	rjmp read
 
+R4_out:
+	out porta, r4
+	call Delay_1sec
+	out porta, r24
+	call Delay_1sec
+	rjmp read
+
+R5_out:
+	out porta, r5
+	call Delay_1P5sec
+	out porta, r24
+	call Delay_1P5sec
+	rjmp read
 
 /// TIME DELAY options
 Delay_P15sec:	

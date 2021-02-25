@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm Wed Feb 24 16:54:30 2021
+AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm Wed Feb 24 20:45:26 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
@@ -1671,105 +1671,142 @@ AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerAppli
 00000f 9010 0100                 LDS r1, num1			; load results from num1 to r1
 000011 9020 0101                 LDS r2, num2			; load results from num2 to r2
 000013 9030 0102                 LDS r3, num3			; load results from num3 to r3
-000015 9040 0103                 LDS r4, num4
-000017 9050 0104                 LDS r5, num5	
+000015 9040 0103                 LDS r4, num4			; load results from num4 to r4
+000017 9050 0104                 LDS r5, num5			; load results from num5 to r5
                                  
                                  ;2 I/O configuration: setup porta as output & portb as input
 000019 e000                      LDI R16,$00
 00001a ef1f                      LDI R17,$FF
-00001b b904                      OUT DDRB,R16			;PORTB as INPUT PORT
-00001c b915                      OUT PORTB,R17			;SET UP PULL-UP REGISTER
-00001d b911                      OUT DDRA,R17			;PORTA as OUTPUT PORT
+00001b b904                      OUT DDRB,R16			; PORTB as INPUT PORT
+00001c b915                      OUT PORTB,R17			; SET UP PULL-UP REGISTER
+00001d b911                      OUT DDRA,R17			; PORTA as OUTPUT PORT
                                  
-00001e 2700                      clr r16
                                  // READ PINB & OUTPUT PORTA w/ time delay
+00001e 2700                      clr r16
+00001f e080                      ldi r24, 0x00
                                  
                                  read:
-00001f b103                      	in R16, PINB
-000020 370f                      	cpi r16, 0x7F		; 0x7F = 0b01111111
-000021 f009                      	breq R1_out			; output to porta w/ value in R1
-000022 cffc                      	rjmp read
-                                 R1_out:
-000023 b812                      	out porta, r1
-000024 940e 002a                 	call Delay_P15sec
-000026 b982                      	out porta, r24
-000027 940e 002a                 	call Delay_P15sec
-000029 cff5                      	rjmp read
+000020 b103                      	in R16, PINB		; read pinb to r16
+000021 370f                      	cpi r16, 0x7F		; 0x7F = 0b01111111
+000022 f049                      	breq R1_out			; output to porta w/ value in R1
+000023 3b0f                      	cpi r16, 0xBF		; 0xBF = 0b10111111
+000024 f071                      	breq R2_out			; output to porta w/ value in R2
+000025 3d0f                      	cpi r16, 0xDF		; 0xDF = 0b11011111
+000026 f099                      	breq R3_out			; output to porta w/ value in R3
+000027 3e0f                      	cpi r16, 0xEF		; 0xEF = 0b11101111
+000028 f0c1                      	breq R4_out			; output to porta w/ value in R4
+000029 3f07                      	cpi r16, 0xF7		; 0xF7 = 0b11110111
+00002a f0e9                      	breq R5_out			; output to porta w/ value in R5
+00002b cff4                      	rjmp read
                                  
+                                 R1_out:
+00002c b812                      	out porta, r1
+00002d 940e 004f                 	call Delay_P15sec
+00002f b982                      	out porta, r24
+000030 940e 004f                 	call Delay_P15sec
+000032 cfed                      	rjmp read
+                                 
+                                 R2_out:
+000033 b822                      	out porta, r2
+000034 940e 005b                 	call Delay_P3sec
+000036 b982                      	out porta, r24
+000037 940e 005b                 	call Delay_P3sec
+000039 cfe6                      	rjmp read
+                                 
+                                 R3_out:
+00003a b832                      	out porta, r3
+00003b 940e 0067                 	call Delay_P5sec
+00003d b982                      	out porta, r24
+00003e 940e 0067                 	call Delay_P5sec
+000040 cfdf                      	rjmp read
+                                 
+                                 R4_out:
+000041 b842                      	out porta, r4
+000042 940e 0073                 	call Delay_1sec
+000044 b982                      	out porta, r24
+000045 940e 0073                 	call Delay_1sec
+000047 cfd8                      	rjmp read
+                                 
+                                 R5_out:
+000048 b852                      	out porta, r5
+000049 940e 007f                 	call Delay_1P5sec
+00004b b982                      	out porta, r24
+00004c 940e 007f                 	call Delay_1P5sec
+00004e cfd1                      	rjmp read
                                  
                                  /// TIME DELAY options
                                  Delay_P15sec:	
-00002a e240                      	LDI R20,32
-00002b ec58                      	L1_P15: LDI R21, 200
-00002c e46b                      		L2_P15: LDI R22, 75
-00002d 0000                      			L3_P15:NOP
-00002e 0000                      				NOP
-00002f 956a                      				DEC R22
-000030 f7e1                      				BRNE L3_P15
-000031 955a                      			DEC R21
-000032 f7c9                      			BRNE L2_P15
-000033 954a                      		DEC R20
-000034 f7b1                      		BRNE L1_P15
-000035 9508                      RET
+00004f e240                      	LDI R20,32
+000050 ec58                      	L1_P15: LDI R21, 200
+000051 e46b                      		L2_P15: LDI R22, 75
+000052 0000                      			L3_P15:NOP
+000053 0000                      				NOP
+000054 956a                      				DEC R22
+000055 f7e1                      				BRNE L3_P15
+000056 955a                      			DEC R21
+000057 f7c9                      			BRNE L2_P15
+000058 954a                      		DEC R20
+000059 f7b1                      		BRNE L1_P15
+00005a 9508                      RET
                                  
                                  
                                  Delay_P3sec:	
-000036 e240                      	LDI R20,32
-000037 ec58                      	L1_P3: LDI R21, 200
-000038 e966                      		L2_P3: LDI R22, 150
-000039 0000                      			L3_P3:NOP
-00003a 0000                      				NOP
-00003b 956a                      				DEC R22
-00003c f7e1                      				BRNE L3_P3
-00003d 955a                      			DEC R21
-00003e f7c9                      			BRNE L2_P3
-00003f 954a                      		DEC R20
-000040 f7b1                      		BRNE L1_P3
-000041 9508                      RET
+00005b e240                      	LDI R20,32
+00005c ec58                      	L1_P3: LDI R21, 200
+00005d e966                      		L2_P3: LDI R22, 150
+00005e 0000                      			L3_P3:NOP
+00005f 0000                      				NOP
+000060 956a                      				DEC R22
+000061 f7e1                      				BRNE L3_P3
+000062 955a                      			DEC R21
+000063 f7c9                      			BRNE L2_P3
+000064 954a                      		DEC R20
+000065 f7b1                      		BRNE L1_P3
+000066 9508                      RET
                                  
                                  
                                  Delay_P5sec:	
-000042 e240                      	LDI R20,32
-000043 ec58                      	L1_P5: LDI R21, 200
-000044 ef6a                      		L2_P5: LDI R22, 250
-000045 0000                      			L3_P5:NOP
-000046 0000                      				NOP
-000047 956a                      				DEC R22
-000048 f7e1                      				BRNE L3_P5
-000049 955a                      			DEC R21
-00004a f7c9                      			BRNE L2_P5
-00004b 954a                      		DEC R20
-00004c f7b1                      		BRNE L1_P5
-00004d 9508                      RET
+000067 e240                      	LDI R20,32
+000068 ec58                      	L1_P5: LDI R21, 200
+000069 ef6a                      		L2_P5: LDI R22, 250
+00006a 0000                      			L3_P5:NOP
+00006b 0000                      				NOP
+00006c 956a                      				DEC R22
+00006d f7e1                      				BRNE L3_P5
+00006e 955a                      			DEC R21
+00006f f7c9                      			BRNE L2_P5
+000070 954a                      		DEC R20
+000071 f7b1                      		BRNE L1_P5
+000072 9508                      RET
                                  
                                  Delay_1sec:	
-00004e e440                      	LDI R20,64
-00004f ec58                      	L1_1: LDI R21, 200
-000050 ef6a                      		L2_1: LDI R22, 250
-000051 0000                      			L3_1:NOP
-000052 0000                      				NOP
-000053 956a                      				DEC R22
-000054 f7e1                      				BRNE L3_1
-000055 955a                      			DEC R21
-000056 f7c9                      			BRNE L2_1
-000057 954a                      		DEC R20
-000058 f7b1                      		BRNE L1_1
-000059 9508                      RET
+000073 e440                      	LDI R20,64
+000074 ec58                      	L1_1: LDI R21, 200
+000075 ef6a                      		L2_1: LDI R22, 250
+000076 0000                      			L3_1:NOP
+000077 0000                      				NOP
+000078 956a                      				DEC R22
+000079 f7e1                      				BRNE L3_1
+00007a 955a                      			DEC R21
+00007b f7c9                      			BRNE L2_1
+00007c 954a                      		DEC R20
+00007d f7b1                      		BRNE L1_1
+00007e 9508                      RET
                                  
                                  
                                  Delay_1P5sec:	
-00005a e640                      	LDI R20,96
-00005b ec58                      	L1_1P5: LDI R21, 200
-00005c ef6a                      		L2_1P5: LDI R22, 250
-00005d 0000                      			L3_1P5:NOP
-00005e 0000                      				NOP
-00005f 956a                      				DEC R22
-000060 f7e1                      				BRNE L3_1P5
-000061 955a                      			DEC R21
-000062 f7c9                      			BRNE L2_1P5
-000063 954a                      		DEC R20
-000064 f7b1                      		BRNE L1_1P5
-000065 9508                      RET
+00007f e640                      	LDI R20,96
+000080 ec58                      	L1_1P5: LDI R21, 200
+000081 ef6a                      		L2_1P5: LDI R22, 250
+000082 0000                      			L3_1P5:NOP
+000083 0000                      				NOP
+000084 956a                      				DEC R22
+000085 f7e1                      				BRNE L3_1P5
+000086 955a                      			DEC R21
+000087 f7c9                      			BRNE L2_1P5
+000088 954a                      		DEC R20
+000089 f7b1                      		BRNE L1_1P5
+00008a 9508                      RET
 
 
 RESOURCE USE INFORMATION
@@ -1787,28 +1824,28 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega324PB" register use summary:
-x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   2 r2 :   1 r3 :   1 r4 :   1 
-r5 :   1 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   7 r17:   5 r18:   2 r19:   2 r20:  12 
-r21:  10 r22:  10 r23:   0 r24:   1 r25:   0 r26:   0 r27:   0 r28:   0 
+x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   2 r2 :   2 r3 :   2 r4 :   2 
+r5 :   2 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
+r13:   0 r14:   0 r15:   0 r16:  11 r17:   5 r18:   2 r19:   2 r20:  12 
+r21:  10 r22:  10 r23:   0 r24:   6 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
 Registers used: 13 out of 35 (37.1%)
 
 "ATmega324PB" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   1 brge  :   0 brhc  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   5 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
 brne  :  15 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   2 cbi   :   0 cbr   :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :  10 cbi   :   0 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   1 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   1 cpse  :   0 dec   :  15 eor   :   0 fmul  :   0 fmuls :   0 
+cpi   :   5 cpse  :   0 dec   :  15 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   0 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :  22 lds   :   5 lpm   :   0 lsl   :   0 
+ld    :   0 ldd   :   0 ldi   :  23 lds   :   5 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :  10 or    :   0 ori   :   0 out   :   5 pop   :   0 
-push  :   0 rcall :   0 ret   :   5 reti  :   0 rjmp  :   2 rol   :   0 
+neg   :   0 nop   :  10 or    :   0 ori   :   0 out   :  13 pop   :   0 
+push  :   0 rcall :   0 ret   :   5 reti  :   0 rjmp  :   6 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
@@ -1819,7 +1856,7 @@ Instructions used: 14 out of 113 (12.4%)
 "ATmega324PB" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0000cc    204      0    204   32768   0.6%
+[.cseg] 0x000000 0x000116    278      0    278   32768   0.8%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
