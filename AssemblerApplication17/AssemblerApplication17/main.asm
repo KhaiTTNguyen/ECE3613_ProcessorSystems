@@ -29,28 +29,63 @@ PUSH R21
 PUSH R22
 
 //POP values from the STACK
-POP R22
-POP R21
-POP R20
-POP R19
-POP R18
-POP R17
-POP R16
+POP R22			; $F2
+POP R21			; $30 
+POP R20			; $6C
+POP R19			; $08
+POP R18			; $A2
+POP R17			; $19
+POP R16			; $77 
 
 ;2. I/O configuration
 LDI R23,$FF
-OUT DDRB,R23	;PORTB IS OUTPUT PORT
-OUT DDRA,R23	;PORTA IS OUTPUT PORT
+OUT DDRB,R23			; PORTB IS OUTPUT PORT
+OUT DDRA,R23			; PORTA IS OUTPUT PORT
+LDI R23, 0b00000001		; to output to portB
+LDI R25, 0b00000000		; to output to portB
+LDI R24, 0					; counter reg - keep track # of ops
 
-ADD R16, R17	; add $77 + $19 
-SUB R16, R18	; sub ($77 + $19)-$A2
-OUT PORTA, r16
-BRCS OUT_B
-
+LOOP:
+	CPI R24, 0
+	BREQ ARITH_1
+	CPI R24, 1
+	BREQ ARITH_2
+	CPI R24, 2
+	BREQ ARITH_3
+	BRNE EXIT
+ARITH_1:
+	ADD R16, R17		; add $77 + $19 
+	OUT PORTA, R16
+	BRCS OUT_B
+	out portb, r25
+	ARITH_1_1:
+		SUB R16, R18		; sub ($77 + $19)-$A2
+		OUT PORTA, R16		; output ($77 + $19)-$A2 = $EE
+		INC R24				; increment counter reg
+		BRCS OUT_B
+		out portb, r25
+		rjmp LOOP
+ARITH_2:
+	SUB R19, R20		; sub $08 - $6C 
+	OUT PORTA, R19		; output $08 - $6C = $9C
+	INC R24				; increment counter reg
+	BRCS OUT_B	
+	out portb, r25
+	rjmp LOOP
+ARITH_3:
+	SUB R21, R22		; sub $30 + $F2 
+	OUT PORTA, r21
+	INC R24				; increment counter reg
+	BRCS OUT_B
+	out portb, r25
+	rjmp LOOP
 OUT_B:
-	LDI r23, 0b00000001		; to output to portB
 	out portb, r23
-	ret
+	CPI r24, 0
+	RJMP ARITH_1_1
+	RJMP LOOP
+
+EXIT: RJMP EXIT
 /*
 
 //------------------------------------Activity2--------------------------

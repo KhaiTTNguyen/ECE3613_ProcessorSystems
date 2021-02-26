@@ -22,6 +22,11 @@
   <FILE>AssemblerApplication17.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <OUT_B><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>50</LINE></OUT_B>
+  <LOOP><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>47</LINE></LOOP>
+  <ARITH_1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>55</LINE></ARITH_1>
+  <ARITH_2><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>61</LINE></ARITH_2>
+  <ARITH_3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>66</LINE></ARITH_3>
+  <EXIT><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>75</LINE></EXIT>
+  <OUT_B><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm</FILE><LINE>71</LINE></OUT_B>
  </LABELS>
 </ASSEMBLER_INFO>

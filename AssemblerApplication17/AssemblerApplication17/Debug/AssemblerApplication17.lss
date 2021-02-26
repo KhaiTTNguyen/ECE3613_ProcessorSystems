@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm Thu Feb 25 17:12:45 2021
+AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication17\AssemblerApplication17\main.asm Thu Feb 25 21:59:17 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
@@ -1649,28 +1649,50 @@ AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerAppli
 000011 936f                      PUSH R22
                                  
                                  //POP values from the STACK
-000012 916f                      POP R22
-000013 915f                      POP R21
-000014 914f                      POP R20
-000015 913f                      POP R19
-000016 912f                      POP R18
-000017 911f                      POP R17
-000018 910f                      POP R16
+000012 916f                      POP R22			; $F2
+000013 915f                      POP R21			; $30 
+000014 914f                      POP R20			; $6C
+000015 913f                      POP R19			; $08
+000016 912f                      POP R18			; $A2
+000017 911f                      POP R17			; $19
+000018 910f                      POP R16			; $77 
                                  
                                  ;2. I/O configuration
 000019 ef7f                      LDI R23,$FF
-00001a b974                      OUT DDRB,R23	;PORTB IS OUTPUT PORT
-00001b b971                      OUT DDRA,R23	;PORTA IS OUTPUT PORT
+00001a b974                      OUT DDRB,R23			; PORTB IS OUTPUT PORT
+00001b b971                      OUT DDRA,R23			; PORTA IS OUTPUT PORT
+00001c e071                      LDI R23, 0b00000001		; to output to portB
+00001d e080                      LDI R24, 0					; counter reg - keep track # of ops
                                  
-00001c 0f01                      ADD R16, R17	; add $77 + $19 
-00001d 1b02                      SUB R16, R18	; sub ($77 + $19)-$A2
-00001e b902                      OUT PORTA, r16
-00001f f000                      BRCS OUT_B
-                                 
+                                 LOOP:
+00001e 3080                      	CPI R24, 0
+00001f f029                      	BREQ ARITH_1
+000020 3081                      	CPI R24, 1
+000021 f041                      	BREQ ARITH_2
+000022 3082                      	CPI R24, 2
+000023 f051                      	BREQ ARITH_3
+000024 f479                      	BRNE EXIT
+                                 ARITH_1:
+000025 0f01                      	ADD R16, R17		; add $77 + $19 
+000026 1b02                      	SUB R16, R18		; sub ($77 + $19)-$A2
+000027 b902                      	OUT PORTA, R16		; output ($77 + $19)-$A2 = $EE
+000028 9583                      	INC R24				; increment counter reg
+000029 f040                      	BRCS OUT_B
+                                 ARITH_2:
+00002a 1b34                      	SUB R19, R20		; sub $08 - $6C 
+00002b b932                      	OUT PORTA, R19		; output $08 - $6C = $9C
+00002c 9583                      	INC R24				; increment counter reg
+00002d f020                      	BRCS OUT_B	
+                                 ARITH_3:
+00002e 1b56                      	SUB R21, R22		; sub $30 + $F2 
+00002f b952                      	OUT PORTA, r21
+000030 9583                      	INC R24				; increment counter reg
+000031 f000                      	BRCS OUT_B
                                  OUT_B:
-000020 e071                      	LDI r23, 0b00000001		; to output to portB
-000021 b975                      	out portb, r23
-000022 9508                      	ret
+000032 b975                      	out portb, r23
+000033 cfea                      	RJMP LOOP
+                                 
+000034 cfff                      EXIT: RJMP EXIT
                                  /*
                                  
                                  //------------------------------------Activity2--------------------------
@@ -1856,37 +1878,37 @@ counted separately from r26..r31 here.
 "ATmega324PB" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  10 r17:   4 r18:   4 r19:   3 r20:   3 
-r21:   3 r22:   3 r23:   5 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
+r13:   0 r14:   0 r15:   0 r16:  10 r17:   4 r18:   4 r19:   5 r20:   4 
+r21:   5 r22:   4 r23:   5 r24:   7 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
-Registers used: 8 out of 35 (22.9%)
+Registers used: 9 out of 35 (25.7%)
 
 "ATmega324PB" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   1 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   1 break :   0 breq  :   0 brge  :   0 brhc  :   0 
+brcc  :   0 brcs  :   3 break :   0 breq  :   3 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   0 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brne  :   1 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   0 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :  11 lds   :   0 lpm   :   0 lsl   :   0 
+cpi   :   3 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   3 jmp   :   0 
+ld    :   0 ldd   :   0 ldi   :  12 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   6 pop   :   7 
-push  :   7 rcall :   0 ret   :   1 reti  :   0 rjmp  :   0 rol   :   0 
+neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   8 pop   :   7 
+push  :   7 rcall :   0 ret   :   0 reti  :   0 rjmp  :   2 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
-sub   :   1 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 8 out of 113 (7.1%)
+sub   :   3 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
+Instructions used: 12 out of 113 (10.6%)
 
 "ATmega324PB" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000046     70      0     70   32768   0.2%
+[.cseg] 0x000000 0x00006a    106      0    106   32768   0.3%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
