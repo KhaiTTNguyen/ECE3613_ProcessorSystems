@@ -54,14 +54,14 @@ LOOP:
 	BREQ ARITH_3
 	BRNE EXIT
 ARITH_1:
-	ADD R16, R17		; add $77 + $19 
+	ADD R16, R17		; $77 + $19 
 	OUT PORTA, R16
 	BRCS OUT_B
 	out portb, r25
 	ARITH_1_1:
-		SUB R16, R18		; sub ($77 + $19)-$A2
+		SUB R16, R18		; ($77 + $19)-$A2
 		OUT PORTA, R16		; output ($77 + $19)-$A2 = $EE
-		INC R24				; increment counter reg
+		INC R24				; increment counter reg, done w/ arithmetic op 1
 		BRCS OUT_B
 		out portb, r25
 		rjmp LOOP
@@ -73,7 +73,7 @@ ARITH_2:
 	out portb, r25
 	rjmp LOOP
 ARITH_3:
-	SUB R21, R22		; sub $30 + $F2 
+	ADD R21, R22		; add $30 + $F2 
 	OUT PORTA, r21
 	INC R24				; increment counter reg
 	BRCS OUT_B
@@ -82,7 +82,7 @@ ARITH_3:
 OUT_B:
 	out portb, r23
 	CPI r24, 0
-	RJMP ARITH_1_1
+	BREQ ARITH_1_1
 	RJMP LOOP
 
 EXIT: RJMP EXIT
