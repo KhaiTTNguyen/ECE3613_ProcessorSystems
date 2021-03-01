@@ -1,0 +1,34 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega324PB"</DEVICE>
+ <WORKING_DIR>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication19-SevenSegDisplay\AssemblerApplication19-SevenSegDisplay\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication19-SevenSegDisplay\AssemblerApplication19-SevenSegDisplay\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication19-SevenSegDisplay\AssemblerApplication19-SevenSegDisplay\Debug\AssemblerApplication19-SevenSegDisplay.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication19-SevenSegDisplay.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication19-SevenSegDisplay.map</FILE>
+  <FILE>AssemblerApplication19-SevenSegDisplay.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <main><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication19-SevenSegDisplay\AssemblerApplication19-SevenSegDisplay\main.asm</FILE><LINE>34</LINE></main>
+  <digits><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication19-SevenSegDisplay\AssemblerApplication19-SevenSegDisplay\main.asm</FILE><LINE>43</LINE></digits>
+  <TUID><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication19-SevenSegDisplay\AssemblerApplication19-SevenSegDisplay\main.asm</FILE><LINE>76</LINE></TUID>
+  <hello><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication19-SevenSegDisplay\AssemblerApplication19-SevenSegDisplay\main.asm</FILE><LINE>91</LINE></hello>
+  <DELAY><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication19-SevenSegDisplay\AssemblerApplication19-SevenSegDisplay\main.asm</FILE><LINE>109</LINE></DELAY>
+  <L1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication19-SevenSegDisplay\AssemblerApplication19-SevenSegDisplay\main.asm</FILE><LINE>112</LINE></L1>
+  <L2><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication19-SevenSegDisplay\AssemblerApplication19-SevenSegDisplay\main.asm</FILE><LINE>113</LINE></L2>
+  <L3><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication19-SevenSegDisplay\AssemblerApplication19-SevenSegDisplay\main.asm</FILE><LINE>114</LINE></L3>
+ </LABELS>
+</ASSEMBLER_INFO>
