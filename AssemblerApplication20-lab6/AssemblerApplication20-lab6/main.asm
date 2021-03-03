@@ -5,20 +5,20 @@
 ; Author : KhaiNguyen
 ;
 
-ldi r16,0x00
-out ddra, r16
-out ddrb, r16
-ldi r16, 0xff
-out ddrc, r16
-out ddrd, r16
+ldi r16,0x00		; load 0x00 to r16, prepare to set input ports
+out ddra, r16		; set porta as input
+out ddrb, r16		; set portb as input
+ldi r16, 0xFF		; load 0xFF to r16, prepare to set input ports
+out ddrc, r16		; set portc as output
+out ddrd, r16		; set portd as output
 
 ; setup I/O
-in r17, pina
-in r18, pinb
+in r17, pina		; take input from porta	- $7a
+in r18, pinb		; take input from porta - $9
 
-ldi r19, 4
-add r17, r19
-mul r17, r18
+ldi r19, 4			; laod 4 to r19 prepare for arithmetic ops
+add r17, r19		; add r19 to porta input
+mul r17, r18		; mult r17 & r18 - results stored in r1 & r0 
 
 out portc, r1		; higerbyte
 out portd, r0		; lowerbyte
