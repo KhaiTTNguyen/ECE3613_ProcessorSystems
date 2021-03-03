@@ -1,6 +1,7 @@
 
-AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm Wed Mar 03 15:58:42 2021
+AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm Wed Mar 03 17:27:29 2021
 
+[builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
                                  
                                  ;
@@ -1623,91 +1624,193 @@ AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerAppli
                                  ; Created: 3/3/2021 3:08:12 PM
                                  ; Author : KhaiNguyen
                                  ;
+                                 /*
                                  
-000000 e000                      ldi r16,0x00		; load 0x00 to r16, prepare to set input ports
-000001 b901                      out ddra, r16		; set porta as input
-000002 b904                      out ddrb, r16		; set portb as input
-000003 ef0f                      ldi r16, 0xFF		; load 0xFF to r16, prepare to set input ports
-000004 b907                      out ddrc, r16		; set portc as output
-000005 b90a                      out ddrd, r16		; set portd as output
+                                 ldi r16,0x00		; load 0x00 to r16, prepare to set input ports
+                                 out ddra, r16		; set porta as input
+                                 out ddrb, r16		; set portb as input
+                                 ldi r16, 0xFF		; load 0xFF to r16, prepare to set input ports
+                                 out ddrc, r16		; set portc as output
+                                 out ddrd, r16		; set portd as output
                                  
                                  ; setup I/O
-000006 b110                      in r17, pina		; take input from porta	- $7a
-000007 b123                      in r18, pinb		; take input from porta - $9
+                                 in r17, pina		; take input from porta	- $7a
+                                 in r18, pinb		; take input from porta - $9
                                  
-000008 e034                      ldi r19, 4			; laod 4 to r19 prepare for arithmetic ops
-000009 0f13                      add r17, r19		; add r19 to porta input
-00000a 9f12                      mul r17, r18		; mult r17 & r18 - results stored in r1 & r0 
+                                 ldi r19, 4			; load 4 to r19 prepare for arithmetic ops
+                                 add r17, r19		; add r19 to porta input
+                                 mul r17, r18		; mult r17 & r18 - results stored in r1 & r0 
                                  
-00000b b818                      out portc, r1		; higerbyte
-00000c b80b                      out portd, r0		; lowerbyte
+                                 out portc, r1		; higerbyte
+                                 out portd, r0		; lowerbyte
                                  
+                                 */
                                  
-                                 /*
                                  // Act 2
                                  // infinite loop
                                  // 0.5sec ON, 0.25 OFF
                                  
-                                 // 0000 - all 4 closed 
-                                 
-                                 
-                                 
-                                 .equ one=0b00000110
-                                 .equ two=0b01011011
-                                 .equ three=0b01001111
-                                 .equ four=0b01100110
-                                 .equ five=0b01101101
-                                 .equ six=0b01111100
-                                 .equ seven=0b0000111
-                                 .equ eight=0b01111111
-                                 .equ nine=0b01100111
-                                 .equ zero=0b00111111
-                                 LDI R16, HIGH(RAMEND)
-                                 OUT SPH, R16
-                                 LDI R16, LOW(RAMEND)
-                                 OUT SPL, R16 ;initialize stack pointer
-                                 
-                                 LDI R16, 0xFF
-                                 OUT DDRA, R16 ;make Port A an output port
-                                 OUT PORTB, R16; activate pullups
-                                 ldi r17, 0x00
-                                 out ddrb, r17
-                                 
-                                 main:
-                                 
                                  ;---------------set up digits
+                                 .equ ONE   =0b00000110
+                                 .equ TWO   =0b01011011
+                                 .equ THREE =0b01001111
+                                 .equ FOUR  =0b01100110
+                                 .equ FIVE  =0b01101101
+                                 .equ SIX   =0b01111101
+                                 .equ SEVEN =0b00000111
+                                 .equ EIGHT =0b01111111
+                                 .equ NINE  =0b01101111
+                                 .equ ZERO  =0b00111111
                                  
+000000 ef0f                      LDI R16, 0xFF
+000001 b901                      OUT DDRA, R16		; make Port A an output port
+000002 b905                      OUT PORTB, R16		; activate pullups
+000003 e010                      ldi r17, 0x00		
+000004 b914                      out ddrb, r17		; make Port B an input port
                                  
+                                 // READ PINB & OUTPUT PORTA w/ time delay
+000005 2700                      clr r16				; r16 to take input
+000006 e080                      ldi r24, 0x00		; r24 to out put 0x000000 --> create toggle effect
+000007 2799                      clr r25				; r25 to store 7seg output ONE, TWO, ...
+                                 
+                                 read:
+000008 b103                      	in R16, PINB		; read pinb to r16
+                                 
+000009 3000                      	cpi r16, 0x00		; 0x01 = 0b00000000 - 0
+00000a f0a9                      	breq R0_out			; output to 7seg w/ ZERO
+00000b 3001                      	cpi r16, 0x01		; 0x01 = 0b00000001 - 1
+00000c f0d9                      	breq R1_out			; output to 7seg w/ ONE
+00000d 3002                      	cpi r16, 0x02		; 0x02 = 0b00000010 - 2       
+00000e f109                      	breq R2_out			; output to 7seg w/ TWO
+00000f 3003                      	cpi r16, 0x03		; 0x03 = 0b00000011 - 3
+000010 f139                      	breq R3_out			; output to 7seg w/ THREE
+000011 3004                      	cpi r16, 0x04		; 0x04 = 0b00000100 - 4
+000012 f169                      	breq R4_out			; output to 7seg w/ FOUR
+000013 3005                      	cpi r16, 0x05		; 0x05 = 0b00000101 - 5
+000014 f199                      	breq R5_out			; output to 7seg w/ FIVE
+000015 3006                      	cpi r16, 0x06		; 0x06 = 0b00000110 - 6 
+000016 f1c9                      	breq R6_out			; output to 7seg w/ SIX
+000017 3007                      	cpi r16, 0x07		; 0x07 = 0b00000111 - 7
+000018 f1f9                      	breq R7_out			; output to 7seg w/ SEVEN
+000019 3008                      	cpi r16, 0x08		; 0x08 - 0b00001000 - 8
+00001a f019                      	breq R8_out_jmp		; output to 7seg w/ EIGHT
+00001b 3009                      	cpi r16, 0x09		; 0x09 - 0b00001000 - 9
+00001c f011                      	breq R9_out_jmp		; output to 7seg w/ NINE
+00001d cfea                      	rjmp read
+                                 
+                                 R8_out_jmp:				; since R8_out is too far --> use rjmp to increase jmp range
+00001e c041                      	rjmp R8_out
+                                 R9_out_jmp:
+00001f c048                      	rjmp R9_out			; since R9_out is too far --> use rjmp to increase jmp range
+                                 
+                                 R0_out:
+000020 e39f                      	ldi r25, ZERO
+000021 b992                      	out porta, r25
+000022 940e 0070                 	call Delay_P5sec
+000024 b982                      	out porta, r24
+000025 940e 007c                 	call Delay_P25sec
+000027 cfe0                      	rjmp read
+                                 
+                                 R1_out:
+000028 e096                      	ldi r25, ONE
+000029 b992                      	out porta, r25
+00002a 940e 0070                 	call Delay_P5sec
+00002c b982                      	out porta, r24
+00002d 940e 007c                 	call Delay_P25sec
+00002f cfd8                      	rjmp read
+                                 
+                                 R2_out:
+000030 e59b                      	ldi r25, TWO
+000031 b992                      	out porta, r25
+000032 940e 0070                 	call Delay_P5sec
+000034 b982                      	out porta, r24
+000035 940e 007c                 	call Delay_P25sec
+000037 cfd0                      	rjmp read
+                                 
+                                 R3_out:
+000038 e49f                      	ldi r25, THREE
+000039 b992                      	out porta, r25
+00003a 940e 0070                 	call Delay_P5sec
+00003c b982                      	out porta, r24
+00003d 940e 007c                 	call Delay_P25sec
+00003f cfc8                      	rjmp read
+                                 
+                                 R4_out:
+000040 e696                      	ldi r25, FOUR
+000041 b992                      	out porta, r25
+000042 940e 0070                 	call Delay_P5sec
+000044 b982                      	out porta, r24
+000045 940e 007c                 	call Delay_P25sec
+000047 cfc0                      	rjmp read
+                                 
+                                 R5_out:
+000048 e69d                      	ldi r25, FIVE
+000049 b992                      	out porta, r25
+00004a 940e 0070                 	call Delay_P5sec
+00004c b982                      	out porta, r24
+00004d 940e 007c                 	call Delay_P25sec
+00004f cfb8                      	rjmp read
+                                 
+                                 R6_out:
+000050 e79d                      	ldi r25, SIX
+000051 b992                      	out porta, r25
+000052 940e 0070                 	call Delay_P5sec
+000054 b982                      	out porta, r24
+000055 940e 007c                 	call Delay_P25sec
+000057 cfb0                      	rjmp read
+                                 
+                                 R7_out:
+000058 e097                      	ldi r25, SEVEN
+000059 b992                      	out porta, r25
+00005a 940e 0070                 	call Delay_P5sec
+00005c b982                      	out porta, r24
+00005d 940e 007c                 	call Delay_P25sec
+00005f cfa8                      	rjmp read
+                                 
+                                 R8_out:
+000060 e79f                      	ldi r25, EIGHT
+000061 b992                      	out porta, r25
+000062 940e 0070                 	call Delay_P5sec
+000064 b982                      	out porta, r24
+000065 940e 007c                 	call Delay_P25sec
+000067 cfa0                      	rjmp read
+                                 
+                                 R9_out:
+000068 e69f                      	ldi r25, NINE
+000069 b992                      	out porta, r25
+00006a 940e 0070                 	call Delay_P5sec
+00006c b982                      	out porta, r24
+00006d 940e 007c                 	call Delay_P25sec
+00006f cf98                      	rjmp read
                                  ;---------------APPROXIMATE .5 SECOND DELAY
-                                 DELAY_P5:// Label for delay function
+                                 Delay_P5sec:// Label for delay function
                                  
-                                 ldi r20,32
-                                 L1: LDI R21, 200
-                                 L2: LDI R22, 250
-                                 L3: NOP
-                                 NOP
-                                 DEC R22
-                                 BRNE L3
-                                 DEC R21
-                                 BRNE L2
-                                 DEC R20
-                                 BRNE L1
-                                 RET
+000070 e240                      ldi r20,32
+000071 ec58                      L1: LDI R21, 200
+000072 ef6a                      L2: LDI R22, 250
+000073 0000                      L3: NOP
+000074 0000                      NOP
+000075 956a                      DEC R22
+000076 f7e1                      BRNE L3
+000077 955a                      DEC R21
+000078 f7c9                      BRNE L2
+000079 954a                      DEC R20
+00007a f7b1                      BRNE L1
+00007b 9508                      RET
                                  
-                                 DELAY_P25:// Label for delay function
+                                 Delay_P25sec:// Label for delay function
                                  
-                                 ldi r20,16
-                                 L1_25: LDI R21, 200
-                                 L2_25: LDI R22, 250
-                                 L3_25: NOP
-                                 NOP
-                                 DEC R22
-                                 BRNE L3_25
-                                 DEC R21
-                                 BRNE L2_25
-                                 DEC R20
-                                 BRNE L1_25
-                                 RET
+00007c e140                      ldi r20,16
+00007d ec58                      L1_25: LDI R21, 200
+00007e ef6a                      L2_25: LDI R22, 250
+00007f 0000                      L3_25: NOP
+000080 0000                      NOP
+000081 956a                      DEC R22
+000082 f7e1                      BRNE L3_25
+000083 955a                      DEC R21
+000084 f7c9                      BRNE L2_25
+000085 954a                      DEC R20
+000086 f7b1                      BRNE L1_25
 
 
 RESOURCE USE INFORMATION
@@ -1725,39 +1828,39 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega324PB" register use summary:
-x  :   0 y  :   0 z  :   0 r0 :   1 r1 :   1 r2 :   0 r3 :   0 r4 :   0 
+x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   6 r17:   3 r18:   2 r19:   2 r20:   0 
-r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
+r13:   0 r14:   0 r15:   0 r16:  15 r17:   2 r18:   0 r19:   0 r20:   4 
+r21:   4 r22:   4 r23:   0 r24:  11 r25:  21 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
-Registers used: 6 out of 35 (17.1%)
+Registers used: 7 out of 35 (20.0%)
 
 "ATmega324PB" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   0 add   :   1 adiw  :   0 and   :   0 
+.lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :  10 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   0 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
-clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
+brne  :   6 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :  20 cbi   :   0 cbr   :   0 
+clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   2 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   0 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   2 inc   :   0 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :   3 lds   :   0 lpm   :   0 lsl   :   0 
-lsr   :   0 mov   :   0 movw  :   0 mul   :   1 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   6 pop   :   0 
-push  :   0 rcall :   0 ret   :   0 reti  :   0 rjmp  :   0 rol   :   0 
+cpi   :  10 cpse  :   0 dec   :   6 eor   :   0 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   0 jmp   :   0 
+ld    :   0 ldd   :   0 ldi   :  19 lds   :   0 lpm   :   0 lsl   :   0 
+lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
+neg   :   0 nop   :   4 or    :   0 ori   :   0 out   :  23 pop   :   0 
+push  :   0 rcall :   0 ret   :   2 reti  :   0 rjmp  :  13 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 5 out of 113 (4.4%)
+Instructions used: 12 out of 113 (10.6%)
 
 "ATmega324PB" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x00001a     26      0     26   32768   0.1%
+[.cseg] 0x000000 0x000110    272      0    272   32768   0.8%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 

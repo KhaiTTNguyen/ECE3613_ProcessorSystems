@@ -26,34 +26,33 @@ out portd, r0		; lowerbyte
 
 */
 
-// Act 2
-// infinite loop
-// 0.5sec ON, 0.25 OFF
-
+// Activity 2
 ;---------------set up digits
-.equ ONE=0b00000110
-.equ TWO=0b01011011
-.equ THREE=0b01001111
-.equ FOUR=0b01100110
-.equ FIVE=0b01101101
-.equ SIX=0b01111100
-.equ SEVEN=0b0000111
-.equ EIGHT=0b01111111
-.equ NINE=0b01100111
-.equ ZERO=0b00111111
+.equ ONE   =0b00000110
+.equ TWO   =0b01011011
+.equ THREE =0b01001111
+.equ FOUR  =0b01100110
+.equ FIVE  =0b01101101
+.equ SIX   =0b01111101
+.equ SEVEN =0b00000111
+.equ EIGHT =0b01111111
+.equ NINE  =0b01101111
+.equ ZERO  =0b00111111
 
 LDI R16, 0xFF
-OUT DDRA, R16 ;make Port A an output port
-OUT PORTB, R16; activate pullups
-ldi r17, 0x00
-out ddrb, r17
+OUT DDRA, R16		; make Port A an output port
+OUT PORTB, R16		; activate pullups
+ldi r17, 0x00		
+out ddrb, r17		; make Port B an input port
 
 // READ PINB & OUTPUT PORTA w/ time delay
-clr r16
-ldi r24, 0x00
+clr r16				; r16 to take input
+ldi r24, 0x00		; r24 to out put 0x000000 --> create toggle effect
+clr r25				; r25 to store 7seg output ONE, TWO, ...
 
 read:
 	in R16, PINB		; read pinb to r16
+
 	cpi r16, 0x00		; 0x01 = 0b00000000 - 0
 	breq R0_out			; output to 7seg w/ ZERO
 	cpi r16, 0x01		; 0x01 = 0b00000001 - 1
@@ -71,76 +70,91 @@ read:
 	cpi r16, 0x07		; 0x07 = 0b00000111 - 7
 	breq R7_out			; output to 7seg w/ SEVEN
 	cpi r16, 0x08		; 0x08 - 0b00001000 - 8
-	breq R8_out			; output to 7seg w/ EIGHT
+	breq R8_out_jmp		; output to 7seg w/ EIGHT
 	cpi r16, 0x09		; 0x09 - 0b00001000 - 9
-	breq R9_out			; output to 7seg w/ NINE
+	breq R9_out_jmp		; output to 7seg w/ NINE
 	rjmp read
 
+R8_out_jmp:				; since R8_out is too far --> use rjmp to increase jmp range
+	rjmp R8_out
+R9_out_jmp:
+	rjmp R9_out			; since R9_out is too far --> use rjmp to increase jmp range
+
 R0_out:
-	out porta, ZERO
+	ldi r25, ZERO
+	out porta, r25
 	call Delay_P5sec
 	out porta, r24
 	call Delay_P25sec
 	rjmp read
 
 R1_out:
-	out porta, ONE
+	ldi r25, ONE
+	out porta, r25
 	call Delay_P5sec
 	out porta, r24
 	call Delay_P25sec
 	rjmp read
 
 R2_out:
-	out porta, TWO
+	ldi r25, TWO
+	out porta, r25
 	call Delay_P5sec
 	out porta, r24
 	call Delay_P25sec
 	rjmp read
 
 R3_out:
-	out porta, THREE
+	ldi r25, THREE
+	out porta, r25
 	call Delay_P5sec
 	out porta, r24
 	call Delay_P25sec
 	rjmp read
 
 R4_out:
-	out porta, FOUR
+	ldi r25, FOUR
+	out porta, r25
 	call Delay_P5sec
 	out porta, r24
 	call Delay_P25sec
 	rjmp read
 
 R5_out:
-	out porta, FIVE
+	ldi r25, FIVE
+	out porta, r25
 	call Delay_P5sec
 	out porta, r24
 	call Delay_P25sec
 	rjmp read
 
 R6_out:
-	out porta, SIX
+	ldi r25, SIX
+	out porta, r25
 	call Delay_P5sec
 	out porta, r24
 	call Delay_P25sec
 	rjmp read
 
 R7_out:
-	out porta, SEVEN
+	ldi r25, SEVEN
+	out porta, r25
 	call Delay_P5sec
 	out porta, r24
 	call Delay_P25sec
 	rjmp read
 
 R8_out:
-	out porta, EIGHT
+	ldi r25, EIGHT
+	out porta, r25
 	call Delay_P5sec
 	out porta, r24
 	call Delay_P25sec
 	rjmp read
 
 R9_out:
-	out porta, NINE
+	ldi r25, NINE
+	out porta, r25
 	call Delay_P5sec
 	out porta, r24
 	call Delay_P25sec

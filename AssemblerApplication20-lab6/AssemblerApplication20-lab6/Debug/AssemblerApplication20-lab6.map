@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm Wed Mar 03 15:58:42 2021
+AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm Wed Mar 03 17:27:29 2021
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1189,3 +1189,34 @@ EQU  USART2_TXaddr 00000062
 EQU  USART2_RXSaddr 00000064
 EQU  USART2_STARTaddr 00000064
 EQU  INT_VECTORS_SIZE 00000066
+EQU  ONE          00000006
+EQU  TWO          0000005b
+EQU  THREE        0000004f
+EQU  FOUR         00000066
+EQU  FIVE         0000006d
+EQU  SIX          0000007d
+EQU  SEVEN        00000007
+EQU  EIGHT        0000007f
+EQU  NINE         0000006f
+EQU  ZERO         0000003f
+CSEG read         00000008
+CSEG R0_out       00000020
+CSEG R1_out       00000028
+CSEG R2_out       00000030
+CSEG R3_out       00000038
+CSEG R4_out       00000040
+CSEG R5_out       00000048
+CSEG R6_out       00000050
+CSEG R7_out       00000058
+CSEG R8_out_jmp   0000001e
+CSEG R9_out_jmp   0000001f
+CSEG R8_out       00000060
+CSEG R9_out       00000068
+CSEG Delay_P5sec  00000070
+CSEG Delay_P25sec 0000007c
+CSEG L1           00000071
+CSEG L2           00000072
+CSEG L3           00000073
+CSEG L1_25        0000007d
+CSEG L2_25        0000007e
+CSEG L3_25        0000007f
