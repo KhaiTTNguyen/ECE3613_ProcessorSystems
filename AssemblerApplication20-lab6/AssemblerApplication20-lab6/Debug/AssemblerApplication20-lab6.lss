@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm Wed Mar 03 17:27:29 2021
+AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm Wed Mar 03 20:29:45 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
@@ -1646,10 +1646,7 @@ AVRASM ver. 2.2.8  C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerAppli
                                  
                                  */
                                  
-                                 // Act 2
-                                 // infinite loop
-                                 // 0.5sec ON, 0.25 OFF
-                                 
+                                 // Activity 2
                                  ;---------------set up digits
                                  .equ ONE   =0b00000110
                                  .equ TWO   =0b01011011

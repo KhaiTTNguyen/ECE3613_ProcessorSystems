@@ -22,26 +22,26 @@
   <FILE>AssemblerApplication20-lab6.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <read><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>56</LINE></read>
-  <R0_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>86</LINE></R0_out>
-  <R1_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>94</LINE></R1_out>
-  <R2_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>102</LINE></R2_out>
-  <R3_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>110</LINE></R3_out>
-  <R4_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>118</LINE></R4_out>
-  <R5_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>126</LINE></R5_out>
-  <R6_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>134</LINE></R6_out>
-  <R7_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>142</LINE></R7_out>
-  <R8_out_jmp><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>81</LINE></R8_out_jmp>
-  <R9_out_jmp><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>83</LINE></R9_out_jmp>
-  <R8_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>150</LINE></R8_out>
-  <R9_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>158</LINE></R9_out>
-  <Delay_P5sec><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>166</LINE></Delay_P5sec>
-  <Delay_P25sec><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>181</LINE></Delay_P25sec>
-  <L1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>169</LINE></L1>
-  <L2><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>170</LINE></L2>
-  <L3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>171</LINE></L3>
-  <L1_25><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>184</LINE></L1_25>
-  <L2_25><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>185</LINE></L2_25>
-  <L3_25><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>186</LINE></L3_25>
+  <read><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>53</LINE></read>
+  <R0_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>83</LINE></R0_out>
+  <R1_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>91</LINE></R1_out>
+  <R2_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>99</LINE></R2_out>
+  <R3_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>107</LINE></R3_out>
+  <R4_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>115</LINE></R4_out>
+  <R5_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>123</LINE></R5_out>
+  <R6_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>131</LINE></R6_out>
+  <R7_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>139</LINE></R7_out>
+  <R8_out_jmp><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>78</LINE></R8_out_jmp>
+  <R9_out_jmp><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>80</LINE></R9_out_jmp>
+  <R8_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>147</LINE></R8_out>
+  <R9_out><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>155</LINE></R9_out>
+  <Delay_P5sec><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>163</LINE></Delay_P5sec>
+  <Delay_P25sec><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>178</LINE></Delay_P25sec>
+  <L1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>166</LINE></L1>
+  <L2><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>167</LINE></L2>
+  <L3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>168</LINE></L3>
+  <L1_25><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>181</LINE></L1_25>
+  <L2_25><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>182</LINE></L2_25>
+  <L3_25><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab6\AssemblerApplication20-lab6\main.asm</FILE><LINE>183</LINE></L3_25>
  </LABELS>
 </ASSEMBLER_INFO>
