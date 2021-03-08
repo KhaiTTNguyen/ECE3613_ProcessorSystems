@@ -22,6 +22,7 @@
   <FILE>AssemblerApplication20-XYZregs.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <L1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-XYZregs\AssemblerApplication20-XYZregs\main.asm</FILE><LINE>40</LINE></L1>
+  <L1><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-XYZregs\AssemblerApplication20-XYZregs\main.asm</FILE><LINE>58</LINE></L1>
+  <L2><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-XYZregs\AssemblerApplication20-XYZregs\main.asm</FILE><LINE>63</LINE></L2>
  </LABELS>
 </ASSEMBLER_INFO>

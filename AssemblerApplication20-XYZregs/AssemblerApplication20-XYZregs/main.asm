@@ -31,9 +31,10 @@ L1: ST	Y+,R16		;copy R16 to memory location 0x140	- post-increment Y+
 
 */
 
+/*
 .EQU MEM_ADDR=0x0180
 LDI R16, $AA			; data
-LDI R20, 0x20			; loop counter --> (0x019F - 0x0180) + 1 = 20 steps
+LDI R20, 11			; loop counter --> (0x019F - 0x0180) + 1 = 20 steps
 LDI XH, HIGH(MEM_ADDR)	; r26
 LDI XL, LOW(MEM_ADDR)	; r27
 
@@ -41,4 +42,28 @@ L1:
 ST X+, R16			; stores R16 into SRAM address pointer
 DEC R20;
 BRNE L1
-NOP 
+nop
+
+*/
+
+.EQU MEM_ADDR_1=0x0180
+.EQU MEM_ADDR_2=0x0190
+
+LDI R16, 1			; data
+LDI R20, 10			; loop counter --> (0x019F - 0x0180) + 1 = 20 steps
+LDI XH, HIGH(MEM_ADDR_1)	; r26
+LDI XL, LOW(MEM_ADDR_1)	; r27
+LDI YH, HIGH(MEM_ADDR_2)	; r26
+LDI YL, LOW(MEM_ADDR_2)	; r27
+L1:
+ST X+, R16			; stores R16 into SRAM address pointer
+DEC R20;
+BRNE L1
+
+L2:
+LD R17, X+ ; content of SRAM pointed by X
+ST Y+, R17
+DEC r20
+BRNE L2
+nop
+
