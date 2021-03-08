@@ -53,13 +53,16 @@ LDI R16, 1			; data
 LDI R20, 10			; loop counter --> (0x019F - 0x0180) + 1 = 20 steps
 LDI XH, HIGH(MEM_ADDR_1)	; r26
 LDI XL, LOW(MEM_ADDR_1)	; r27
-LDI YH, HIGH(MEM_ADDR_2)	; r26
-LDI YL, LOW(MEM_ADDR_2)	; r27
 L1:
 ST X+, R16			; stores R16 into SRAM address pointer
 DEC R20;
 BRNE L1
 
+ldi r20, 10
+LDI XH, HIGH(MEM_ADDR_1)	; reset X & Y
+LDI XL, LOW(MEM_ADDR_1)
+LDI YH, HIGH(MEM_ADDR_2)
+LDI YL, LOW(MEM_ADDR_2)	
 L2:
 LD R17, X+ ; content of SRAM pointed by X
 ST Y+, R17

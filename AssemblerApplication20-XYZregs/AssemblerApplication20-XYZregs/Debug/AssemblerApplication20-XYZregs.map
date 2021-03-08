@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-XYZregs\AssemblerApplication20-XYZregs\main.asm Mon Mar 08 11:47:48 2021
+AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-XYZregs\AssemblerApplication20-XYZregs\main.asm Mon Mar 08 11:52:44 2021
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1191,5 +1191,5 @@ EQU  USART2_STARTaddr 00000064
 EQU  INT_VECTORS_SIZE 00000066
 EQU  MEM_ADDR_1   00000180
 EQU  MEM_ADDR_2   00000190
-CSEG L1           00000006
-CSEG L2           00000009
+CSEG L1           00000004
+CSEG L2           0000000c
