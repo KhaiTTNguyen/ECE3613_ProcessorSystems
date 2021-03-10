@@ -5,7 +5,7 @@
 ; Author : KhaiNguyen
 ;
 /* ACTIVITY 1. Write a program that uses a LOOP to add the integers from 1 to 100.*/
-/*
+
 .equ n1=1			; start here
 .equ n2=100			; end here
 .def ii=r16			; .def assign to a register	
@@ -25,7 +25,7 @@ loop:
 	rjmp loop
 done:
 	nop
-	*/
+
 
 /* ACT 2 - count the number of elements starting at 0x0100 of 8-bit integers that are a multiple of 4.*/
 /*
@@ -57,13 +57,14 @@ continue:
 	brne DIV4_COUNT_LOOP
 stop: rjmp stop
 
-inc_count:
+inc_count:					; loop for incrementing count of #'s divisible by 4
 	inc COUNT_DIV4
 	rjmp continue
 */
 
-/* ACT 3 - count the number of elements of 8-bit integers that have bits 2,3 and 4 set equal to a 1. */
 
+/* ACT 3 - count the number of elements of 8-bit integers that have bits 2,3 and 4 set equal to a 1. */
+/*
 ldi r16,11					;first number
 ldi r17,30					;counter for loop
 ldi XL,LOW(SRAM_START)		;LOWER PART OF XL=0X00
@@ -76,22 +77,23 @@ LOOP:
 nop 
 
 ; need to reinitialize X-reg, now it's pointing to 0x010*
-.def COUNT_0x1C=r19			; counter for #'s divisible by 4
+.def COUNT_0x1C=r19			; counter for #'s where bits 2,3,4 are one's
 ldi r16,11					; first number
 ldi r17,30					; counter for loop
-ldi COUNT_0x1C, 0			; counter for #'s divisible by 4
+ldi COUNT_0x1C, 0			; counter for #'s where bits 2,3,4 are one's
 ldi XL,LOW(SRAM_START)		; LOWER PART OF XL=0X00
 ldi XH,HIGH(SRAM_START)		; UPPER PART OF XH=0X01
 COUNT_0x1C_LOOP:
-LD R18, X+					; takes contensts
+LD R18, X+					; takes contents
 ANDI r18, 0x1C				; mask all bits except 2,3,4 - 0x1C = 0b00011100
-CPI r18, 0x1C				; check if last 2 bits are both 0
+CPI r18, 0x1C				; check if bits 2,3,4 are one's
 breq inc_count
 continue: 
 	dec r17
 	brne COUNT_0x1C_LOOP
 stop: rjmp stop
 
-inc_count:
+inc_count:					; loop for incrementing count of # where bits 2,3,4 are one's
 	inc COUNT_0x1C
 	rjmp continue
+	*/

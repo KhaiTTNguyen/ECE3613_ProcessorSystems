@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm Wed Mar 10 16:06:43 2021
+AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm Wed Mar 10 16:18:31 2021
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1189,9 +1189,11 @@ EQU  USART2_TXaddr 00000062
 EQU  USART2_RXSaddr 00000064
 EQU  USART2_STARTaddr 00000064
 EQU  INT_VECTORS_SIZE 00000066
-CSEG LOOP         00000004
-DEF  COUNT_0x1C   r19
-CSEG COUNT_0x1C_LOOP 0000000e
-CSEG inc_count    00000015
-CSEG continue     00000012
-CSEG stop         00000014
+EQU  n1           00000001
+EQU  n2           00000064
+DEF  ii           r16
+DEF  sumHi        r19
+DEF  sumLo        r18
+CSEG start        00000000
+CSEG loop         00000004
+CSEG done         0000000a

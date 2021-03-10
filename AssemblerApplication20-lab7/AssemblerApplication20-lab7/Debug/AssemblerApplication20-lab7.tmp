@@ -22,10 +22,8 @@
   <FILE>AssemblerApplication20-lab7.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <LOOP><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</FILE><LINE>71</LINE></LOOP>
-  <COUNT_0x1C_LOOP><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</FILE><LINE>85</LINE></COUNT_0x1C_LOOP>
-  <inc_count><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</FILE><LINE>95</LINE></inc_count>
-  <continue><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</FILE><LINE>90</LINE></continue>
-  <stop><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</FILE><LINE>93</LINE></stop>
+  <start><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</FILE><LINE>14</LINE></start>
+  <loop><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</FILE><LINE>19</LINE></loop>
+  <done><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</FILE><LINE>26</LINE></done>
  </LABELS>
 </ASSEMBLER_INFO>
