@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-Zreg\AssemblerApplication20-Zreg\main.asm Wed Mar 10 11:31:28 2021
+AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-Zreg\AssemblerApplication20-Zreg\main.asm Wed Mar 10 11:48:38 2021
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1189,6 +1189,6 @@ EQU  USART2_TXaddr 00000062
 EQU  USART2_RXSaddr 00000064
 EQU  USART2_STARTaddr 00000064
 EQU  INT_VECTORS_SIZE 00000066
-CSEG MYNAME       00000500
-CSEG LOOP         00000007
-CSEG HERE         0000000c
+CSEG MYDATA       00000600
+CSEG LOOP         00000006
+CSEG HERE         0000000d

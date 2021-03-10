@@ -22,8 +22,8 @@
   <FILE>AssemblerApplication20-Zreg.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <MYNAME><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-Zreg\AssemblerApplication20-Zreg\main.asm</FILE><LINE>35</LINE></MYNAME>
-  <LOOP><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-Zreg\AssemblerApplication20-Zreg\main.asm</FILE><LINE>27</LINE></LOOP>
-  <HERE><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-Zreg\AssemblerApplication20-Zreg\main.asm</FILE><LINE>33</LINE></HERE>
+  <MYDATA><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-Zreg\AssemblerApplication20-Zreg\main.asm</FILE><LINE>65</LINE></MYDATA>
+  <LOOP><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-Zreg\AssemblerApplication20-Zreg\main.asm</FILE><LINE>55</LINE></LOOP>
+  <HERE><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-Zreg\AssemblerApplication20-Zreg\main.asm</FILE><LINE>63</LINE></HERE>
  </LABELS>
 </ASSEMBLER_INFO>

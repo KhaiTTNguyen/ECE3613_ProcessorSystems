@@ -15,7 +15,7 @@ DATA6: .DB '2','0','0','5';ASCII numbers
 DATA7: .DB "Hello Doc" ;ASCII string
 here: jmp here
 */
-
+/*
 .ORG 0X00
  LDI ZH,HIGH(MYNAME<<1);Z REGISTER
  LDI ZL,LOW(MYNAME<<1)
@@ -35,3 +35,31 @@ DEC R18	;COUNT DOWN
  HERE: JMP HERE
 .ORG $500
 MYNAME: .DB "JOHN",0 ;ASCII string
+*/
+
+/*Write a program to read the following message from ROM and place it in data
+
+RAM starting at Ox0200:
+
+.ORG  Ox600
+
+MYDATA:            . DB       "1-800-999-9999", 0*/
+.ORG 0x00
+ LDI ZH,HIGH(MYDATA<<1);Z REGISTER
+ LDI ZL,LOW(MYDATA<<1)
+ LDI XH,HIGH(0x0200);X REGISTER
+ LDI XL,LOW(0x0200)
+LDI R16,$FF
+OUT DDRA,R16;PORTA IS OUTPUT
+
+ LOOP:
+ LPM R20,Z+	;GET DATA FROM FLASH - LPM/Load from Prog Mem
+CPI r20,0
+brne HERE 
+ST X+,R20	;STORE IT IN SRAM
+OUT PORTA,R20
+DEC R18	;COUNT DOWN
+ BRNE LOOP	;BRANCH
+ HERE: JMP HERE
+.ORG $600
+MYDATA: .DB "1-800-999-9999",0 ;ASCII string
