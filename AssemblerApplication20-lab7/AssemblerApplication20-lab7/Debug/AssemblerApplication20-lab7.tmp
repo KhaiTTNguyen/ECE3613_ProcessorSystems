@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega324PB"</DEVICE>
+ <WORKING_DIR>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\Debug\AssemblerApplication20-lab7.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication20-lab7.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication20-lab7.map</FILE>
+  <FILE>AssemblerApplication20-lab7.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <LOOP><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</FILE><LINE>71</LINE></LOOP>
+  <COUNT_0x1C_LOOP><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</FILE><LINE>85</LINE></COUNT_0x1C_LOOP>
+  <inc_count><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</FILE><LINE>95</LINE></inc_count>
+  <continue><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</FILE><LINE>90</LINE></continue>
+  <stop><FILE>c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm</FILE><LINE>93</LINE></stop>
+ </LABELS>
+</ASSEMBLER_INFO>

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-Zreg\AssemblerApplication20-Zreg\main.asm Wed Mar 10 11:54:53 2021
+AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-lab7\AssemblerApplication20-lab7\main.asm Wed Mar 10 16:06:43 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
@@ -1619,77 +1619,101 @@ AVRASM ver. 2.2.8  c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerAppli
                                  
                                  
                                  
-                                 ; AssemblerApplication20-Zreg.asm
+                                 ; AssemblerApplication20-lab7.asm
                                  ;
-                                 ; Created: 3/10/2021 11:16:31 AM
+                                 ; Created: 3/10/2021 3:06:20 PM
                                  ; Author : KhaiNguyen
                                  ;
+                                 /* ACTIVITY 1. Write a program that uses a LOOP to add the integers from 1 to 100.*/
                                  /*
-                                 .ORG $200
-                                 DATA1: .DB 1,8,5,3
-                                 DATA2: .DB 28  ;DECIMAL(1C in hex)
-                                 DATA3: .DB 0b00110101  ;BINARY (35 in hex)
-                                 DATA4: .DB 0x39  ;HEX
-                                 DATA5: .DB 'Y'  ;single ASCII char
-                                 DATA6: .DB '2','0','0','5';ASCII numbers
-                                 DATA7: .DB "Hello Doc" ;ASCII string
-                                 here: jmp here
-                                 */
+                                 .equ n1=1			; start here
+                                 .equ n2=100			; end here
+                                 .def ii=r16			; .def assign to a register	
+                                 .def sumHi=r19		; hold higher byte off addition
+                                 .def sumLo=r18		; hold lower byte off addition
+                                 start:
+                                 	ldi ii, n1		; r16=ii=n1=1
+                                 	ldi sumHi,0		; init reg to 0
+                                 	ldi sumLo,0
+                                 	ldi r25,0		; keep adc inside my loop
+                                 loop:
+                                 	cpi ii,n2+1		; check if we at 101
+                                 	breq done
+                                 	add sumLo,ii	; add lower order byte
+                                 	adc sumHi,r25	; picksup carry (if generated from lower byte)
+                                 	inc ii
+                                 	rjmp loop
+                                 done:
+                                 	nop
+                                 	*/
+                                 
+                                 /* ACT 2 - count the number of elements starting at 0x0100 of 8-bit integers that are a multiple of 4.*/
                                  /*
-                                 .ORG 0X00
-                                  LDI ZH,HIGH(MYNAME<<1);Z REGISTER
-                                  LDI ZL,LOW(MYNAME<<1)
-                                  LDI XH,HIGH(0X0210);X REGISTER
-                                  LDI XL,LOW(0X0210)
-                                 LDI R16,$FF
-                                 OUT DDRA,R16;PORTA IS OUTPUT
-                                  LDI R18,4;4 LETTERS IN NAME
-                                  LOOP:
-                                  LPM R20,Z+	;GET DATA FROM FLASH
-                                  ST X+,R20	;STORE IT IN SRAM
-                                 OUT PORTA,R20
-                                 ;;CPI r20,0
-                                 ;brne here
-                                 DEC R18	;COUNT DOWN
-                                  BRNE LOOP	;BRANCH
-                                  HERE: JMP HERE
-                                 .ORG $500
-                                 MYNAME: .DB "JOHN",0 ;ASCII string
+                                 ldi r16,11					;first number
+                                 ldi r17,30					;counter for loop
+                                 ldi XL,LOW(SRAM_START)		;LOWER PART OF XL=0X00
+                                 ldi XH,HIGH(SRAM_START)		;UPPER PART OF XH=0X01
+                                 LOOP:
+                                 	ST X+,R16				;PLACES R16 IN SRAM POINTED AT BY X REG
+                                 	INC R16					;MOVE TO NEXT NUMBER
+                                 	DEC R17
+                                 	BRNE LOOP
+                                 nop 
+                                 
+                                 ; need to reinitialize X-reg, now it's pointing to 0x010*
+                                 .def COUNT_DIV4=r19			; counter for #'s divisible by 4
+                                 ldi r16,11					; first number
+                                 ldi r17,30					; counter for loop
+                                 ldi r19, 0					; counter for #'s divisible by 4
+                                 ldi XL,LOW(SRAM_START)		; LOWER PART OF XL=0X00
+                                 ldi XH,HIGH(SRAM_START)		; UPPER PART OF XH=0X01
+                                 DIV4_COUNT_LOOP:
+                                 LD R18, X+					; takes contensts
+                                 ANDI r18, 0b00000011		; mask all bits except 0&1
+                                 CPI r18, 0x00				; check if last 2 bits are both 0
+                                 breq inc_count
+                                 continue: 
+                                 	dec r17
+                                 	brne DIV4_COUNT_LOOP
+                                 stop: rjmp stop
+                                 
+                                 inc_count:
+                                 	inc COUNT_DIV4
+                                 	rjmp continue
                                  */
                                  
-                                 /*Write a program to read the following message from ROM and place it in data
+                                 /* ACT 3 - count the number of elements of 8-bit integers that have bits 2,3 and 4 set equal to a 1. */
                                  
-                                 RAM starting at Ox0200:
+000000 e00b                      ldi r16,11					;first number
+000001 e11e                      ldi r17,30					;counter for loop
+000002 e0a0                      ldi XL,LOW(SRAM_START)		;LOWER PART OF XL=0X00
+000003 e0b1                      ldi XH,HIGH(SRAM_START)		;UPPER PART OF XH=0X01
+                                 LOOP:
+000004 930d                      	ST X+,R16				;PLACES R16 IN SRAM POINTED AT BY X REG
+000005 9503                      	INC R16					;MOVE TO NEXT NUMBER
+000006 951a                      	DEC R17
+000007 f7e1                      	BRNE LOOP
+000008 0000                      nop 
                                  
-                                 .ORG  Ox600
+                                 ; need to reinitialize X-reg, now it's pointing to 0x010*
+                                 .def COUNT_0x1C=r19			; counter for #'s divisible by 4
+000009 e00b                      ldi r16,11					; first number
+00000a e11e                      ldi r17,30					; counter for loop
+00000b e030                      ldi COUNT_0x1C, 0			; counter for #'s divisible by 4
+00000c e0a0                      ldi XL,LOW(SRAM_START)		; LOWER PART OF XL=0X00
+00000d e0b1                      ldi XH,HIGH(SRAM_START)		; UPPER PART OF XH=0X01
+                                 COUNT_0x1C_LOOP:
+00000e 912d                      LD R18, X+					; takes contensts
+00000f 712c                      ANDI r18, 0x1C				; mask all bits except 2,3,4 - 0x1C = 0b00011100
+000010 312c                      CPI r18, 0x1C				; check if last 2 bits are both 0
+000011 f019                      breq inc_count
+                                 continue: 
+000012 951a                      	dec r17
+000013 f7d1                      	brne COUNT_0x1C_LOOP
+000014 cfff                      stop: rjmp stop
                                  
-                                 MYDATA:            . DB       "1-800-999-9999", 0*/
-                                 .ORG 0x00
-000000 e0fc                       LDI ZH,HIGH(MYDATA<<1);Z REGISTER
-000001 e0e0                       LDI ZL,LOW(MYDATA<<1)
-000002 e0b2                       LDI XH,HIGH(0x0200);X REGISTER
-000003 e0a0                       LDI XL,LOW(0x0200)
-000004 ef0f                      LDI R16,$FF
-000005 b901                      OUT DDRA,R16;PORTA IS OUTPUT
-                                 
-                                  LOOP:
-000006 9145                       LPM R20,Z+	;GET DATA FROM FLASH - LPM/Load from Prog Mem
-000007 3040                      CPI r20,0
-000008 f021                      breq HERE 
-000009 934d                      ST X+,R20	;STORE IT IN SRAM
-00000a b942                      OUT PORTA,R20
-00000b 952a                      DEC R18	;COUNT DOWN
-00000c f7c9                       BRNE LOOP	;BRANCH
-00000d 940c 000d                  HERE: JMP HERE
-                                 .ORG $600
-000600 2d31
-000601 3038
-000602 2d30
-000603 3939
-000604 2d39
-000605 3939
-000606 3939
-c:\users\khainguyen\Documents\Atmel Studio\7.0\AssemblerApplication20-Zreg\AssemblerApplication20-Zreg\main.asm(65): warning: .cseg .db misalignment - padding zero byte
+                                 inc_count:
+000015 9533                      	inc COUNT_0x1C
 
 
 RESOURCE USE INFORMATION
@@ -1707,40 +1731,40 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega324PB" register use summary:
-x  :   1 y  :   0 z  :   1 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
+x  :   2 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   2 r17:   0 r18:   1 r19:   0 r20:   4 
-r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   1 r27:   1 r28:   0 
-r29:   0 r30:   1 r31:   1 
-Registers used: 9 out of 35 (25.7%)
+r13:   0 r14:   0 r15:   0 r16:   4 r17:   4 r18:   3 r19:   2 r20:   0 
+r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   2 r27:   2 r28:   0 
+r29:   0 r30:   0 r31:   0 
+Registers used: 7 out of 35 (20.0%)
 
 "ATmega324PB" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
-andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
+andi  :   1 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
 brcc  :   0 brcs  :   0 break :   0 breq  :   1 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   1 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brne  :   2 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   1 cpse  :   0 dec   :   1 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :   1 
-ld    :   0 ldd   :   0 ldi   :   5 lds   :   0 lpm   :   1 lsl   :   0 
+cpi   :   1 cpse  :   0 dec   :   2 eor   :   0 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   2 jmp   :   0 
+ld    :   1 ldd   :   0 ldi   :   9 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   2 pop   :   0 
-push  :   0 rcall :   0 ret   :   0 reti  :   0 rjmp  :   0 rol   :   0 
+neg   :   0 nop   :   1 or    :   0 ori   :   0 out   :   0 pop   :   0 
+push  :   0 rcall :   0 ret   :   0 reti  :   0 rjmp  :   2 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   1 std   :   0 sts   :   0 
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 9 out of 113 (8.0%)
+Instructions used: 11 out of 113 (9.7%)
 
 "ATmega324PB" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000c10     30     16     46   32768   0.1%
+[.cseg] 0x000000 0x00002e     46      0     46   32768   0.1%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
-Assembly complete, 0 errors, 1 warnings
+Assembly complete, 0 errors, 0 warnings
