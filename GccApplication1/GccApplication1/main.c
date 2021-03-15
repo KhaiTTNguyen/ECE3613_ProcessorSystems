@@ -5,8 +5,9 @@
  * Author : KhaiNguyen
  */ 
 
-
-#include <avr/io.h> //standard AVR header#define F_CPU 16000000UL// Define CPU frequency for delay.h#include <util/delay.h>#define PINB0 0int main(void){	unsigned char one, eight, nine, zero;	 one=0b00000110;	// two=0b01011011;	// three=0b01001111;	// four=0b01100110;	//five=0b01101101;	//six=0b01111100;	// seven=0b0000111;	eight=0b01111111;	nine=0b01100111;	zero=0b00111111;DDRA = 0xFF; //PORTA is outputPORTB=0xFF;//activate pullupsDDRB=0x00;//inputwhile (1){	if(PINB & (1<<PINB0))	{		PORTA=zero;		_delay_ms(500);		PORTA=one;		_delay_ms(500);	}		else		{					PORTA=nine;		_delay_ms(500);		PORTA=eight;		_delay_ms(500);		}		}return 0;}
+/* Write a C program so that when pin 0 on PORTB is LOW then count up from 0 to 9 on the 7 segment display with a delay between each number of 500 msec. 
+Also when when pin 0 on PORTB is HIGH then count Down from 9 to 0 on the 7 segment display with a delay between each number of 1000 msec.*/
+//AVR header#include <avr/io.h> //standard AVR#define F_CPU 16000000UL// Define CPU frequency for delay.h#include <util/delay.h>#define PINB0 0int main(void){	unsigned char one, eight, nine, zero;	one=0b00000110;	// two=0b01011011;	// three=0b01001111;	// four=0b01100110;	//five=0b01101101;	//six=0b01111100;	// seven=0b0000111;	eight=0b01111111;	nine=0b01100111;	zero=0b00111111;	DDRA= 0xFF; //PORTA is output		change portA switches to turn on 7seg	PORTB=0xFF;//activate pullups	DDRB=0x00;//input			while (1) {		if(PINB & (1<<PINB0))		{			PORTA=zero;			_delay_ms(500);			PORTA=one;			_delay_ms(500);		}		else		{						PORTA=nine;			_delay_ms(500);			PORTA=eight;			_delay_ms(500);		}			}	return 0;}
 
 
 /*
