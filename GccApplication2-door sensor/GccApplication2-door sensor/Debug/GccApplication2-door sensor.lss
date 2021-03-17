@@ -158,7 +158,7 @@ int main(void)
  13c:	fc 01       	movw	r30, r24
  13e:	20 83       	st	Z, r18
  140:	ec cf       	rjmp	.-40     	; 0x11a <main+0x36>
-			}else{
+		}else{
 			PORTA=PORTA & ~(1<<LED);			// turn off PA7
  142:	82 e2       	ldi	r24, 0x22	; 34
  144:	90 e0       	ldi	r25, 0x00	; 0
