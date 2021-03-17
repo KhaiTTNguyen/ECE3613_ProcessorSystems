@@ -1,6 +1,6 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.8</VERSION>
- <DEVICE>"ATmega324PA"</DEVICE>
+ <DEVICE>"ATmega324PB"</DEVICE>
  <WORKING_DIR>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
@@ -9,7 +9,7 @@
  </INCLUDE_PATH>
  <SOURCE_FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</SOURCE_FILE>
  <INCLUDED_FILES>
-  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PAdef.inc</FILE>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
   <FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\Debug\AssemblerApplication21.obj</FILE>
@@ -22,11 +22,14 @@
   <FILE>AssemblerApplication21.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <DataSet1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>48</LINE></DataSet1>
-  <Main><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>16</LINE></Main>
-  <DataSet2><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>49</LINE></DataSet2>
-  <Main1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>28</LINE></Main1>
-  <DataSet3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>50</LINE></DataSet3>
-  <Main2><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>41</LINE></Main2>
+  <LASTNAME><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>114</LINE></LASTNAME>
+  <Main3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>74</LINE></Main3>
+  <LOOP><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>88</LINE></LOOP>
+  <WAIT><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>89</LINE></WAIT>
+  <DELAY><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>117</LINE></DELAY>
+  <HERE><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>111</LINE></HERE>
+  <L1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>120</LINE></L1>
+  <L2><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>121</LINE></L2>
+  <L3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>122</LINE></L3>
  </LABELS>
 </ASSEMBLER_INFO>
