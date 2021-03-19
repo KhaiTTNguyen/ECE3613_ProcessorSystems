@@ -22,14 +22,14 @@
   <FILE>AssemblerApplication21.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <LASTNAME><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>114</LINE></LASTNAME>
-  <Main3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>74</LINE></Main3>
-  <LOOP><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>88</LINE></LOOP>
-  <WAIT><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>89</LINE></WAIT>
-  <DELAY><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>117</LINE></DELAY>
-  <HERE><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>111</LINE></HERE>
-  <L1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>120</LINE></L1>
-  <L2><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>121</LINE></L2>
-  <L3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>122</LINE></L3>
+  <LASTNAME><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>115</LINE></LASTNAME>
+  <Main3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>75</LINE></Main3>
+  <LOOP><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>89</LINE></LOOP>
+  <WAIT><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>90</LINE></WAIT>
+  <DELAY><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>118</LINE></DELAY>
+  <HERE><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>112</LINE></HERE>
+  <L1><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>121</LINE></L1>
+  <L2><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>122</LINE></L2>
+  <L3><FILE>C:\Users\KhaiNguyen\Documents\Atmel Studio\7.0\AssemblerApplication21\AssemblerApplication21\main.asm</FILE><LINE>123</LINE></L3>
  </LABELS>
 </ASSEMBLER_INFO>

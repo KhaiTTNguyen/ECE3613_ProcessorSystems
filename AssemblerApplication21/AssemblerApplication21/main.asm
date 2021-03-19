@@ -61,6 +61,7 @@ starting location 0x0010. Read it out of EEPROM and send the hexadecimal value f
 in your last name to PORTA with a delay of 0.5sec between each character (fill the name table
 provided in the worksheet). Run this in hardware on the 324PB.
 */
+
 LDI R16, 0xFF
 OUT DDRA, R16
 // SETUP POINTERS
