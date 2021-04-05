@@ -663,20 +663,20 @@ _delay_loop_2(uint16_t __count)
 	_delay_ms(1);
 	OLED_Clear(); //clear the display (for good measure)
      4b0:	0e 94 86 06 	call	0xd0c	; 0xd0c <OLED_Clear>
-sei();
+	sei();
      4b4:	78 94       	sei
-PORTB = 0xFF;
+	PORTB = 0xFF;
      4b6:	85 e2       	ldi	r24, 0x25	; 37
      4b8:	90 e0       	ldi	r25, 0x00	; 0
      4ba:	2f ef       	ldi	r18, 0xFF	; 255
      4bc:	fc 01       	movw	r30, r24
      4be:	20 83       	st	Z, r18
-while (1)
-{
-	//repeat forever
-	do
+	while (1)
 	{
-		PORTA = TCNT0; //place value on pins
+		//repeat forever
+		do
+		{
+			PORTA = TCNT0; //place value on pins
      4c0:	82 e2       	ldi	r24, 0x22	; 34
      4c2:	90 e0       	ldi	r25, 0x00	; 0
      4c4:	26 e4       	ldi	r18, 0x46	; 70
@@ -685,19 +685,19 @@ while (1)
      4ca:	20 81       	ld	r18, Z
      4cc:	fc 01       	movw	r30, r24
      4ce:	20 83       	st	Z, r18
-		OLED_SetCursor(1, 0);
+			OLED_SetCursor(1, 0);
      4d0:	60 e0       	ldi	r22, 0x00	; 0
      4d2:	81 e0       	ldi	r24, 0x01	; 1
      4d4:	0e 94 e8 06 	call	0xdd0	; 0xdd0 <OLED_SetCursor>
-		OLED_DisplayString(text);
+			OLED_DisplayString(text);
      4d8:	ce 01       	movw	r24, r28
      4da:	0f 96       	adiw	r24, 0x0f	; 15
      4dc:	0e 94 59 03 	call	0x6b2	; 0x6b2 <OLED_DisplayString>
-		OLED_SetCursor(4, 0);
+			OLED_SetCursor(4, 0);
      4e0:	60 e0       	ldi	r22, 0x00	; 0
      4e2:	84 e0       	ldi	r24, 0x04	; 4
      4e4:	0e 94 e8 06 	call	0xdd0	; 0xdd0 <OLED_SetCursor>
-		OLED_Printf(" uint8_t count: ");
+			OLED_Printf(" uint8_t count: ");
      4e8:	80 e0       	ldi	r24, 0x00	; 0
      4ea:	91 e0       	ldi	r25, 0x01	; 1
      4ec:	89 2f       	mov	r24, r25
@@ -708,7 +708,7 @@ while (1)
      4f6:	0e 94 cf 04 	call	0x99e	; 0x99e <OLED_Printf>
      4fa:	0f 90       	pop	r0
      4fc:	0f 90       	pop	r0
-		OLED_DisplayNumber(C_DECIMAL_U8,TCNT0,3);
+			OLED_DisplayNumber(C_DECIMAL_U8,TCNT0,3);
      4fe:	86 e4       	ldi	r24, 0x46	; 70
      500:	90 e0       	ldi	r25, 0x00	; 0
      502:	fc 01       	movw	r30, r24
@@ -722,7 +722,7 @@ while (1)
      512:	bd 01       	movw	r22, r26
      514:	8a e0       	ldi	r24, 0x0A	; 10
      516:	0e 94 78 03 	call	0x6f0	; 0x6f0 <OLED_DisplayNumber>
-		OLED_HorizontalGraph(2,TCNT0*100/256);
+			OLED_HorizontalGraph(2,TCNT0*100/256);
      51a:	86 e4       	ldi	r24, 0x46	; 70
      51c:	90 e0       	ldi	r25, 0x00	; 0
      51e:	fc 01       	movw	r30, r24
@@ -747,8 +747,8 @@ while (1)
      544:	82 e0       	ldi	r24, 0x02	; 2
      546:	0e 94 19 07 	call	0xe32	; 0xe32 <OLED_HorizontalGraph>
 
-	}
-	while((TIFR0&(0x1<<TOV0))==0);//wait for TOV1
+		}
+		while((TIFR0&(0x1<<TOV0))==0);//wait for TOV1
      54a:	85 e3       	ldi	r24, 0x35	; 53
      54c:	90 e0       	ldi	r25, 0x00	; 0
      54e:	fc 01       	movw	r30, r24
@@ -760,12 +760,12 @@ while (1)
      55a:	89 2b       	or	r24, r25
      55c:	09 f4       	brne	.+2      	; 0x560 <__EEPROM_REGION_LENGTH__+0x160>
      55e:	b0 cf       	rjmp	.-160    	; 0x4c0 <__EEPROM_REGION_LENGTH__+0xc0>
-	TIFR0 = 0x1<TOV0; //clear TOV1
+		TIFR0 = 0x1<TOV0; //clear TOV1
      560:	85 e3       	ldi	r24, 0x35	; 53
      562:	90 e0       	ldi	r25, 0x00	; 0
      564:	fc 01       	movw	r30, r24
      566:	10 82       	st	Z, r1
-}
+	}
      568:	ab cf       	rjmp	.-170    	; 0x4c0 <__EEPROM_REGION_LENGTH__+0xc0>
 
 0000056a <OLED_Init>:
