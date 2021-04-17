@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-hardware-interrupts\AssemblerApplication26-hardware-interrupts\main.asm Wed Apr 14 11:37:03 2021
+AVRASM ver. 2.2.8  C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-hardware-interrupts\AssemblerApplication26-hardware-interrupts\main.asm Sat Apr 17 14:46:21 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
@@ -1630,32 +1630,33 @@ AVRASM ver. 2.2.8  C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerAppl
                                   .ORG 0x02 ; Org the ISR from the Vector Table
                                  ; INTO is located at 0x02
 000002 940c 0016                 JMP  EX0_ISR 
-                                   MAIN: 
-000004 e048                        LDI R20,HIGH(RAMEND)
-000005 bf4e                        OUT SPH,R20 
-000006 ef4f                        LDI R20,LOW(RAMEND) 
-000007 bf4d                        OUT SPL,R20
-000008 ef0f                        LDI R16,$FF
-000009 b901                        OUT DDRA,R16
+                                 MAIN: 
+000004 e048                      LDI R20,HIGH(RAMEND)
+000005 bf4e                      OUT SPH,R20 
+000006 ef4f                      LDI R20,LOW(RAMEND) 
+000007 bf4d                      OUT SPL,R20
+                                 ; setup I/O A output, B & PD2 input
+000008 ef0f                      LDI R16,$FF
+000009 b901                      OUT DDRA,R16
 00000a b905                      OUT PORTB,R16
-00000b 9a5a                        SBI PORTD,2
-00000c 9852                        CBI DDRD,2
+00000b 9a5a                      SBI PORTD,2
+00000c 9852                      CBI DDRD,2
+                                 // set up interrupts 
 00000d e050                      LDI r21,0
-00000e e041                      LDI R20,1<<INT0
-00000f bb4d                        OUT EIMSK,R20 
-000010 e042                        LDI R20,0X02 ;MAKE int0 FALLING EDGE TRIGGER
-000011 9340 0069                   STS 0X0069,r20
-                                   ; OUT EICRA,R20
-000013 9478                        SEI ; SET THE INTERRUPT ENABLE FLAG 
+00000e e041                      LDI R20,1<<INT0 ; for couting PD2 pulses
+00000f bb4d                      OUT EIMSK,R20 
+000010 e042                      LDI R20,0X02 ;MAKE int0 FALLING EDGE TRIGGER
+000011 9340 0069                 STS 0X0069,r20
+000013 9478                      SEI ; SET THE INTERRUPT ENABLE FLAG <-----------------
                                  HERE:
                                  ; This is like a while(1) loop
                                  ; We can anything here until 
                                  ; the ISR is activated
-000014 940c 0014                   JMP HERE
-                                   EX0_ISR: 
-000016 9553                      INC R21
-000017 b952                       OUT PORTA,R21 
-000018 9518                        RETI
+000014 940c 0014                 JMP HERE
+                                 EX0_ISR: 
+000016 9553                      	INC R21
+000017 b952                      	OUT PORTA,R21 
+000018 9518                      	RETI
 
 
 RESOURCE USE INFORMATION

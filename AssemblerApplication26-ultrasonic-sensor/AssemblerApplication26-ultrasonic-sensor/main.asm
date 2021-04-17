@@ -4,7 +4,7 @@
 ; Created: 4/14/2021 3:16:06 PM
 ; Author : Khai Nguyen
 ;
-
+/*
 // Act 1
 .ORG	0x0	;location for reset 
 	JMP	MAIN
@@ -45,10 +45,10 @@ T0_CM_ISR:
 LDI R20,0  ;reset TCNT0 
 OUT TCNT0,R20; load for next round
 RETI
-
+*/
 
 // Act 2
-/*
+
 .ORG 0x0;location for reset 
 JMP MAIN
 .ORG 0x1E;location for Timer1 oveflow - grab from Reset & Interrupt vector table
@@ -101,4 +101,3 @@ LDI R20,LOW(-7812)
 STS TCNT1L,R20
 ;OUT TCNT1L,R20;TCNT1L = 0xF0, TCNT1H = TEMP
 RETI
-*/

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-ultrasonic-sensor\AssemblerApplication26-ultrasonic-sensor\main.asm Wed Apr 14 17:22:28 2021
+AVRASM ver. 2.2.8  C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-ultrasonic-sensor\AssemblerApplication26-ultrasonic-sensor\main.asm Sat Apr 17 16:26:19 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc'
@@ -1624,103 +1624,103 @@ AVRASM ver. 2.2.8  C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerAppl
                                  ; Created: 4/14/2021 3:16:06 PM
                                  ; Author : Khai Nguyen
                                  ;
-                                 
+                                 /*
                                  // Act 1
                                  .ORG	0x0	;location for reset 
-000000 940c 0100                 	JMP	MAIN
+                                 	JMP	MAIN
                                  .ORG	0x22	;location for Timer0 compare match B from Interrupt vector table
-000022 940c 0117                 	JMP	T0_CM_ISR
+                                 	JMP	T0_CM_ISR
                                  ;-main program for initialization and keeping CPU busy
                                  .ORG	0x100
                                  MAIN:	
-000100 e048                      	LDI	R20,HIGH(RAMEND)
-000101 bf4e                      	OUT	SPH,R20
-000102 ef4f                      	LDI	R20,LOW(RAMEND)
-000103 bf4d                      	OUT	SPL,R20
+                                 	LDI	R20,HIGH(RAMEND)
+                                 	OUT	SPH,R20
+                                 	LDI	R20,LOW(RAMEND)
+                                 	OUT	SPL,R20
                                  
-000104 e249                      	LDI	R20,41		
-000105 bd48                      	OUT	OCR0B,R20	     ;OCR0 = 41
-000106 e04b                      	LDI	R20,0x0B;use 0x0B CTC mode 64 prescaling ; 0b00001011
-000107 bd45                      	OUT TCCR0B,R20  
-000108 9a0d                      	SBI	DDRA,5	     ;PA5 as an output
-000109 e044                      	LDI	R20,(1<<OCIE0B) ;Timer0 compare match 
+                                 	LDI	R20,41		
+                                 	OUT	OCR0B,R20	     ;OCR0 = 41
+                                 	LDI	R20,0x0B;use 0x0B CTC mode 64 prescaling ; 0b00001011
+                                 	OUT TCCR0B,R20  
+                                 	SBI	DDRA,5	     ;PA5 as an output
+                                 	LDI	R20,(1<<OCIE0B) ;Timer0 compare match 
                                  	;OUT	TIMSK0,R20 ;doesn't work
-00010a 9340 006e                 	STS 0x006E,R20
-00010c 9478                      	SEI		   ;Set global interrupt 	
-00010d e040                      	LDI	R20,0x00
-00010e b944                      	OUT	DDRB,R20	   ;make PORTB input
-00010f ef4f                      	LDI	R20,0xFF
-000110 b945                      	OUT PORTB,R20
-000111 b94a                      	OUT	DDRD,R20	   ;make PORTD & A output
-000112 b941                      	OUT DDRA,R20
-000113 b143                      	HERE:	IN	R20,PINB	  
-000114 b942                      	OUT 	PORTA,R20   
-000115 940c 0113                 	JMP	HERE	
+                                 	STS 0x006E,R20
+                                 	SEI		   ;Set global interrupt 	
+                                 	LDI	R20,0x00
+                                 	OUT	DDRB,R20	   ;make PORTB input
+                                 	LDI	R20,0xFF
+                                 	OUT PORTB,R20
+                                 	OUT	DDRD,R20	   ;make PORTD & A output
+                                 	OUT DDRA,R20
+                                 	HERE:	IN	R20,PINB	  
+                                 	OUT 	PORTA,R20   
+                                 	JMP	HERE	
                                  ;--------ISR for Timer 0	
                                  T0_CM_ISR:
-000117 b10b                      	IN	R16,PORTD
-000118 ef1f                      	LDI	R17,0xFF
-000119 2701                      	EOR	R16,R17
-00011a b90b                      	OUT 	PORTD,R16
-00011b e040                      LDI R20,0  ;reset TCNT0 
-00011c bd46                      OUT TCNT0,R20; load for next round
-00011d 9518                      RETI
-                                 
+                                 	IN	R16,PORTD
+                                 	LDI	R17,0xFF
+                                 	EOR	R16,R17
+                                 	OUT 	PORTD,R16
+                                 LDI R20,0  ;reset TCNT0 
+                                 OUT TCNT0,R20; load for next round
+                                 RETI
+                                 */
                                  
                                  // Act 2
-                                 /*
+                                 
                                  .ORG 0x0;location for reset 
-                                 JMP MAIN
+000000 940c 0020                 JMP MAIN
                                  .ORG 0x1E;location for Timer1 oveflow - grab from Reset & Interrupt vector table
-                                 JMP T1_OV_ISR
+00001e 940c 011e                 JMP T1_OV_ISR
                                  ;----main program for initialization
                                  MAIN:
                                  .ORG 0x100
-                                 LDI R16,HIGH(RAMEND);init stack pointer
-                                 OUT SPH,R16
-                                 LDI R16,LOW(RAMEND)
-                                 OUT SPL,R16
-                                 LDI R20,$FF
-                                 OUT DDRA,R20;OUTPUT PORT
-                                 OUT DDRD,R20;OUTPUT PORT
-                                 OUT PORTB,R20;PULLUPS
-                                 LDI R20,0
-                                 OUT DDRB,R20;INTPUT PORT
+000100 e008                      LDI R16,HIGH(RAMEND);init stack pointer
+000101 bf0e                      OUT SPH,R16
+000102 ef0f                      LDI R16,LOW(RAMEND)
+000103 bf0d                      OUT SPL,R16
+000104 ef4f                      LDI R20,$FF
+000105 b941                      OUT DDRA,R20;OUTPUT PORT
+000106 b94a                      OUT DDRD,R20;OUTPUT PORT
+000107 b945                      OUT PORTB,R20;PULLUPS
+000108 e040                      LDI R20,0
+000109 b944                      OUT DDRB,R20;INTPUT PORT
                                  //-----------------------------------------------------
                                  ;set up Timer1 initialization 
-                                 LDI R20,(1<<TOIE1)
+00010a e041                      LDI R20,(1<<TOIE1)
                                  ;OUT TIMSK0,R20; doesn’t work
-                                 sts TIMSK1,R20; does work
-                                 LDI R20,HIGH(-7812)  ; -------------------
-                                 STS TCNT1H,R20
+00010b 9340 006f                 sts TIMSK1,R20; does work
+00010d ee41                      LDI R20,HIGH(-7812)  ; -------------------
+00010e 9340 0085                 STS TCNT1H,R20
                                  ;OUT TCNT1H,R20;
-                                 LDI R20,LOW(-7812)
-                                 STS TCNT1L,R20
+000110 e74c                      LDI R20,LOW(-7812)
+000111 9340 0084                 STS TCNT1L,R20
                                  ;OUT TCNT1L,R20; 
-                                 LDI R20,0x0
-                                 sts TCCR1A,r20			; timer control register
+000113 e040                      LDI R20,0x0
+000114 9340 0080                 sts TCCR1A,r20			; timer control register
                                  ;OUT TCCR1A,R20;WGM11:10=00
-                                 LDI R20,5			; prescaling by 1024
-                                 sts TCCR1B,r20
+000116 e045                      LDI R20,5			; prescaling by 1024
+000117 9340 0081                 sts TCCR1B,r20
                                  ;OUT TCCR1B,R20;WGM13:12=00,CS=CLK
-                                 SEI						; enable global interrupts
-                                 HERE:IN R20,PINB  
-                                 OUT PORTA,R20   
-                                 JMP HERE
+000119 9478                      SEI						; enable global interrupts
+00011a b143                      HERE:IN R20,PINB  
+00011b b942                      OUT PORTA,R20   
+00011c 940c 011a                 JMP HERE
                                  
                                  ;--------ISR for Timer 0
                                  T1_OV_ISR:
-                                 IN R16,PORTD
-                                 LDI R17,0xFF
-                                 EOR R16,R17
-                                 OUT PORTD,R16
-                                 LDI R20,HIGH(-7812)
-                                 STS TCNT1H,R20
+00011e b10b                      IN R16,PORTD
+00011f ef1f                      LDI R17,0xFF
+000120 2701                      EOR R16,R17
+000121 b90b                      OUT PORTD,R16
+000122 ee41                      LDI R20,HIGH(-7812)
+000123 9340 0085                 STS TCNT1H,R20
                                  ;OUT TCNT1H,R20;TEMP = 0xD8
-                                 LDI R20,LOW(-7812)
-                                 STS TCNT1L,R20
+000125 e74c                      LDI R20,LOW(-7812)
+000126 9340 0084                 STS TCNT1L,R20
                                  ;OUT TCNT1L,R20;TCNT1L = 0xF0, TCNT1H = TEMP
-                                 RETI
+000128 9518                      RETI
 
 
 RESOURCE USE INFORMATION
@@ -1740,7 +1740,7 @@ counted separately from r26..r31 here.
 "ATmega324PB" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   3 r17:   2 r18:   0 r19:   0 r20:  20 
+r13:   0 r14:   0 r15:   0 r16:   7 r17:   2 r18:   0 r19:   0 r20:  22 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
 Registers used: 3 out of 35 (8.6%)
@@ -1756,21 +1756,21 @@ clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
 cpi   :   0 cpse  :   0 dec   :   0 eor   :   1 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   2 inc   :   0 jmp   :   3 
-ld    :   0 ldd   :   0 ldi   :   9 lds   :   0 lpm   :   0 lsl   :   0 
+ld    :   0 ldd   :   0 ldi   :  12 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :  11 pop   :   0 
+neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   8 pop   :   0 
 push  :   0 rcall :   0 ret   :   0 reti  :   1 rjmp  :   0 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :   1 sbic  :   0 sbis  :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
-sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   1 
+sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   7 
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 9 out of 113 (8.0%)
+Instructions used: 8 out of 113 (7.1%)
 
 "ATmega324PB" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x00023c     68      0     68   32768   0.2%
+[.cseg] 0x000000 0x000252     90      0     90   32768   0.3%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 

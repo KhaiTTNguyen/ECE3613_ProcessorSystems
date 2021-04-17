@@ -23,7 +23,7 @@
  </OUTPUT_FILES>
  <LABELS>
   <MAIN><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-hardware-interrupts\AssemblerApplication26-hardware-interrupts\main.asm</FILE><LINE>13</LINE></MAIN>
-  <EX0_ISR><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-hardware-interrupts\AssemblerApplication26-hardware-interrupts\main.asm</FILE><LINE>35</LINE></EX0_ISR>
-  <HERE><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-hardware-interrupts\AssemblerApplication26-hardware-interrupts\main.asm</FILE><LINE>30</LINE></HERE>
+  <EX0_ISR><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-hardware-interrupts\AssemblerApplication26-hardware-interrupts\main.asm</FILE><LINE>36</LINE></EX0_ISR>
+  <HERE><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-hardware-interrupts\AssemblerApplication26-hardware-interrupts\main.asm</FILE><LINE>31</LINE></HERE>
  </LABELS>
 </ASSEMBLER_INFO>

@@ -22,8 +22,8 @@
   <FILE>AssemblerApplication26-ultrasonic-sensor.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <MAIN><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-ultrasonic-sensor\AssemblerApplication26-ultrasonic-sensor\main.asm</FILE><LINE>15</LINE></MAIN>
-  <T0_CM_ISR><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-ultrasonic-sensor\AssemblerApplication26-ultrasonic-sensor\main.asm</FILE><LINE>40</LINE></T0_CM_ISR>
-  <HERE><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-ultrasonic-sensor\AssemblerApplication26-ultrasonic-sensor\main.asm</FILE><LINE>36</LINE></HERE>
+  <MAIN><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-ultrasonic-sensor\AssemblerApplication26-ultrasonic-sensor\main.asm</FILE><LINE>57</LINE></MAIN>
+  <T1_OV_ISR><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-ultrasonic-sensor\AssemblerApplication26-ultrasonic-sensor\main.asm</FILE><LINE>92</LINE></T1_OV_ISR>
+  <HERE><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26-ultrasonic-sensor\AssemblerApplication26-ultrasonic-sensor\main.asm</FILE><LINE>87</LINE></HERE>
  </LABELS>
 </ASSEMBLER_INFO>
