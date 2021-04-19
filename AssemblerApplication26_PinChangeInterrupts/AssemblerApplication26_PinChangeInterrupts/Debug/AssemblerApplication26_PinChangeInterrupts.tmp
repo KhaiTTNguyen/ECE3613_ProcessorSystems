@@ -1,0 +1,29 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega324PB"</DEVICE>
+ <WORKING_DIR>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26_PinChangeInterrupts\AssemblerApplication26_PinChangeInterrupts\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26_PinChangeInterrupts\AssemblerApplication26_PinChangeInterrupts\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m324PBdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26_PinChangeInterrupts\AssemblerApplication26_PinChangeInterrupts\Debug\AssemblerApplication26_PinChangeInterrupts.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication26_PinChangeInterrupts.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication26_PinChangeInterrupts.map</FILE>
+  <FILE>AssemblerApplication26_PinChangeInterrupts.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MAIN><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26_PinChangeInterrupts\AssemblerApplication26_PinChangeInterrupts\main.asm</FILE><LINE>14</LINE></MAIN>
+  <EX0_ISR><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26_PinChangeInterrupts\AssemblerApplication26_PinChangeInterrupts\main.asm</FILE><LINE>35</LINE></EX0_ISR>
+  <HERE><FILE>C:\Users\Khai Nguyen\Documents\Atmel Studio\7.0\AssemblerApplication26_PinChangeInterrupts\AssemblerApplication26_PinChangeInterrupts\main.asm</FILE><LINE>28</LINE></HERE>
+ </LABELS>
+</ASSEMBLER_INFO>
