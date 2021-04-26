@@ -1,0 +1,2227 @@
+
+GccApplication6-ultrasonic-sensor.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000020a  00800100  00000e0a  00000e9e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000e0a  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000007  0080030a  0080030a  000010a8  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000010a8  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000010d8  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000158  00000000  00000000  00001118  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00001ef7  00000000  00000000  00001270  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000e07  00000000  00000000  00003167  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000110f  00000000  00000000  00003f6e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000430  00000000  00000000  00005080  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000093d  00000000  00000000  000054b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00001244  00000000  00000000  00005ded  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000128  00000000  00000000  00007031  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 ba 00 	jmp	0x174	; 0x174 <__ctors_end>
+   4:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+   8:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+   c:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  10:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  14:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  18:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  1c:	0c 94 dc 01 	jmp	0x3b8	; 0x3b8 <__vector_7>
+  20:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  24:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  28:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  2c:	0c 94 a7 01 	jmp	0x34e	; 0x34e <__vector_11>
+  30:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  34:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  38:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  3c:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  40:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  44:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  48:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  4c:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  50:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  54:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  58:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  5c:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  60:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  64:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  68:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  6c:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  70:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  74:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  78:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  7c:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  80:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  84:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  88:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  8c:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  90:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  94:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  98:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  9c:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  a0:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  a4:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  a8:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  ac:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  b0:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  b4:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  b8:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  bc:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  c0:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  c4:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  c8:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__bad_interrupt>
+  cc:	24 05       	cpc	r18, r4
+  ce:	2a 05       	cpc	r18, r10
+  d0:	2a 05       	cpc	r18, r10
+  d2:	2a 05       	cpc	r18, r10
+  d4:	2a 05       	cpc	r18, r10
+  d6:	2a 05       	cpc	r18, r10
+  d8:	2a 05       	cpc	r18, r10
+  da:	2a 05       	cpc	r18, r10
+  dc:	2a 05       	cpc	r18, r10
+  de:	2a 05       	cpc	r18, r10
+  e0:	2a 05       	cpc	r18, r10
+  e2:	2a 05       	cpc	r18, r10
+  e4:	2a 05       	cpc	r18, r10
+  e6:	2a 05       	cpc	r18, r10
+  e8:	2a 05       	cpc	r18, r10
+  ea:	2a 05       	cpc	r18, r10
+  ec:	2a 05       	cpc	r18, r10
+  ee:	2a 05       	cpc	r18, r10
+  f0:	2a 05       	cpc	r18, r10
+  f2:	2a 05       	cpc	r18, r10
+  f4:	2a 05       	cpc	r18, r10
+  f6:	2a 05       	cpc	r18, r10
+  f8:	2a 05       	cpc	r18, r10
+  fa:	2a 05       	cpc	r18, r10
+  fc:	2a 05       	cpc	r18, r10
+  fe:	2a 05       	cpc	r18, r10
+ 100:	2a 05       	cpc	r18, r10
+ 102:	2a 05       	cpc	r18, r10
+ 104:	2a 05       	cpc	r18, r10
+ 106:	fa 04       	cpc	r15, r10
+ 108:	6b 04       	cpc	r6, r11
+ 10a:	8e 04       	cpc	r8, r14
+ 10c:	2a 05       	cpc	r18, r10
+ 10e:	0c 05       	cpc	r16, r12
+ 110:	2a 05       	cpc	r18, r10
+ 112:	2a 05       	cpc	r18, r10
+ 114:	2a 05       	cpc	r18, r10
+ 116:	2a 05       	cpc	r18, r10
+ 118:	2a 05       	cpc	r18, r10
+ 11a:	2a 05       	cpc	r18, r10
+ 11c:	2a 05       	cpc	r18, r10
+ 11e:	2a 05       	cpc	r18, r10
+ 120:	2a 05       	cpc	r18, r10
+ 122:	2a 05       	cpc	r18, r10
+ 124:	2a 05       	cpc	r18, r10
+ 126:	2a 05       	cpc	r18, r10
+ 128:	19 05       	cpc	r17, r9
+ 12a:	2a 05       	cpc	r18, r10
+ 12c:	bb 04       	cpc	r11, r11
+ 12e:	2a 05       	cpc	r18, r10
+ 130:	2a 05       	cpc	r18, r10
+ 132:	d9 04       	cpc	r13, r9
+ 134:	2a 05       	cpc	r18, r10
+ 136:	2a 05       	cpc	r18, r10
+ 138:	2a 05       	cpc	r18, r10
+ 13a:	2a 05       	cpc	r18, r10
+ 13c:	2a 05       	cpc	r18, r10
+ 13e:	2a 05       	cpc	r18, r10
+ 140:	2a 05       	cpc	r18, r10
+ 142:	2a 05       	cpc	r18, r10
+ 144:	2a 05       	cpc	r18, r10
+ 146:	e8 04       	cpc	r14, r8
+ 148:	6b 04       	cpc	r6, r11
+ 14a:	75 04       	cpc	r7, r5
+ 14c:	2a 05       	cpc	r18, r10
+ 14e:	0c 05       	cpc	r16, r12
+ 150:	2a 05       	cpc	r18, r10
+ 152:	2a 05       	cpc	r18, r10
+ 154:	2a 05       	cpc	r18, r10
+ 156:	2a 05       	cpc	r18, r10
+ 158:	2a 05       	cpc	r18, r10
+ 15a:	2a 05       	cpc	r18, r10
+ 15c:	2a 05       	cpc	r18, r10
+ 15e:	2a 05       	cpc	r18, r10
+ 160:	2a 05       	cpc	r18, r10
+ 162:	2a 05       	cpc	r18, r10
+ 164:	2a 05       	cpc	r18, r10
+ 166:	2a 05       	cpc	r18, r10
+ 168:	19 05       	cpc	r17, r9
+ 16a:	2a 05       	cpc	r18, r10
+ 16c:	ac 04       	cpc	r10, r12
+ 16e:	2a 05       	cpc	r18, r10
+ 170:	2a 05       	cpc	r18, r10
+ 172:	ca 04       	cpc	r12, r10
+
+00000174 <__ctors_end>:
+ 174:	11 24       	eor	r1, r1
+ 176:	1f be       	out	0x3f, r1	; 63
+ 178:	cf ef       	ldi	r28, 0xFF	; 255
+ 17a:	d8 e0       	ldi	r29, 0x08	; 8
+ 17c:	de bf       	out	0x3e, r29	; 62
+ 17e:	cd bf       	out	0x3d, r28	; 61
+
+00000180 <__do_copy_data>:
+ 180:	13 e0       	ldi	r17, 0x03	; 3
+ 182:	a0 e0       	ldi	r26, 0x00	; 0
+ 184:	b1 e0       	ldi	r27, 0x01	; 1
+ 186:	ea e0       	ldi	r30, 0x0A	; 10
+ 188:	fe e0       	ldi	r31, 0x0E	; 14
+ 18a:	02 c0       	rjmp	.+4      	; 0x190 <__do_copy_data+0x10>
+ 18c:	05 90       	lpm	r0, Z+
+ 18e:	0d 92       	st	X+, r0
+ 190:	aa 30       	cpi	r26, 0x0A	; 10
+ 192:	b1 07       	cpc	r27, r17
+ 194:	d9 f7       	brne	.-10     	; 0x18c <__do_copy_data+0xc>
+
+00000196 <__do_clear_bss>:
+ 196:	23 e0       	ldi	r18, 0x03	; 3
+ 198:	aa e0       	ldi	r26, 0x0A	; 10
+ 19a:	b3 e0       	ldi	r27, 0x03	; 3
+ 19c:	01 c0       	rjmp	.+2      	; 0x1a0 <.do_clear_bss_start>
+
+0000019e <.do_clear_bss_loop>:
+ 19e:	1d 92       	st	X+, r1
+
+000001a0 <.do_clear_bss_start>:
+ 1a0:	a1 31       	cpi	r26, 0x11	; 17
+ 1a2:	b2 07       	cpc	r27, r18
+ 1a4:	e1 f7       	brne	.-8      	; 0x19e <.do_clear_bss_loop>
+ 1a6:	0e 94 36 01 	call	0x26c	; 0x26c <main>
+ 1aa:	0c 94 03 07 	jmp	0xe06	; 0xe06 <_exit>
+
+000001ae <__bad_interrupt>:
+ 1ae:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000001b2 <i2c_init>:
+			I2C_ErrorCode |= (1 << I2C_READNACK);
+            return 0;
+		}
+	};
+    return TWDR;
+}
+ 1b2:	10 92 b9 00 	sts	0x00B9, r1	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7f80b9>
+ 1b6:	88 e4       	ldi	r24, 0x48	; 72
+ 1b8:	80 93 b8 00 	sts	0x00B8, r24	; 0x8000b8 <__TEXT_REGION_LENGTH__+0x7f80b8>
+ 1bc:	84 e0       	ldi	r24, 0x04	; 4
+ 1be:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+ 1c2:	08 95       	ret
+
+000001c4 <i2c_start>:
+ 1c4:	94 ea       	ldi	r25, 0xA4	; 164
+ 1c6:	90 93 bc 00 	sts	0x00BC, r25	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+ 1ca:	20 e4       	ldi	r18, 0x40	; 64
+ 1cc:	31 e0       	ldi	r19, 0x01	; 1
+ 1ce:	09 c0       	rjmp	.+18     	; 0x1e2 <i2c_start+0x1e>
+ 1d0:	21 50       	subi	r18, 0x01	; 1
+ 1d2:	31 09       	sbc	r19, r1
+ 1d4:	31 f4       	brne	.+12     	; 0x1e2 <i2c_start+0x1e>
+ 1d6:	80 91 0e 03 	lds	r24, 0x030E	; 0x80030e <I2C_ErrorCode>
+ 1da:	81 60       	ori	r24, 0x01	; 1
+ 1dc:	80 93 0e 03 	sts	0x030E, r24	; 0x80030e <I2C_ErrorCode>
+ 1e0:	08 95       	ret
+ 1e2:	90 91 bc 00 	lds	r25, 0x00BC	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+ 1e6:	99 23       	and	r25, r25
+ 1e8:	1c f0       	brlt	.+6      	; 0x1f0 <i2c_start+0x2c>
+ 1ea:	21 15       	cp	r18, r1
+ 1ec:	31 05       	cpc	r19, r1
+ 1ee:	81 f7       	brne	.-32     	; 0x1d0 <i2c_start+0xc>
+ 1f0:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7f80bb>
+ 1f4:	84 e8       	ldi	r24, 0x84	; 132
+ 1f6:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+ 1fa:	80 e4       	ldi	r24, 0x40	; 64
+ 1fc:	91 e0       	ldi	r25, 0x01	; 1
+ 1fe:	08 c0       	rjmp	.+16     	; 0x210 <i2c_start+0x4c>
+ 200:	01 97       	sbiw	r24, 0x01	; 1
+ 202:	31 f4       	brne	.+12     	; 0x210 <i2c_start+0x4c>
+ 204:	80 91 0e 03 	lds	r24, 0x030E	; 0x80030e <I2C_ErrorCode>
+ 208:	82 60       	ori	r24, 0x02	; 2
+ 20a:	80 93 0e 03 	sts	0x030E, r24	; 0x80030e <I2C_ErrorCode>
+ 20e:	08 95       	ret
+ 210:	20 91 bc 00 	lds	r18, 0x00BC	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+ 214:	22 23       	and	r18, r18
+ 216:	14 f0       	brlt	.+4      	; 0x21c <i2c_start+0x58>
+ 218:	00 97       	sbiw	r24, 0x00	; 0
+ 21a:	91 f7       	brne	.-28     	; 0x200 <i2c_start+0x3c>
+ 21c:	08 95       	ret
+
+0000021e <i2c_stop>:
+ 21e:	84 e9       	ldi	r24, 0x94	; 148
+ 220:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+ 224:	08 95       	ret
+
+00000226 <i2c_byte>:
+ 226:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7f80bb>
+ 22a:	84 e8       	ldi	r24, 0x84	; 132
+ 22c:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+ 230:	80 e4       	ldi	r24, 0x40	; 64
+ 232:	91 e0       	ldi	r25, 0x01	; 1
+ 234:	08 c0       	rjmp	.+16     	; 0x246 <i2c_byte+0x20>
+ 236:	01 97       	sbiw	r24, 0x01	; 1
+ 238:	31 f4       	brne	.+12     	; 0x246 <i2c_byte+0x20>
+ 23a:	80 91 0e 03 	lds	r24, 0x030E	; 0x80030e <I2C_ErrorCode>
+ 23e:	84 60       	ori	r24, 0x04	; 4
+ 240:	80 93 0e 03 	sts	0x030E, r24	; 0x80030e <I2C_ErrorCode>
+ 244:	08 95       	ret
+ 246:	20 91 bc 00 	lds	r18, 0x00BC	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+ 24a:	22 23       	and	r18, r18
+ 24c:	14 f0       	brlt	.+4      	; 0x252 <i2c_byte+0x2c>
+ 24e:	00 97       	sbiw	r24, 0x00	; 0
+ 250:	91 f7       	brne	.-28     	; 0x236 <i2c_byte+0x10>
+ 252:	08 95       	ret
+
+00000254 <i2c_tx_start>:
+
+//Modified section below
+void i2c_tx_start(void){
+	i2c_init();
+ 254:	0e 94 d9 00 	call	0x1b2	; 0x1b2 <i2c_init>
+ 258:	08 95       	ret
+
+0000025a <i2c_tx_address>:
+}
+void i2c_tx_address(uint8_t addr){
+	i2c_start(addr);
+ 25a:	0e 94 e2 00 	call	0x1c4	; 0x1c4 <i2c_start>
+ 25e:	08 95       	ret
+
+00000260 <i2c_tx_byte>:
+}
+void i2c_tx_byte(uint8_t ch){
+	i2c_byte(ch);
+ 260:	0e 94 13 01 	call	0x226	; 0x226 <i2c_byte>
+ 264:	08 95       	ret
+
+00000266 <i2c_tx_stop>:
+}
+void i2c_tx_stop(void){
+	i2c_stop();
+ 266:	0e 94 0f 01 	call	0x21e	; 0x21e <i2c_stop>
+ 26a:	08 95       	ret
+
+0000026c <main>:
+volatile int dist = 0;
+char str [100];
+int count = 0;
+
+
+int main(void) {
+ 26c:	cf 93       	push	r28
+ 26e:	df 93       	push	r29
+ 270:	cd b7       	in	r28, 0x3d	; 61
+ 272:	de b7       	in	r29, 0x3e	; 62
+ 274:	a2 97       	sbiw	r28, 0x22	; 34
+ 276:	0f b6       	in	r0, 0x3f	; 63
+ 278:	f8 94       	cli
+ 27a:	de bf       	out	0x3e, r29	; 62
+ 27c:	0f be       	out	0x3f, r0	; 63
+ 27e:	cd bf       	out	0x3d, r28	; 61
+	int8_t displayInverted = 1;
+	uint8_t dispNum = 0x00;
+	char text[] = "TEMPLE MADE ECE";
+ 280:	80 e1       	ldi	r24, 0x10	; 16
+ 282:	ec e0       	ldi	r30, 0x0C	; 12
+ 284:	f1 e0       	ldi	r31, 0x01	; 1
+ 286:	de 01       	movw	r26, r28
+ 288:	11 96       	adiw	r26, 0x01	; 1
+ 28a:	01 90       	ld	r0, Z+
+ 28c:	0d 92       	st	X+, r0
+ 28e:	8a 95       	dec	r24
+ 290:	e1 f7       	brne	.-8      	; 0x28a <main+0x1e>
+	char text1[] = "DR. H is the Man!";
+ 292:	82 e1       	ldi	r24, 0x12	; 18
+ 294:	ec e1       	ldi	r30, 0x1C	; 28
+ 296:	f1 e0       	ldi	r31, 0x01	; 1
+ 298:	de 01       	movw	r26, r28
+ 29a:	51 96       	adiw	r26, 0x11	; 17
+ 29c:	01 90       	ld	r0, Z+
+ 29e:	0d 92       	st	X+, r0
+ 2a0:	8a 95       	dec	r24
+ 2a2:	e1 f7       	brne	.-8      	; 0x29c <main+0x30>
+	OLED_Init(); //initialize the OLED
+ 2a4:	0e 94 89 02 	call	0x512	; 0x512 <OLED_Init>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2a8:	8f e9       	ldi	r24, 0x9F	; 159
+ 2aa:	9f e0       	ldi	r25, 0x0F	; 15
+ 2ac:	01 97       	sbiw	r24, 0x01	; 1
+ 2ae:	f1 f7       	brne	.-4      	; 0x2ac <main+0x40>
+ 2b0:	00 c0       	rjmp	.+0      	; 0x2b2 <main+0x46>
+ 2b2:	00 00       	nop
+	_delay_ms(1);
+	OLED_Clear(); //clear the display (for good measure)
+ 2b4:	0e 94 49 02 	call	0x492	; 0x492 <OLED_Clear>
+	//set up Pin Change Interrupt Registers
+	PORTD |= (1<<0);// Set Pull up resistor PD0
+ 2b8:	8b b1       	in	r24, 0x0b	; 11
+ 2ba:	81 60       	ori	r24, 0x01	; 1
+ 2bc:	8b b9       	out	0x0b, r24	; 11
+	PORTD |= (1<<1);// Set Pull up resistor PD1
+ 2be:	8b b1       	in	r24, 0x0b	; 11
+ 2c0:	82 60       	ori	r24, 0x02	; 2
+ 2c2:	8b b9       	out	0x0b, r24	; 11
+	PCICR |= (1<<PCIE3);// Pin Change Interrupt 1 Mask for PD0 is at PCIE3
+ 2c4:	e8 e6       	ldi	r30, 0x68	; 104
+ 2c6:	f0 e0       	ldi	r31, 0x00	; 0
+ 2c8:	80 81       	ld	r24, Z
+ 2ca:	88 60       	ori	r24, 0x08	; 8
+ 2cc:	80 83       	st	Z, r24
+	PCIFR|=(1<<PCIF3);// Pin Change Interrupt Flag for PD0 is at PCIF3
+ 2ce:	8b b3       	in	r24, 0x1b	; 27
+ 2d0:	88 60       	ori	r24, 0x08	; 8
+ 2d2:	8b bb       	out	0x1b, r24	; 27
+	PCMSK3 |= (1<<PCINT24)|(1<<PCINT25) ; //Enable PCINT24 and PCINT25
+ 2d4:	e3 e7       	ldi	r30, 0x73	; 115
+ 2d6:	f0 e0       	ldi	r31, 0x00	; 0
+ 2d8:	80 81       	ld	r24, Z
+ 2da:	83 60       	ori	r24, 0x03	; 3
+ 2dc:	80 83       	st	Z, r24
+	//PCMSK3 = (1<<PINGPin);// Unmask PD0 OOPS done line above
+	//set up TIMER2 Registers
+	TCCR2B = (1<<CS21);// Set TIMER2 to Normal Mode with 1:8 prescaler for 1st output pulse
+ 2de:	82 e0       	ldi	r24, 0x02	; 2
+ 2e0:	80 93 b1 00 	sts	0x00B1, r24	; 0x8000b1 <__TEXT_REGION_LENGTH__+0x7f80b1>
+	TIMSK2 = (1<<TOIE2);// Unmask TIMER2 in Normal Mode
+ 2e4:	81 e0       	ldi	r24, 0x01	; 1
+ 2e6:	80 93 70 00 	sts	0x0070, r24	; 0x800070 <__TEXT_REGION_LENGTH__+0x7f8070>
+	OCR2B = 255;// Set output compare register to 255
+ 2ea:	8f ef       	ldi	r24, 0xFF	; 255
+ 2ec:	80 93 b4 00 	sts	0x00B4, r24	; 0x8000b4 <__TEXT_REGION_LENGTH__+0x7f80b4>
+
+
+	sei();
+ 2f0:	78 94       	sei
+
+	PORTB = 0xFF;
+ 2f2:	85 b9       	out	0x05, r24	; 5
+
+
+	while (1) {
+		dispNum++;
+		OLED_SetCursor(0, 0); //set the cursor position to (0, 0)
+ 2f4:	60 e0       	ldi	r22, 0x00	; 0
+ 2f6:	80 e0       	ldi	r24, 0x00	; 0
+ 2f8:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <OLED_SetCursor>
+		OLED_SetCursor(1, 0);
+ 2fc:	60 e0       	ldi	r22, 0x00	; 0
+ 2fe:	81 e0       	ldi	r24, 0x01	; 1
+ 300:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <OLED_SetCursor>
+		OLED_DisplayString(text);
+ 304:	ce 01       	movw	r24, r28
+ 306:	01 96       	adiw	r24, 0x01	; 1
+ 308:	0e 94 3f 03 	call	0x67e	; 0x67e <OLED_DisplayString>
+		OLED_SetCursor(2, 0);
+ 30c:	60 e0       	ldi	r22, 0x00	; 0
+ 30e:	82 e0       	ldi	r24, 0x02	; 2
+ 310:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <OLED_SetCursor>
+		OLED_DisplayString(text1);
+ 314:	ce 01       	movw	r24, r28
+ 316:	41 96       	adiw	r24, 0x11	; 17
+ 318:	0e 94 3f 03 	call	0x67e	; 0x67e <OLED_DisplayString>
+		OLED_SetCursor(4, 0);
+ 31c:	60 e0       	ldi	r22, 0x00	; 0
+ 31e:	84 e0       	ldi	r24, 0x04	; 4
+ 320:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <OLED_SetCursor>
+		OLED_Printf(" distance: ");
+ 324:	80 e0       	ldi	r24, 0x00	; 0
+ 326:	91 e0       	ldi	r25, 0x01	; 1
+ 328:	9f 93       	push	r25
+ 32a:	8f 93       	push	r24
+ 32c:	0e 94 28 04 	call	0x850	; 0x850 <OLED_Printf>
+		OLED_DisplayNumber(C_DECIMAL_U8,dist,3);
+ 330:	40 91 0c 03 	lds	r20, 0x030C	; 0x80030c <dist>
+ 334:	50 91 0d 03 	lds	r21, 0x030D	; 0x80030d <dist+0x1>
+ 338:	05 2e       	mov	r0, r21
+ 33a:	00 0c       	add	r0, r0
+ 33c:	66 0b       	sbc	r22, r22
+ 33e:	77 0b       	sbc	r23, r23
+ 340:	23 e0       	ldi	r18, 0x03	; 3
+ 342:	8a e0       	ldi	r24, 0x0A	; 10
+ 344:	0e 94 4c 03 	call	0x698	; 0x698 <OLED_DisplayNumber>
+ 348:	0f 90       	pop	r0
+ 34a:	0f 90       	pop	r0
+ 34c:	d3 cf       	rjmp	.-90     	; 0x2f4 <main+0x88>
+
+0000034e <__vector_11>:
+		//_delay_ms(100);
+	}
+
+	return 0; // never reached
+}
+ISR(TIMER2_OVF_vect) {
+ 34e:	1f 92       	push	r1
+ 350:	0f 92       	push	r0
+ 352:	0f b6       	in	r0, 0x3f	; 63
+ 354:	0f 92       	push	r0
+ 356:	11 24       	eor	r1, r1
+ 358:	8f 93       	push	r24
+	if (OCR2B == 255) {
+ 35a:	80 91 b4 00 	lds	r24, 0x00B4	; 0x8000b4 <__TEXT_REGION_LENGTH__+0x7f80b4>
+ 35e:	8f 3f       	cpi	r24, 0xFF	; 255
+ 360:	69 f4       	brne	.+26     	; 0x37c <__vector_11+0x2e>
+		TCCR2B = (1<<CS21);// Set TIMER2 to Normal Mode with 1:8 prescaler
+ 362:	82 e0       	ldi	r24, 0x02	; 2
+ 364:	80 93 b1 00 	sts	0x00B1, r24	; 0x8000b1 <__TEXT_REGION_LENGTH__+0x7f80b1>
+		DDRD |= (1<<PINGPin);// Set data direction of PD0 to output
+ 368:	8a b1       	in	r24, 0x0a	; 10
+ 36a:	81 60       	ori	r24, 0x01	; 1
+ 36c:	8a b9       	out	0x0a, r24	; 10
+		PORTD |= (1<<PINGPin);// Send ultrasonic pulse
+ 36e:	8b b1       	in	r24, 0x0b	; 11
+ 370:	81 60       	ori	r24, 0x01	; 1
+ 372:	8b b9       	out	0x0b, r24	; 11
+		OCR2B = 3;// Set output compare register to 3
+ 374:	83 e0       	ldi	r24, 0x03	; 3
+ 376:	80 93 b4 00 	sts	0x00B4, r24	; 0x8000b4 <__TEXT_REGION_LENGTH__+0x7f80b4>
+		return;// Return to main
+ 37a:	18 c0       	rjmp	.+48     	; 0x3ac <__vector_11+0x5e>
+	}
+	else if (OCR2B == 3) {
+ 37c:	80 91 b4 00 	lds	r24, 0x00B4	; 0x8000b4 <__TEXT_REGION_LENGTH__+0x7f80b4>
+ 380:	83 30       	cpi	r24, 0x03	; 3
+ 382:	39 f4       	brne	.+14     	; 0x392 <__vector_11+0x44>
+		PORTD &= ~(1<<PINGPin);// Stop ultrasonic pulse
+ 384:	8b b1       	in	r24, 0x0b	; 11
+ 386:	8e 7f       	andi	r24, 0xFE	; 254
+ 388:	8b b9       	out	0x0b, r24	; 11
+		OCR2B = 2;// Set output compare register to 5
+ 38a:	82 e0       	ldi	r24, 0x02	; 2
+ 38c:	80 93 b4 00 	sts	0x00B4, r24	; 0x8000b4 <__TEXT_REGION_LENGTH__+0x7f80b4>
+		return;// Return to main
+ 390:	0d c0       	rjmp	.+26     	; 0x3ac <__vector_11+0x5e>
+	}
+	else if (OCR2B == 2) {
+ 392:	80 91 b4 00 	lds	r24, 0x00B4	; 0x8000b4 <__TEXT_REGION_LENGTH__+0x7f80b4>
+ 396:	82 30       	cpi	r24, 0x02	; 2
+ 398:	49 f4       	brne	.+18     	; 0x3ac <__vector_11+0x5e>
+		DDRD &= ~(1<<ECHOPin);// Set data direction of PB1 to input
+ 39a:	8a b1       	in	r24, 0x0a	; 10
+ 39c:	8d 7f       	andi	r24, 0xFD	; 253
+ 39e:	8a b9       	out	0x0a, r24	; 10
+		OCR2B = 255;// Set output compare register to 255
+ 3a0:	8f ef       	ldi	r24, 0xFF	; 255
+ 3a2:	80 93 b4 00 	sts	0x00B4, r24	; 0x8000b4 <__TEXT_REGION_LENGTH__+0x7f80b4>
+		TCCR2B = (1<<CS22)|(1<<CS21);// Set TIMER2 to Normal Mode with 1:256 prescaler
+ 3a6:	86 e0       	ldi	r24, 0x06	; 6
+ 3a8:	80 93 b1 00 	sts	0x00B1, r24	; 0x8000b1 <__TEXT_REGION_LENGTH__+0x7f80b1>
+		return;// Return to main
+	}
+}
+ 3ac:	8f 91       	pop	r24
+ 3ae:	0f 90       	pop	r0
+ 3b0:	0f be       	out	0x3f, r0	; 63
+ 3b2:	0f 90       	pop	r0
+ 3b4:	1f 90       	pop	r1
+ 3b6:	18 95       	reti
+
+000003b8 <__vector_7>:
+
+ISR(PCINT3_vect) {
+ 3b8:	1f 92       	push	r1
+ 3ba:	0f 92       	push	r0
+ 3bc:	0f b6       	in	r0, 0x3f	; 63
+ 3be:	0f 92       	push	r0
+ 3c0:	11 24       	eor	r1, r1
+ 3c2:	2f 93       	push	r18
+ 3c4:	3f 93       	push	r19
+ 3c6:	4f 93       	push	r20
+ 3c8:	5f 93       	push	r21
+ 3ca:	6f 93       	push	r22
+ 3cc:	7f 93       	push	r23
+ 3ce:	8f 93       	push	r24
+ 3d0:	9f 93       	push	r25
+ 3d2:	af 93       	push	r26
+ 3d4:	bf 93       	push	r27
+ 3d6:	ef 93       	push	r30
+ 3d8:	ff 93       	push	r31
+	count++;// Increment count
+ 3da:	80 91 0a 03 	lds	r24, 0x030A	; 0x80030a <__data_end>
+ 3de:	90 91 0b 03 	lds	r25, 0x030B	; 0x80030b <__data_end+0x1>
+ 3e2:	01 96       	adiw	r24, 0x01	; 1
+ 3e4:	90 93 0b 03 	sts	0x030B, r25	; 0x80030b <__data_end+0x1>
+ 3e8:	80 93 0a 03 	sts	0x030A, r24	; 0x80030a <__data_end>
+	if (count == 3) TCNT2 = 0;// If ISR executed 3 times, reset timer
+ 3ec:	03 97       	sbiw	r24, 0x03	; 3
+ 3ee:	11 f4       	brne	.+4      	; 0x3f4 <__vector_7+0x3c>
+ 3f0:	10 92 b2 00 	sts	0x00B2, r1	; 0x8000b2 <__TEXT_REGION_LENGTH__+0x7f80b2>
+	if (count == 4) {// If ISR executed 4 times
+ 3f4:	80 91 0a 03 	lds	r24, 0x030A	; 0x80030a <__data_end>
+ 3f8:	90 91 0b 03 	lds	r25, 0x030B	; 0x80030b <__data_end+0x1>
+ 3fc:	04 97       	sbiw	r24, 0x04	; 4
+ 3fe:	d1 f4       	brne	.+52     	; 0x434 <__EEPROM_REGION_LENGTH__+0x34>
+		dist = (TCNT2*.214);// Calculate distance
+ 400:	60 91 b2 00 	lds	r22, 0x00B2	; 0x8000b2 <__TEXT_REGION_LENGTH__+0x7f80b2>
+ 404:	70 e0       	ldi	r23, 0x00	; 0
+ 406:	80 e0       	ldi	r24, 0x00	; 0
+ 408:	90 e0       	ldi	r25, 0x00	; 0
+ 40a:	0e 94 e2 05 	call	0xbc4	; 0xbc4 <__floatsisf>
+ 40e:	21 ed       	ldi	r18, 0xD1	; 209
+ 410:	32 e2       	ldi	r19, 0x22	; 34
+ 412:	4b e5       	ldi	r20, 0x5B	; 91
+ 414:	5e e3       	ldi	r21, 0x3E	; 62
+ 416:	0e 94 6e 06 	call	0xcdc	; 0xcdc <__mulsf3>
+ 41a:	0e 94 aa 05 	call	0xb54	; 0xb54 <__fixsfsi>
+ 41e:	70 93 0d 03 	sts	0x030D, r23	; 0x80030d <dist+0x1>
+ 422:	60 93 0c 03 	sts	0x030C, r22	; 0x80030c <dist>
+		OCR2B = 255;// Set output compare register to 255
+ 426:	8f ef       	ldi	r24, 0xFF	; 255
+ 428:	80 93 b4 00 	sts	0x00B4, r24	; 0x8000b4 <__TEXT_REGION_LENGTH__+0x7f80b4>
+		count = 0;// Reset count
+ 42c:	10 92 0b 03 	sts	0x030B, r1	; 0x80030b <__data_end+0x1>
+ 430:	10 92 0a 03 	sts	0x030A, r1	; 0x80030a <__data_end>
+		return;// Return to main
+	}
+	return;// Return to main
+ 434:	ff 91       	pop	r31
+ 436:	ef 91       	pop	r30
+ 438:	bf 91       	pop	r27
+ 43a:	af 91       	pop	r26
+ 43c:	9f 91       	pop	r25
+ 43e:	8f 91       	pop	r24
+ 440:	7f 91       	pop	r23
+ 442:	6f 91       	pop	r22
+ 444:	5f 91       	pop	r21
+ 446:	4f 91       	pop	r20
+ 448:	3f 91       	pop	r19
+ 44a:	2f 91       	pop	r18
+ 44c:	0f 90       	pop	r0
+ 44e:	0f be       	out	0x3f, r0	; 63
+ 450:	0f 90       	pop	r0
+ 452:	1f 90       	pop	r1
+ 454:	18 95       	reti
+
+00000456 <oledSendStart>:
+{
+    if(lineNumber<8)
+    {   /* If the line number is within range
+         then move it to specified line and keep track*/
+        OledLineNum = lineNumber;
+        OLED_SetCursor(OledLineNum,0);
+ 456:	cf 93       	push	r28
+ 458:	c8 2f       	mov	r28, r24
+ 45a:	0e 94 2a 01 	call	0x254	; 0x254 <i2c_tx_start>
+ 45e:	8c 2f       	mov	r24, r28
+ 460:	0e 94 2d 01 	call	0x25a	; 0x25a <i2c_tx_address>
+ 464:	cf 91       	pop	r28
+ 466:	08 95       	ret
+
+00000468 <oledSendStop>:
+ 468:	0e 94 33 01 	call	0x266	; 0x266 <i2c_tx_stop>
+ 46c:	08 95       	ret
+
+0000046e <oledSendByte>:
+ 46e:	0e 94 30 01 	call	0x260	; 0x260 <i2c_tx_byte>
+ 472:	08 95       	ret
+
+00000474 <oledSendCommand>:
+ 474:	cf 93       	push	r28
+ 476:	c8 2f       	mov	r28, r24
+ 478:	88 e7       	ldi	r24, 0x78	; 120
+ 47a:	0e 94 2b 02 	call	0x456	; 0x456 <oledSendStart>
+ 47e:	80 e0       	ldi	r24, 0x00	; 0
+ 480:	0e 94 37 02 	call	0x46e	; 0x46e <oledSendByte>
+ 484:	8c 2f       	mov	r24, r28
+ 486:	0e 94 37 02 	call	0x46e	; 0x46e <oledSendByte>
+ 48a:	0e 94 34 02 	call	0x468	; 0x468 <oledSendStop>
+ 48e:	cf 91       	pop	r28
+ 490:	08 95       	ret
+
+00000492 <OLED_Clear>:
+ 492:	cf 93       	push	r28
+ 494:	df 93       	push	r29
+ 496:	81 e2       	ldi	r24, 0x21	; 33
+ 498:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 49c:	80 e0       	ldi	r24, 0x00	; 0
+ 49e:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 4a2:	8f e7       	ldi	r24, 0x7F	; 127
+ 4a4:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 4a8:	82 e2       	ldi	r24, 0x22	; 34
+ 4aa:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 4ae:	80 e0       	ldi	r24, 0x00	; 0
+ 4b0:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 4b4:	87 e0       	ldi	r24, 0x07	; 7
+ 4b6:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 4ba:	88 e7       	ldi	r24, 0x78	; 120
+ 4bc:	0e 94 2b 02 	call	0x456	; 0x456 <oledSendStart>
+ 4c0:	80 e4       	ldi	r24, 0x40	; 64
+ 4c2:	0e 94 37 02 	call	0x46e	; 0x46e <oledSendByte>
+ 4c6:	c0 e0       	ldi	r28, 0x00	; 0
+ 4c8:	d0 e0       	ldi	r29, 0x00	; 0
+ 4ca:	04 c0       	rjmp	.+8      	; 0x4d4 <OLED_Clear+0x42>
+ 4cc:	80 e0       	ldi	r24, 0x00	; 0
+ 4ce:	0e 94 37 02 	call	0x46e	; 0x46e <oledSendByte>
+ 4d2:	21 96       	adiw	r28, 0x01	; 1
+ 4d4:	c1 15       	cp	r28, r1
+ 4d6:	84 e0       	ldi	r24, 0x04	; 4
+ 4d8:	d8 07       	cpc	r29, r24
+ 4da:	c4 f3       	brlt	.-16     	; 0x4cc <OLED_Clear+0x3a>
+ 4dc:	81 e2       	ldi	r24, 0x21	; 33
+ 4de:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 4e2:	80 e0       	ldi	r24, 0x00	; 0
+ 4e4:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 4e8:	8f e7       	ldi	r24, 0x7F	; 127
+ 4ea:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 4ee:	82 e2       	ldi	r24, 0x22	; 34
+ 4f0:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 4f4:	80 e0       	ldi	r24, 0x00	; 0
+ 4f6:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 4fa:	87 e0       	ldi	r24, 0x07	; 7
+ 4fc:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 500:	88 e7       	ldi	r24, 0x78	; 120
+ 502:	0e 94 2b 02 	call	0x456	; 0x456 <oledSendStart>
+ 506:	80 e4       	ldi	r24, 0x40	; 64
+ 508:	0e 94 37 02 	call	0x46e	; 0x46e <oledSendByte>
+ 50c:	df 91       	pop	r29
+ 50e:	cf 91       	pop	r28
+ 510:	08 95       	ret
+
+00000512 <OLED_Init>:
+ 512:	0e 94 d9 00 	call	0x1b2	; 0x1b2 <i2c_init>
+ 516:	8e ea       	ldi	r24, 0xAE	; 174
+ 518:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 51c:	85 ed       	ldi	r24, 0xD5	; 213
+ 51e:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 522:	80 e8       	ldi	r24, 0x80	; 128
+ 524:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 528:	88 ea       	ldi	r24, 0xA8	; 168
+ 52a:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 52e:	8f e3       	ldi	r24, 0x3F	; 63
+ 530:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 534:	83 ed       	ldi	r24, 0xD3	; 211
+ 536:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 53a:	80 e0       	ldi	r24, 0x00	; 0
+ 53c:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 540:	80 e4       	ldi	r24, 0x40	; 64
+ 542:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 546:	8d e8       	ldi	r24, 0x8D	; 141
+ 548:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 54c:	84 e1       	ldi	r24, 0x14	; 20
+ 54e:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 552:	80 e2       	ldi	r24, 0x20	; 32
+ 554:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 558:	80 e0       	ldi	r24, 0x00	; 0
+ 55a:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 55e:	81 ea       	ldi	r24, 0xA1	; 161
+ 560:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 564:	88 ec       	ldi	r24, 0xC8	; 200
+ 566:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 56a:	8a ed       	ldi	r24, 0xDA	; 218
+ 56c:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 570:	82 e1       	ldi	r24, 0x12	; 18
+ 572:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 576:	81 e8       	ldi	r24, 0x81	; 129
+ 578:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 57c:	8f ec       	ldi	r24, 0xCF	; 207
+ 57e:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 582:	89 ed       	ldi	r24, 0xD9	; 217
+ 584:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 588:	81 ef       	ldi	r24, 0xF1	; 241
+ 58a:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 58e:	8b ed       	ldi	r24, 0xDB	; 219
+ 590:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 594:	80 e4       	ldi	r24, 0x40	; 64
+ 596:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 59a:	84 ea       	ldi	r24, 0xA4	; 164
+ 59c:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 5a0:	86 ea       	ldi	r24, 0xA6	; 166
+ 5a2:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 5a6:	8f ea       	ldi	r24, 0xAF	; 175
+ 5a8:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 5ac:	0e 94 49 02 	call	0x492	; 0x492 <OLED_Clear>
+ 5b0:	08 95       	ret
+
+000005b2 <OLED_SetCursor>:
+ 5b2:	cf 93       	push	r28
+ 5b4:	df 93       	push	r29
+ 5b6:	88 30       	cpi	r24, 0x08	; 8
+ 5b8:	00 f5       	brcc	.+64     	; 0x5fa <OLED_SetCursor+0x48>
+ 5ba:	66 23       	and	r22, r22
+ 5bc:	f4 f0       	brlt	.+60     	; 0x5fa <OLED_SetCursor+0x48>
+ 5be:	d6 2f       	mov	r29, r22
+ 5c0:	c8 2f       	mov	r28, r24
+ 5c2:	80 93 0f 03 	sts	0x030F, r24	; 0x80030f <OledLineNum>
+ 5c6:	60 93 10 03 	sts	0x0310, r22	; 0x800310 <OledCursorPos>
+ 5ca:	81 e2       	ldi	r24, 0x21	; 33
+ 5cc:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 5d0:	8d 2f       	mov	r24, r29
+ 5d2:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 5d6:	8f e7       	ldi	r24, 0x7F	; 127
+ 5d8:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 5dc:	82 e2       	ldi	r24, 0x22	; 34
+ 5de:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 5e2:	8c 2f       	mov	r24, r28
+ 5e4:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 5e8:	87 e0       	ldi	r24, 0x07	; 7
+ 5ea:	0e 94 3a 02 	call	0x474	; 0x474 <oledSendCommand>
+ 5ee:	88 e7       	ldi	r24, 0x78	; 120
+ 5f0:	0e 94 2b 02 	call	0x456	; 0x456 <oledSendStart>
+ 5f4:	80 e4       	ldi	r24, 0x40	; 64
+ 5f6:	0e 94 37 02 	call	0x46e	; 0x46e <oledSendByte>
+ 5fa:	df 91       	pop	r29
+ 5fc:	cf 91       	pop	r28
+ 5fe:	08 95       	ret
+
+00000600 <OLED_GoToNextLine>:
+ ****************************************************************************************************/
+void  OLED_GoToNextLine()
+{
+    /*Increment the current line number.
+     In case it exceeds the limit, rool it back to first line */
+    OledLineNum++;
+ 600:	80 91 0f 03 	lds	r24, 0x030F	; 0x80030f <OledLineNum>
+ 604:	8f 5f       	subi	r24, 0xFF	; 255
+    OledLineNum = OledLineNum&0x07;
+ 606:	87 70       	andi	r24, 0x07	; 7
+ 608:	80 93 0f 03 	sts	0x030F, r24	; 0x80030f <OledLineNum>
+    OLED_SetCursor(OledLineNum,0); /* Finally move it to next line */
+ 60c:	60 e0       	ldi	r22, 0x00	; 0
+ 60e:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <OLED_SetCursor>
+ 612:	08 95       	ret
+
+00000614 <OLED_DisplayChar>:
+ * Return value    : none
+ * description  : This function sends a character to be displayed on LCD.
+ Any valid ascii value can be passed to display respective character
+ ****************************************************************************************************/
+void OLED_DisplayChar(uint8_t ch)
+{
+ 614:	cf 93       	push	r28
+ 616:	df 93       	push	r29
+ 618:	d8 2f       	mov	r29, r24
+    uint8_t dat,i=0;
+    
+    if(((OledCursorPos+FONT_SIZE)>=128) || (ch=='\n'))
+ 61a:	80 91 10 03 	lds	r24, 0x0310	; 0x800310 <OledCursorPos>
+ 61e:	90 e0       	ldi	r25, 0x00	; 0
+ 620:	05 96       	adiw	r24, 0x05	; 5
+ 622:	80 38       	cpi	r24, 0x80	; 128
+ 624:	91 05       	cpc	r25, r1
+ 626:	14 f4       	brge	.+4      	; 0x62c <OLED_DisplayChar+0x18>
+ 628:	da 30       	cpi	r29, 0x0A	; 10
+ 62a:	11 f4       	brne	.+4      	; 0x630 <OLED_DisplayChar+0x1c>
+    {
+        /* If the cursor has reached to end of line on page1
+         OR NewLine command is issued Then Move the cursor to next line */
+        OLED_GoToNextLine();
+ 62c:	0e 94 00 03 	call	0x600	; 0x600 <OLED_GoToNextLine>
+    }
+    if(ch!='\n') /* TODO */
+ 630:	da 30       	cpi	r29, 0x0A	; 10
+ 632:	11 f1       	breq	.+68     	; 0x678 <OLED_DisplayChar+0x64>
+    {
+        ch = ch-0x20; // As the lookup table starts from Space(0x20)
+ 634:	d0 52       	subi	r29, 0x20	; 32
+ * description  : This function sends a character to be displayed on LCD.
+ Any valid ascii value can be passed to display respective character
+ ****************************************************************************************************/
+void OLED_DisplayChar(uint8_t ch)
+{
+    uint8_t dat,i=0;
+ 636:	c0 e0       	ldi	r28, 0x00	; 0
+    {
+        ch = ch-0x20; // As the lookup table starts from Space(0x20)
+        
+        while(1)
+        {
+            dat= OledFontTable[ch][i]; /* Get the data to be displayed for LookUptable*/
+ 638:	2d 2f       	mov	r18, r29
+ 63a:	30 e0       	ldi	r19, 0x00	; 0
+ 63c:	f9 01       	movw	r30, r18
+ 63e:	ee 0f       	add	r30, r30
+ 640:	ff 1f       	adc	r31, r31
+ 642:	ee 0f       	add	r30, r30
+ 644:	ff 1f       	adc	r31, r31
+ 646:	e2 0f       	add	r30, r18
+ 648:	f3 1f       	adc	r31, r19
+ 64a:	e2 5d       	subi	r30, 0xD2	; 210
+ 64c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 64e:	ec 0f       	add	r30, r28
+ 650:	f1 1d       	adc	r31, r1
+            
+            
+            oledSendByte(dat); /* Display the data and keep track of cursor */
+ 652:	80 81       	ld	r24, Z
+ 654:	0e 94 37 02 	call	0x46e	; 0x46e <oledSendByte>
+            OledCursorPos++;
+ 658:	90 91 10 03 	lds	r25, 0x0310	; 0x800310 <OledCursorPos>
+ 65c:	9f 5f       	subi	r25, 0xFF	; 255
+ 65e:	90 93 10 03 	sts	0x0310, r25	; 0x800310 <OledCursorPos>
+            
+            i++;
+ 662:	cf 5f       	subi	r28, 0xFF	; 255
+            
+            if(i==FONT_SIZE) /* Exit the loop if End of char is encountered */
+ 664:	c5 30       	cpi	r28, 0x05	; 5
+ 666:	41 f7       	brne	.-48     	; 0x638 <OLED_DisplayChar+0x24>
+            {
+                oledSendByte(0x00); /* Display the data and keep track of cursor */
+ 668:	80 e0       	ldi	r24, 0x00	; 0
+ 66a:	0e 94 37 02 	call	0x46e	; 0x46e <oledSendByte>
+                OledCursorPos++;
+ 66e:	80 91 10 03 	lds	r24, 0x0310	; 0x800310 <OledCursorPos>
+ 672:	8f 5f       	subi	r24, 0xFF	; 255
+ 674:	80 93 10 03 	sts	0x0310, r24	; 0x800310 <OledCursorPos>
+                break;
+            }
+        }
+    }
+}
+ 678:	df 91       	pop	r29
+ 67a:	cf 91       	pop	r28
+ 67c:	08 95       	ret
+
+0000067e <OLED_DisplayString>:
+ 1.The ptr_stringPointer_u8 points to the first char of the string
+ and traverses till the end(NULL CHAR)and displays a char each time.
+ ****************************************************************************************************/
+#if(Enable_OLED_DisplayString==1)
+void OLED_DisplayString(char *ptr)
+{
+ 67e:	cf 93       	push	r28
+ 680:	df 93       	push	r29
+ 682:	ec 01       	movw	r28, r24
+    while(*ptr)
+ 684:	03 c0       	rjmp	.+6      	; 0x68c <OLED_DisplayString+0xe>
+        OLED_DisplayChar(*ptr++);
+ 686:	21 96       	adiw	r28, 0x01	; 1
+ 688:	0e 94 0a 03 	call	0x614	; 0x614 <OLED_DisplayChar>
+ and traverses till the end(NULL CHAR)and displays a char each time.
+ ****************************************************************************************************/
+#if(Enable_OLED_DisplayString==1)
+void OLED_DisplayString(char *ptr)
+{
+    while(*ptr)
+ 68c:	88 81       	ld	r24, Y
+ 68e:	81 11       	cpse	r24, r1
+ 690:	fa cf       	rjmp	.-12     	; 0x686 <OLED_DisplayString+0x8>
+        OLED_DisplayChar(*ptr++);
+}
+ 692:	df 91       	pop	r29
+ 694:	cf 91       	pop	r28
+ 696:	08 95       	ret
+
+00000698 <OLED_DisplayNumber>:
+ 8.(C_HEX_U8,0x12AB,6) then 6-digits ie. 0012AB will be displayed
+ 9.(C_HEX_U8,0x12AB,C_DisplayDefaultDigits_U8) then 12AB will be displayed.
+ ****************************************************************************************************/
+#if ((Enable_OLED_DisplayNumber == 1) || (Enable_OLED_DisplayFloatNumber == 1) || (Enable_OLED_Printf==1))
+void OLED_DisplayNumber(uint8_t v_numericSystem_u8, uint32_t v_number_u32, uint8_t v_numOfDigitsToDisplay_u8)
+{
+ 698:	4f 92       	push	r4
+ 69a:	5f 92       	push	r5
+ 69c:	6f 92       	push	r6
+ 69e:	7f 92       	push	r7
+ 6a0:	af 92       	push	r10
+ 6a2:	bf 92       	push	r11
+ 6a4:	cf 92       	push	r12
+ 6a6:	df 92       	push	r13
+ 6a8:	ef 92       	push	r14
+ 6aa:	ff 92       	push	r15
+ 6ac:	0f 93       	push	r16
+ 6ae:	1f 93       	push	r17
+ 6b0:	cf 93       	push	r28
+ 6b2:	df 93       	push	r29
+ 6b4:	cd b7       	in	r28, 0x3d	; 61
+ 6b6:	de b7       	in	r29, 0x3e	; 62
+ 6b8:	2a 97       	sbiw	r28, 0x0a	; 10
+ 6ba:	0f b6       	in	r0, 0x3f	; 63
+ 6bc:	f8 94       	cli
+ 6be:	de bf       	out	0x3e, r29	; 62
+ 6c0:	0f be       	out	0x3f, r0	; 63
+ 6c2:	cd bf       	out	0x3d, r28	; 61
+ 6c4:	a8 2e       	mov	r10, r24
+ 6c6:	6a 01       	movw	r12, r20
+ 6c8:	7b 01       	movw	r14, r22
+ 6ca:	02 2f       	mov	r16, r18
+    uint8_t i=0,a[10];
+    
+    if(C_BINARY_U8 == v_numericSystem_u8)
+ 6cc:	82 e0       	ldi	r24, 0x02	; 2
+ 6ce:	a8 12       	cpse	r10, r24
+ 6d0:	20 c0       	rjmp	.+64     	; 0x712 <OLED_DisplayNumber+0x7a>
+ 6d2:	1c c0       	rjmp	.+56     	; 0x70c <OLED_DisplayNumber+0x74>
+    {
+        while(v_numOfDigitsToDisplay_u8!=0)
+        {
+            /* Start Extracting the bits from the specified bit positions.
+             Get the Acsii values of the bits and display */
+            i = util_GetBitStatus(v_number_u32,(v_numOfDigitsToDisplay_u8-1));
+ 6d4:	80 2f       	mov	r24, r16
+ 6d6:	90 e0       	ldi	r25, 0x00	; 0
+ 6d8:	01 97       	sbiw	r24, 0x01	; 1
+ 6da:	41 e0       	ldi	r20, 0x01	; 1
+ 6dc:	50 e0       	ldi	r21, 0x00	; 0
+ 6de:	02 c0       	rjmp	.+4      	; 0x6e4 <OLED_DisplayNumber+0x4c>
+ 6e0:	44 0f       	add	r20, r20
+ 6e2:	55 1f       	adc	r21, r21
+ 6e4:	8a 95       	dec	r24
+ 6e6:	e2 f7       	brpl	.-8      	; 0x6e0 <OLED_DisplayNumber+0x48>
+ 6e8:	05 2e       	mov	r0, r21
+ 6ea:	00 0c       	add	r0, r0
+ 6ec:	66 0b       	sbc	r22, r22
+ 6ee:	77 0b       	sbc	r23, r23
+ 6f0:	4c 21       	and	r20, r12
+ 6f2:	5d 21       	and	r21, r13
+ 6f4:	6e 21       	and	r22, r14
+ 6f6:	7f 21       	and	r23, r15
+ 6f8:	81 e0       	ldi	r24, 0x01	; 1
+ 6fa:	45 2b       	or	r20, r21
+ 6fc:	46 2b       	or	r20, r22
+ 6fe:	47 2b       	or	r20, r23
+ 700:	09 f4       	brne	.+2      	; 0x704 <OLED_DisplayNumber+0x6c>
+ 702:	80 e0       	ldi	r24, 0x00	; 0
+            OLED_DisplayChar(util_Dec2Ascii(i));
+ 704:	80 5d       	subi	r24, 0xD0	; 208
+ 706:	0e 94 0a 03 	call	0x614	; 0x614 <OLED_DisplayChar>
+            v_numOfDigitsToDisplay_u8--;
+ 70a:	01 50       	subi	r16, 0x01	; 1
+{
+    uint8_t i=0,a[10];
+    
+    if(C_BINARY_U8 == v_numericSystem_u8)
+    {
+        while(v_numOfDigitsToDisplay_u8!=0)
+ 70c:	01 11       	cpse	r16, r1
+ 70e:	e2 cf       	rjmp	.-60     	; 0x6d4 <OLED_DisplayNumber+0x3c>
+ 710:	52 c0       	rjmp	.+164    	; 0x7b6 <OLED_DisplayNumber+0x11e>
+            i = util_GetBitStatus(v_number_u32,(v_numOfDigitsToDisplay_u8-1));
+            OLED_DisplayChar(util_Dec2Ascii(i));
+            v_numOfDigitsToDisplay_u8--;
+        }
+    }
+    else if(v_number_u32==0)
+ 712:	45 2b       	or	r20, r21
+ 714:	46 2b       	or	r20, r22
+ 716:	47 2b       	or	r20, r23
+ 718:	39 f0       	breq	.+14     	; 0x728 <OLED_DisplayNumber+0x90>
+ 71a:	10 e0       	ldi	r17, 0x00	; 0
+ 71c:	35 c0       	rjmp	.+106    	; 0x788 <OLED_DisplayNumber+0xf0>
+    {
+        /* If the number is zero then update the array with the same for displaying */
+        for(i=0;((i<v_numOfDigitsToDisplay_u8) && (i<C_MaxDigitsToDisplay_U8));i++)
+            OLED_DisplayChar('0');
+ 71e:	80 e3       	ldi	r24, 0x30	; 48
+ 720:	0e 94 0a 03 	call	0x614	; 0x614 <OLED_DisplayChar>
+        }
+    }
+    else if(v_number_u32==0)
+    {
+        /* If the number is zero then update the array with the same for displaying */
+        for(i=0;((i<v_numOfDigitsToDisplay_u8) && (i<C_MaxDigitsToDisplay_U8));i++)
+ 724:	1f 5f       	subi	r17, 0xFF	; 255
+ 726:	01 c0       	rjmp	.+2      	; 0x72a <OLED_DisplayNumber+0x92>
+ 728:	10 e0       	ldi	r17, 0x00	; 0
+ 72a:	10 17       	cp	r17, r16
+ 72c:	08 f0       	brcs	.+2      	; 0x730 <OLED_DisplayNumber+0x98>
+ 72e:	43 c0       	rjmp	.+134    	; 0x7b6 <OLED_DisplayNumber+0x11e>
+ 730:	1a 30       	cpi	r17, 0x0A	; 10
+ 732:	a8 f3       	brcs	.-22     	; 0x71e <OLED_DisplayNumber+0x86>
+ 734:	40 c0       	rjmp	.+128    	; 0x7b6 <OLED_DisplayNumber+0x11e>
+    {
+        for(i=0;i<v_numOfDigitsToDisplay_u8;i++)
+        {
+            /* Continue extracting the digits from right side
+             till the Specified v_numOfDigitsToDisplay_u8 */
+            if(v_number_u32!=0)
+ 736:	c1 14       	cp	r12, r1
+ 738:	d1 04       	cpc	r13, r1
+ 73a:	e1 04       	cpc	r14, r1
+ 73c:	f1 04       	cpc	r15, r1
+ 73e:	d1 f0       	breq	.+52     	; 0x774 <OLED_DisplayNumber+0xdc>
+                /* Extract the digits from the number till it becomes zero.
+                 First get the remainder and divide the number by TypeOfNum(10-Dec, 16-Hex) each time.
+                 example for Decimal number:
+                 If v_number_u32 = 123 then extracted remainder will be 3 and number will be 12.
+                 The process continues till it becomes zero or max digits reached*/
+                a[i]=util_GetMod32(v_number_u32,v_numericSystem_u8);
+ 740:	bc 2c       	mov	r11, r12
+ 742:	4a 2c       	mov	r4, r10
+ 744:	51 2c       	mov	r5, r1
+ 746:	61 2c       	mov	r6, r1
+ 748:	71 2c       	mov	r7, r1
+ 74a:	c7 01       	movw	r24, r14
+ 74c:	b6 01       	movw	r22, r12
+ 74e:	a3 01       	movw	r20, r6
+ 750:	92 01       	movw	r18, r4
+ 752:	0e 94 db 06 	call	0xdb6	; 0xdb6 <__udivmodsi4>
+ 756:	c2 2e       	mov	r12, r18
+ 758:	d3 2e       	mov	r13, r19
+ 75a:	e4 2e       	mov	r14, r20
+ 75c:	f5 2e       	mov	r15, r21
+ 75e:	e1 e0       	ldi	r30, 0x01	; 1
+ 760:	f0 e0       	ldi	r31, 0x00	; 0
+ 762:	ec 0f       	add	r30, r28
+ 764:	fd 1f       	adc	r31, r29
+ 766:	e1 0f       	add	r30, r17
+ 768:	f1 1d       	adc	r31, r1
+ 76a:	a2 9e       	mul	r10, r18
+ 76c:	b0 18       	sub	r11, r0
+ 76e:	11 24       	eor	r1, r1
+ 770:	b0 82       	st	Z, r11
+ 772:	09 c0       	rjmp	.+18     	; 0x786 <OLED_DisplayNumber+0xee>
+                v_number_u32=v_number_u32/v_numericSystem_u8;
+            }
+            else if( (v_numOfDigitsToDisplay_u8 == C_DisplayDefaultDigits_U8) ||
+ 774:	0b 30       	cpi	r16, 0x0B	; 11
+ 776:	e8 f4       	brcc	.+58     	; 0x7b2 <OLED_DisplayNumber+0x11a>
+            else
+            {
+                /* In case user expects more digits to be displayed than the actual digits in number,
+                 then update the remaining digits with zero.
+                 Ex: v_num_u32 is 123 and user wants five digits then 00123 has to be displayed */
+                a[i]=0;
+ 778:	e1 e0       	ldi	r30, 0x01	; 1
+ 77a:	f0 e0       	ldi	r31, 0x00	; 0
+ 77c:	ec 0f       	add	r30, r28
+ 77e:	fd 1f       	adc	r31, r29
+ 780:	e1 0f       	add	r30, r17
+ 782:	f1 1d       	adc	r31, r1
+ 784:	10 82       	st	Z, r1
+        for(i=0;((i<v_numOfDigitsToDisplay_u8) && (i<C_MaxDigitsToDisplay_U8));i++)
+            OLED_DisplayChar('0');
+    }
+    else
+    {
+        for(i=0;i<v_numOfDigitsToDisplay_u8;i++)
+ 786:	1f 5f       	subi	r17, 0xFF	; 255
+ 788:	10 17       	cp	r17, r16
+ 78a:	a8 f2       	brcs	.-86     	; 0x736 <OLED_DisplayNumber+0x9e>
+ 78c:	12 c0       	rjmp	.+36     	; 0x7b2 <OLED_DisplayNumber+0x11a>
+        }
+        
+        while(i!=0)
+        {
+            /* Finally get the ascii values of the digits and display*/
+            OLED_DisplayChar(util_Hex2Ascii(a[i-1]));
+ 78e:	e1 2f       	mov	r30, r17
+ 790:	f0 e0       	ldi	r31, 0x00	; 0
+ 792:	31 97       	sbiw	r30, 0x01	; 1
+ 794:	81 e0       	ldi	r24, 0x01	; 1
+ 796:	90 e0       	ldi	r25, 0x00	; 0
+ 798:	8c 0f       	add	r24, r28
+ 79a:	9d 1f       	adc	r25, r29
+ 79c:	e8 0f       	add	r30, r24
+ 79e:	f9 1f       	adc	r31, r25
+ 7a0:	80 81       	ld	r24, Z
+ 7a2:	8a 30       	cpi	r24, 0x0A	; 10
+ 7a4:	10 f0       	brcs	.+4      	; 0x7aa <OLED_DisplayNumber+0x112>
+ 7a6:	89 5c       	subi	r24, 0xC9	; 201
+ 7a8:	01 c0       	rjmp	.+2      	; 0x7ac <OLED_DisplayNumber+0x114>
+ 7aa:	80 5d       	subi	r24, 0xD0	; 208
+ 7ac:	0e 94 0a 03 	call	0x614	; 0x614 <OLED_DisplayChar>
+            i--;
+ 7b0:	11 50       	subi	r17, 0x01	; 1
+                 Ex: v_num_u32 is 123 and user wants five digits then 00123 has to be displayed */
+                a[i]=0;
+            }
+        }
+        
+        while(i!=0)
+ 7b2:	11 11       	cpse	r17, r1
+ 7b4:	ec cf       	rjmp	.-40     	; 0x78e <OLED_DisplayNumber+0xf6>
+            /* Finally get the ascii values of the digits and display*/
+            OLED_DisplayChar(util_Hex2Ascii(a[i-1]));
+            i--;
+        }
+    }
+}
+ 7b6:	2a 96       	adiw	r28, 0x0a	; 10
+ 7b8:	0f b6       	in	r0, 0x3f	; 63
+ 7ba:	f8 94       	cli
+ 7bc:	de bf       	out	0x3e, r29	; 62
+ 7be:	0f be       	out	0x3f, r0	; 63
+ 7c0:	cd bf       	out	0x3d, r28	; 61
+ 7c2:	df 91       	pop	r29
+ 7c4:	cf 91       	pop	r28
+ 7c6:	1f 91       	pop	r17
+ 7c8:	0f 91       	pop	r16
+ 7ca:	ff 90       	pop	r15
+ 7cc:	ef 90       	pop	r14
+ 7ce:	df 90       	pop	r13
+ 7d0:	cf 90       	pop	r12
+ 7d2:	bf 90       	pop	r11
+ 7d4:	af 90       	pop	r10
+ 7d6:	7f 90       	pop	r7
+ 7d8:	6f 90       	pop	r6
+ 7da:	5f 90       	pop	r5
+ 7dc:	4f 90       	pop	r4
+ 7de:	08 95       	ret
+
+000007e0 <OLED_DisplayFloatNumber>:
+ Note: Float will be disabled by default as it takes huge controller resources
+ It can be enabled by changing value of Enable_OLED_DisplayFloatNumber to 1 in lcd.h
+ ***************************************************************************************************/
+#if (Enable_OLED_DisplayFloatNumber == 1)
+void OLED_DisplayFloatNumber(double v_floatNum_f32)
+{
+ 7e0:	8f 92       	push	r8
+ 7e2:	9f 92       	push	r9
+ 7e4:	af 92       	push	r10
+ 7e6:	bf 92       	push	r11
+ 7e8:	cf 92       	push	r12
+ 7ea:	df 92       	push	r13
+ 7ec:	ef 92       	push	r14
+ 7ee:	ff 92       	push	r15
+ 7f0:	6b 01       	movw	r12, r22
+ 7f2:	7c 01       	movw	r14, r24
+     1.Type cast the number to int to get the integer part.
+     2.Display the extracted integer part followed by a decimal point(.)
+     3.Later the integer part is made zero by subtracting with the extracted integer value.
+     4.Finally the fractional part is multiplied by 100000 to support 6-digit precision */
+    
+    v_temp_u32 = (uint32_t) v_floatNum_f32;
+ 7f4:	0e 94 b1 05 	call	0xb62	; 0xb62 <__fixunssfsi>
+ 7f8:	4b 01       	movw	r8, r22
+ 7fa:	5c 01       	movw	r10, r24
+    OLED_DisplayNumber(C_DECIMAL_U8,v_temp_u32,C_DisplayDefaultDigits_U8);
+ 7fc:	2f ef       	ldi	r18, 0xFF	; 255
+ 7fe:	ab 01       	movw	r20, r22
+ 800:	bc 01       	movw	r22, r24
+ 802:	8a e0       	ldi	r24, 0x0A	; 10
+ 804:	0e 94 4c 03 	call	0x698	; 0x698 <OLED_DisplayNumber>
+    
+    OLED_DisplayChar('.');
+ 808:	8e e2       	ldi	r24, 0x2E	; 46
+ 80a:	0e 94 0a 03 	call	0x614	; 0x614 <OLED_DisplayChar>
+    
+    v_floatNum_f32 = v_floatNum_f32 - v_temp_u32;
+ 80e:	c5 01       	movw	r24, r10
+ 810:	b4 01       	movw	r22, r8
+ 812:	0e 94 e0 05 	call	0xbc0	; 0xbc0 <__floatunsisf>
+ 816:	9b 01       	movw	r18, r22
+ 818:	ac 01       	movw	r20, r24
+ 81a:	c7 01       	movw	r24, r14
+ 81c:	b6 01       	movw	r22, r12
+ 81e:	0e 94 3d 05 	call	0xa7a	; 0xa7a <__subsf3>
+    v_temp_u32 = v_floatNum_f32 * 1000000;
+ 822:	20 e0       	ldi	r18, 0x00	; 0
+ 824:	34 e2       	ldi	r19, 0x24	; 36
+ 826:	44 e7       	ldi	r20, 0x74	; 116
+ 828:	59 e4       	ldi	r21, 0x49	; 73
+ 82a:	0e 94 6e 06 	call	0xcdc	; 0xcdc <__mulsf3>
+ 82e:	0e 94 b1 05 	call	0xb62	; 0xb62 <__fixunssfsi>
+ 832:	ab 01       	movw	r20, r22
+ 834:	bc 01       	movw	r22, r24
+    OLED_DisplayNumber(C_DECIMAL_U8,v_temp_u32,C_DisplayDefaultDigits_U8);
+ 836:	2f ef       	ldi	r18, 0xFF	; 255
+ 838:	8a e0       	ldi	r24, 0x0A	; 10
+ 83a:	0e 94 4c 03 	call	0x698	; 0x698 <OLED_DisplayNumber>
+}
+ 83e:	ff 90       	pop	r15
+ 840:	ef 90       	pop	r14
+ 842:	df 90       	pop	r13
+ 844:	cf 90       	pop	r12
+ 846:	bf 90       	pop	r11
+ 848:	af 90       	pop	r10
+ 84a:	9f 90       	pop	r9
+ 84c:	8f 90       	pop	r8
+ 84e:	08 95       	ret
+
+00000850 <OLED_Printf>:
+ uint8_t v_Num_u8;
+ OLED_Printf("num1:%u",(uint16_t)v_Num_u8);
+ **************************************************************************************************/
+#if ( Enable_OLED_Printf == 1 )
+void OLED_Printf(const char *argList, ...)
+{
+ 850:	4f 92       	push	r4
+ 852:	5f 92       	push	r5
+ 854:	6f 92       	push	r6
+ 856:	7f 92       	push	r7
+ 858:	af 92       	push	r10
+ 85a:	bf 92       	push	r11
+ 85c:	ef 92       	push	r14
+ 85e:	ff 92       	push	r15
+ 860:	1f 93       	push	r17
+ 862:	cf 93       	push	r28
+ 864:	df 93       	push	r29
+ 866:	cd b7       	in	r28, 0x3d	; 61
+ 868:	de b7       	in	r29, 0x3e	; 62
+ 86a:	fe 01       	movw	r30, r28
+ 86c:	3e 96       	adiw	r30, 0x0e	; 14
+ 86e:	e1 90       	ld	r14, Z+
+ 870:	f1 90       	ld	r15, Z+
+    uint8_t v_numOfDigitsToDisp_u8;
+#if (Enable_OLED_DisplayFloatNumber == 1)
+    double v_floatNum_f32;
+#endif
+    
+    va_start(argp, argList);
+ 872:	3f 01       	movw	r6, r30
+    
+    /* Loop through the list to extract all the input arguments */
+    for(ptr = argList; *ptr != '\0'; ptr++)
+ 874:	f2 c0       	rjmp	.+484    	; 0xa5a <__stack+0x15b>
+    {
+        
+        ch= *ptr;
+        if(ch == '%')         /*Check for '%' as there will be format specifier after it */
+ 876:	85 32       	cpi	r24, 0x25	; 37
+ 878:	09 f0       	breq	.+2      	; 0x87c <OLED_Printf+0x2c>
+ 87a:	ea c0       	rjmp	.+468    	; 0xa50 <__stack+0x151>
+        {
+            ptr++;
+ 87c:	c7 01       	movw	r24, r14
+ 87e:	01 96       	adiw	r24, 0x01	; 1
+            ch = *ptr;
+ 880:	d7 01       	movw	r26, r14
+ 882:	11 96       	adiw	r26, 0x01	; 1
+ 884:	ec 91       	ld	r30, X
+            if((ch>=0x30) && (ch<=0x39))
+ 886:	20 ed       	ldi	r18, 0xD0	; 208
+ 888:	2e 0f       	add	r18, r30
+ 88a:	2a 30       	cpi	r18, 0x0A	; 10
+ 88c:	90 f0       	brcs	.+36     	; 0x8b2 <OLED_Printf+0x62>
+    {
+        
+        ch= *ptr;
+        if(ch == '%')         /*Check for '%' as there will be format specifier after it */
+        {
+            ptr++;
+ 88e:	7c 01       	movw	r14, r24
+                    ch = *ptr;
+                }
+            }
+            else
+            {
+                v_numOfDigitsToDisp_u8 = C_MaxDigitsToDisplayUsingPrintf_U8;
+ 890:	1f ef       	ldi	r17, 0xFF	; 255
+ 892:	15 c0       	rjmp	.+42     	; 0x8be <OLED_Printf+0x6e>
+            if((ch>=0x30) && (ch<=0x39))
+            {
+                v_numOfDigitsToDisp_u8 = 0;
+                while((ch>=0x30) && (ch<=0x39))
+                {
+                    v_numOfDigitsToDisp_u8 = (v_numOfDigitsToDisp_u8 * 10) + (ch-0x30);
+ 894:	81 2f       	mov	r24, r17
+ 896:	88 0f       	add	r24, r24
+ 898:	98 2f       	mov	r25, r24
+ 89a:	99 0f       	add	r25, r25
+ 89c:	99 0f       	add	r25, r25
+ 89e:	89 0f       	add	r24, r25
+ 8a0:	8e 0f       	add	r24, r30
+ 8a2:	10 ed       	ldi	r17, 0xD0	; 208
+ 8a4:	18 0f       	add	r17, r24
+                    ptr++;
+ 8a6:	bf ef       	ldi	r27, 0xFF	; 255
+ 8a8:	eb 1a       	sub	r14, r27
+ 8aa:	fb 0a       	sbc	r15, r27
+                    ch = *ptr;
+ 8ac:	d7 01       	movw	r26, r14
+ 8ae:	ec 91       	ld	r30, X
+ 8b0:	02 c0       	rjmp	.+4      	; 0x8b6 <OLED_Printf+0x66>
+ 8b2:	7c 01       	movw	r14, r24
+ 8b4:	10 e0       	ldi	r17, 0x00	; 0
+            ptr++;
+            ch = *ptr;
+            if((ch>=0x30) && (ch<=0x39))
+            {
+                v_numOfDigitsToDisp_u8 = 0;
+                while((ch>=0x30) && (ch<=0x39))
+ 8b6:	80 ed       	ldi	r24, 0xD0	; 208
+ 8b8:	8e 0f       	add	r24, r30
+ 8ba:	8a 30       	cpi	r24, 0x0A	; 10
+ 8bc:	58 f3       	brcs	.-42     	; 0x894 <OLED_Printf+0x44>
+            {
+                v_numOfDigitsToDisp_u8 = C_MaxDigitsToDisplayUsingPrintf_U8;
+            }
+            
+            
+            switch(ch)       /* Decode the type of the argument */
+ 8be:	8e 2f       	mov	r24, r30
+ 8c0:	90 e0       	ldi	r25, 0x00	; 0
+ 8c2:	fc 01       	movw	r30, r24
+ 8c4:	b5 97       	sbiw	r30, 0x25	; 37
+ 8c6:	e4 35       	cpi	r30, 0x54	; 84
+ 8c8:	f1 05       	cpc	r31, r1
+ 8ca:	08 f0       	brcs	.+2      	; 0x8ce <OLED_Printf+0x7e>
+ 8cc:	c3 c0       	rjmp	.+390    	; 0xa54 <__stack+0x155>
+ 8ce:	ea 59       	subi	r30, 0x9A	; 154
+ 8d0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 8d2:	0c 94 fd 06 	jmp	0xdfa	; 0xdfa <__tablejump2__>
+            {
+                case 'C':
+                case 'c':     /* Argument type is of char, hence read char data from the argp */
+                    ch = va_arg(argp, int);
+ 8d6:	53 01       	movw	r10, r6
+ 8d8:	b2 e0       	ldi	r27, 0x02	; 2
+ 8da:	ab 0e       	add	r10, r27
+ 8dc:	b1 1c       	adc	r11, r1
+                    OLED_DisplayChar(ch);
+ 8de:	f3 01       	movw	r30, r6
+ 8e0:	80 81       	ld	r24, Z
+ 8e2:	0e 94 0a 03 	call	0x614	; 0x614 <OLED_DisplayChar>
+            
+            switch(ch)       /* Decode the type of the argument */
+            {
+                case 'C':
+                case 'c':     /* Argument type is of char, hence read char data from the argp */
+                    ch = va_arg(argp, int);
+ 8e6:	35 01       	movw	r6, r10
+                    OLED_DisplayChar(ch);
+                    break;
+ 8e8:	b5 c0       	rjmp	.+362    	; 0xa54 <__stack+0x155>
+                    
+                case 'd':    /* Argument type is of signed integer, hence read 16bit data from the argp */
+                    v_num_s16 = va_arg(argp, int);
+ 8ea:	53 01       	movw	r10, r6
+ 8ec:	f2 e0       	ldi	r31, 0x02	; 2
+ 8ee:	af 0e       	add	r10, r31
+ 8f0:	b1 1c       	adc	r11, r1
+ 8f2:	d3 01       	movw	r26, r6
+ 8f4:	6d 90       	ld	r6, X+
+ 8f6:	7c 90       	ld	r7, X
+                    if(v_num_s16<0)
+ 8f8:	77 20       	and	r7, r7
+ 8fa:	34 f4       	brge	.+12     	; 0x908 <__stack+0x9>
+                    { /* If the number is -ve then display the 2's complement along with '-' sign */
+                        v_num_s16 = -v_num_s16;
+ 8fc:	71 94       	neg	r7
+ 8fe:	61 94       	neg	r6
+ 900:	71 08       	sbc	r7, r1
+                        OLED_DisplayChar('-');
+ 902:	8d e2       	ldi	r24, 0x2D	; 45
+ 904:	0e 94 0a 03 	call	0x614	; 0x614 <OLED_DisplayChar>
+                    }
+                    OLED_DisplayNumber(C_DECIMAL_U8,v_num_s16,v_numOfDigitsToDisp_u8);
+ 908:	a3 01       	movw	r20, r6
+ 90a:	77 0c       	add	r7, r7
+ 90c:	66 0b       	sbc	r22, r22
+ 90e:	77 0b       	sbc	r23, r23
+ 910:	21 2f       	mov	r18, r17
+ 912:	8a e0       	ldi	r24, 0x0A	; 10
+ 914:	0e 94 4c 03 	call	0x698	; 0x698 <OLED_DisplayNumber>
+                    ch = va_arg(argp, int);
+                    OLED_DisplayChar(ch);
+                    break;
+                    
+                case 'd':    /* Argument type is of signed integer, hence read 16bit data from the argp */
+                    v_num_s16 = va_arg(argp, int);
+ 918:	35 01       	movw	r6, r10
+                    { /* If the number is -ve then display the 2's complement along with '-' sign */
+                        v_num_s16 = -v_num_s16;
+                        OLED_DisplayChar('-');
+                    }
+                    OLED_DisplayNumber(C_DECIMAL_U8,v_num_s16,v_numOfDigitsToDisp_u8);
+                    break;
+ 91a:	9c c0       	rjmp	.+312    	; 0xa54 <__stack+0x155>
+                    
+                case 'D':    /* Argument type is of integer, hence read 16bit data from the argp */
+                    v_num_s32 = va_arg(argp, sint32_t);
+ 91c:	53 01       	movw	r10, r6
+ 91e:	b4 e0       	ldi	r27, 0x04	; 4
+ 920:	ab 0e       	add	r10, r27
+ 922:	b1 1c       	adc	r11, r1
+ 924:	f3 01       	movw	r30, r6
+ 926:	40 80       	ld	r4, Z
+ 928:	51 80       	ldd	r5, Z+1	; 0x01
+ 92a:	62 80       	ldd	r6, Z+2	; 0x02
+ 92c:	73 80       	ldd	r7, Z+3	; 0x03
+                    if(v_num_s32<0)
+ 92e:	77 20       	and	r7, r7
+ 930:	5c f4       	brge	.+22     	; 0x948 <__stack+0x49>
+                    { /* If the number is -ve then display the 2's complement along with '-' sign */
+                        v_num_s32 = -v_num_s32;
+ 932:	70 94       	com	r7
+ 934:	60 94       	com	r6
+ 936:	50 94       	com	r5
+ 938:	40 94       	com	r4
+ 93a:	41 1c       	adc	r4, r1
+ 93c:	51 1c       	adc	r5, r1
+ 93e:	61 1c       	adc	r6, r1
+ 940:	71 1c       	adc	r7, r1
+                        OLED_DisplayChar('-');
+ 942:	8d e2       	ldi	r24, 0x2D	; 45
+ 944:	0e 94 0a 03 	call	0x614	; 0x614 <OLED_DisplayChar>
+                    }
+                    OLED_DisplayNumber(C_DECIMAL_U8,v_num_s32,v_numOfDigitsToDisp_u8);
+ 948:	21 2f       	mov	r18, r17
+ 94a:	b3 01       	movw	r22, r6
+ 94c:	a2 01       	movw	r20, r4
+ 94e:	8a e0       	ldi	r24, 0x0A	; 10
+ 950:	0e 94 4c 03 	call	0x698	; 0x698 <OLED_DisplayNumber>
+                    }
+                    OLED_DisplayNumber(C_DECIMAL_U8,v_num_s16,v_numOfDigitsToDisp_u8);
+                    break;
+                    
+                case 'D':    /* Argument type is of integer, hence read 16bit data from the argp */
+                    v_num_s32 = va_arg(argp, sint32_t);
+ 954:	35 01       	movw	r6, r10
+                    { /* If the number is -ve then display the 2's complement along with '-' sign */
+                        v_num_s32 = -v_num_s32;
+                        OLED_DisplayChar('-');
+                    }
+                    OLED_DisplayNumber(C_DECIMAL_U8,v_num_s32,v_numOfDigitsToDisp_u8);
+                    break;
+ 956:	7e c0       	rjmp	.+252    	; 0xa54 <__stack+0x155>
+                    
+                case 'u':    /* Argument type is of unsigned integer, hence read 16bit unsigned data */
+                    v_num_u16 = va_arg(argp, int);
+ 958:	53 01       	movw	r10, r6
+ 95a:	f2 e0       	ldi	r31, 0x02	; 2
+ 95c:	af 0e       	add	r10, r31
+ 95e:	b1 1c       	adc	r11, r1
+ 960:	d3 01       	movw	r26, r6
+ 962:	4d 91       	ld	r20, X+
+ 964:	5c 91       	ld	r21, X
+                    OLED_DisplayNumber(C_DECIMAL_U8,v_num_u16,v_numOfDigitsToDisp_u8);
+ 966:	60 e0       	ldi	r22, 0x00	; 0
+ 968:	70 e0       	ldi	r23, 0x00	; 0
+ 96a:	21 2f       	mov	r18, r17
+ 96c:	8a e0       	ldi	r24, 0x0A	; 10
+ 96e:	0e 94 4c 03 	call	0x698	; 0x698 <OLED_DisplayNumber>
+                    }
+                    OLED_DisplayNumber(C_DECIMAL_U8,v_num_s32,v_numOfDigitsToDisp_u8);
+                    break;
+                    
+                case 'u':    /* Argument type is of unsigned integer, hence read 16bit unsigned data */
+                    v_num_u16 = va_arg(argp, int);
+ 972:	35 01       	movw	r6, r10
+                    OLED_DisplayNumber(C_DECIMAL_U8,v_num_u16,v_numOfDigitsToDisp_u8);
+                    break;
+ 974:	6f c0       	rjmp	.+222    	; 0xa54 <__stack+0x155>
+                    
+                case 'U':    /* Argument type is of integer, hence read 32bit unsigend data */
+                    v_num_u32 = va_arg(argp, uint32_t);
+ 976:	53 01       	movw	r10, r6
+ 978:	b4 e0       	ldi	r27, 0x04	; 4
+ 97a:	ab 0e       	add	r10, r27
+ 97c:	b1 1c       	adc	r11, r1
+ 97e:	f3 01       	movw	r30, r6
+ 980:	40 81       	ld	r20, Z
+ 982:	51 81       	ldd	r21, Z+1	; 0x01
+ 984:	62 81       	ldd	r22, Z+2	; 0x02
+ 986:	73 81       	ldd	r23, Z+3	; 0x03
+                    OLED_DisplayNumber(C_DECIMAL_U8,v_num_u32,v_numOfDigitsToDisp_u8);
+ 988:	21 2f       	mov	r18, r17
+ 98a:	8a e0       	ldi	r24, 0x0A	; 10
+ 98c:	0e 94 4c 03 	call	0x698	; 0x698 <OLED_DisplayNumber>
+                    v_num_u16 = va_arg(argp, int);
+                    OLED_DisplayNumber(C_DECIMAL_U8,v_num_u16,v_numOfDigitsToDisp_u8);
+                    break;
+                    
+                case 'U':    /* Argument type is of integer, hence read 32bit unsigend data */
+                    v_num_u32 = va_arg(argp, uint32_t);
+ 990:	35 01       	movw	r6, r10
+                    OLED_DisplayNumber(C_DECIMAL_U8,v_num_u32,v_numOfDigitsToDisp_u8);
+                    break;
+ 992:	60 c0       	rjmp	.+192    	; 0xa54 <__stack+0x155>
+                    
+                case 'x':  /* Argument type is of hex, hence hexadecimal data from the argp */
+                    v_num_u16 = va_arg(argp, int);
+ 994:	53 01       	movw	r10, r6
+ 996:	f2 e0       	ldi	r31, 0x02	; 2
+ 998:	af 0e       	add	r10, r31
+ 99a:	b1 1c       	adc	r11, r1
+ 99c:	d3 01       	movw	r26, r6
+ 99e:	4d 91       	ld	r20, X+
+ 9a0:	5c 91       	ld	r21, X
+                    OLED_DisplayNumber(C_HEX_U8,v_num_u16,v_numOfDigitsToDisp_u8);
+ 9a2:	60 e0       	ldi	r22, 0x00	; 0
+ 9a4:	70 e0       	ldi	r23, 0x00	; 0
+ 9a6:	21 2f       	mov	r18, r17
+ 9a8:	80 e1       	ldi	r24, 0x10	; 16
+ 9aa:	0e 94 4c 03 	call	0x698	; 0x698 <OLED_DisplayNumber>
+                    v_num_u32 = va_arg(argp, uint32_t);
+                    OLED_DisplayNumber(C_DECIMAL_U8,v_num_u32,v_numOfDigitsToDisp_u8);
+                    break;
+                    
+                case 'x':  /* Argument type is of hex, hence hexadecimal data from the argp */
+                    v_num_u16 = va_arg(argp, int);
+ 9ae:	35 01       	movw	r6, r10
+                    OLED_DisplayNumber(C_HEX_U8,v_num_u16,v_numOfDigitsToDisp_u8);
+                    break;
+ 9b0:	51 c0       	rjmp	.+162    	; 0xa54 <__stack+0x155>
+                    
+                case 'X':  /* Argument type is of hex, hence hexadecimal data from the argp */
+                    v_num_u32 = va_arg(argp, uint32_t);
+ 9b2:	53 01       	movw	r10, r6
+ 9b4:	b4 e0       	ldi	r27, 0x04	; 4
+ 9b6:	ab 0e       	add	r10, r27
+ 9b8:	b1 1c       	adc	r11, r1
+ 9ba:	f3 01       	movw	r30, r6
+ 9bc:	40 81       	ld	r20, Z
+ 9be:	51 81       	ldd	r21, Z+1	; 0x01
+ 9c0:	62 81       	ldd	r22, Z+2	; 0x02
+ 9c2:	73 81       	ldd	r23, Z+3	; 0x03
+                    OLED_DisplayNumber(C_HEX_U8,v_num_u32,v_numOfDigitsToDisp_u8);
+ 9c4:	21 2f       	mov	r18, r17
+ 9c6:	80 e1       	ldi	r24, 0x10	; 16
+ 9c8:	0e 94 4c 03 	call	0x698	; 0x698 <OLED_DisplayNumber>
+                    v_num_u16 = va_arg(argp, int);
+                    OLED_DisplayNumber(C_HEX_U8,v_num_u16,v_numOfDigitsToDisp_u8);
+                    break;
+                    
+                case 'X':  /* Argument type is of hex, hence hexadecimal data from the argp */
+                    v_num_u32 = va_arg(argp, uint32_t);
+ 9cc:	35 01       	movw	r6, r10
+                    OLED_DisplayNumber(C_HEX_U8,v_num_u32,v_numOfDigitsToDisp_u8);
+                    break;
+ 9ce:	42 c0       	rjmp	.+132    	; 0xa54 <__stack+0x155>
+                    
+                    
+                case 'b':  /* Argument type is of binary,Read int and convert to binary */
+                    v_num_u16 = va_arg(argp, int);
+ 9d0:	53 01       	movw	r10, r6
+ 9d2:	f2 e0       	ldi	r31, 0x02	; 2
+ 9d4:	af 0e       	add	r10, r31
+ 9d6:	b1 1c       	adc	r11, r1
+ 9d8:	d3 01       	movw	r26, r6
+ 9da:	4d 91       	ld	r20, X+
+ 9dc:	5c 91       	ld	r21, X
+                    if(v_numOfDigitsToDisp_u8 == C_MaxDigitsToDisplayUsingPrintf_U8)
+ 9de:	1f 3f       	cpi	r17, 0xFF	; 255
+ 9e0:	09 f4       	brne	.+2      	; 0x9e4 <__stack+0xe5>
+                        v_numOfDigitsToDisp_u8 = 16;
+ 9e2:	10 e1       	ldi	r17, 0x10	; 16
+                    OLED_DisplayNumber(C_BINARY_U8,v_num_u16,v_numOfDigitsToDisp_u8);
+ 9e4:	60 e0       	ldi	r22, 0x00	; 0
+ 9e6:	70 e0       	ldi	r23, 0x00	; 0
+ 9e8:	21 2f       	mov	r18, r17
+ 9ea:	82 e0       	ldi	r24, 0x02	; 2
+ 9ec:	0e 94 4c 03 	call	0x698	; 0x698 <OLED_DisplayNumber>
+                    OLED_DisplayNumber(C_HEX_U8,v_num_u32,v_numOfDigitsToDisp_u8);
+                    break;
+                    
+                    
+                case 'b':  /* Argument type is of binary,Read int and convert to binary */
+                    v_num_u16 = va_arg(argp, int);
+ 9f0:	35 01       	movw	r6, r10
+                    if(v_numOfDigitsToDisp_u8 == C_MaxDigitsToDisplayUsingPrintf_U8)
+                        v_numOfDigitsToDisp_u8 = 16;
+                    OLED_DisplayNumber(C_BINARY_U8,v_num_u16,v_numOfDigitsToDisp_u8);
+                    break;
+ 9f2:	30 c0       	rjmp	.+96     	; 0xa54 <__stack+0x155>
+                    
+                case 'B':  /* Argument type is of binary,Read int and convert to binary */
+                    v_num_u32 = va_arg(argp, uint32_t);
+ 9f4:	53 01       	movw	r10, r6
+ 9f6:	b4 e0       	ldi	r27, 0x04	; 4
+ 9f8:	ab 0e       	add	r10, r27
+ 9fa:	b1 1c       	adc	r11, r1
+ 9fc:	f3 01       	movw	r30, r6
+ 9fe:	40 81       	ld	r20, Z
+ a00:	51 81       	ldd	r21, Z+1	; 0x01
+ a02:	62 81       	ldd	r22, Z+2	; 0x02
+ a04:	73 81       	ldd	r23, Z+3	; 0x03
+                    if(v_numOfDigitsToDisp_u8 == C_MaxDigitsToDisplayUsingPrintf_U8)
+ a06:	1f 3f       	cpi	r17, 0xFF	; 255
+ a08:	09 f4       	brne	.+2      	; 0xa0c <__stack+0x10d>
+                        v_numOfDigitsToDisp_u8 = 16;
+ a0a:	10 e1       	ldi	r17, 0x10	; 16
+                    OLED_DisplayNumber(C_BINARY_U8,v_num_u32,v_numOfDigitsToDisp_u8);
+ a0c:	21 2f       	mov	r18, r17
+ a0e:	82 e0       	ldi	r24, 0x02	; 2
+ a10:	0e 94 4c 03 	call	0x698	; 0x698 <OLED_DisplayNumber>
+                        v_numOfDigitsToDisp_u8 = 16;
+                    OLED_DisplayNumber(C_BINARY_U8,v_num_u16,v_numOfDigitsToDisp_u8);
+                    break;
+                    
+                case 'B':  /* Argument type is of binary,Read int and convert to binary */
+                    v_num_u32 = va_arg(argp, uint32_t);
+ a14:	35 01       	movw	r6, r10
+                    if(v_numOfDigitsToDisp_u8 == C_MaxDigitsToDisplayUsingPrintf_U8)
+                        v_numOfDigitsToDisp_u8 = 16;
+                    OLED_DisplayNumber(C_BINARY_U8,v_num_u32,v_numOfDigitsToDisp_u8);
+                    break;
+ a16:	1e c0       	rjmp	.+60     	; 0xa54 <__stack+0x155>
+                    
+                    
+                case 'F':
+                case 'f': /* Argument type is of float, hence read double data from the argp */
+#if (Enable_OLED_DisplayFloatNumber == 1)
+                    v_floatNum_f32 = va_arg(argp, double);
+ a18:	53 01       	movw	r10, r6
+ a1a:	f4 e0       	ldi	r31, 0x04	; 4
+ a1c:	af 0e       	add	r10, r31
+ a1e:	b1 1c       	adc	r11, r1
+ a20:	d3 01       	movw	r26, r6
+ a22:	6d 91       	ld	r22, X+
+ a24:	7d 91       	ld	r23, X+
+ a26:	8d 91       	ld	r24, X+
+ a28:	9c 91       	ld	r25, X
+                    OLED_DisplayFloatNumber(v_floatNum_f32);
+ a2a:	0e 94 f0 03 	call	0x7e0	; 0x7e0 <OLED_DisplayFloatNumber>
+                    
+                    
+                case 'F':
+                case 'f': /* Argument type is of float, hence read double data from the argp */
+#if (Enable_OLED_DisplayFloatNumber == 1)
+                    v_floatNum_f32 = va_arg(argp, double);
+ a2e:	35 01       	movw	r6, r10
+                    OLED_DisplayFloatNumber(v_floatNum_f32);
+#endif
+                    break;
+ a30:	11 c0       	rjmp	.+34     	; 0xa54 <__stack+0x155>
+                    
+                    
+                case 'S':
+                case 's': /* Argument type is of string, hence get the pointer to sting passed */
+                    str = va_arg(argp, char *);
+ a32:	53 01       	movw	r10, r6
+ a34:	b2 e0       	ldi	r27, 0x02	; 2
+ a36:	ab 0e       	add	r10, r27
+ a38:	b1 1c       	adc	r11, r1
+                    OLED_DisplayString(str);
+ a3a:	f3 01       	movw	r30, r6
+ a3c:	80 81       	ld	r24, Z
+ a3e:	91 81       	ldd	r25, Z+1	; 0x01
+ a40:	0e 94 3f 03 	call	0x67e	; 0x67e <OLED_DisplayString>
+                    break;
+                    
+                    
+                case 'S':
+                case 's': /* Argument type is of string, hence get the pointer to sting passed */
+                    str = va_arg(argp, char *);
+ a44:	35 01       	movw	r6, r10
+                    OLED_DisplayString(str);
+                    break;
+ a46:	06 c0       	rjmp	.+12     	; 0xa54 <__stack+0x155>
+                    
+                case '%':
+                    OLED_DisplayChar('%');
+ a48:	85 e2       	ldi	r24, 0x25	; 37
+ a4a:	0e 94 0a 03 	call	0x614	; 0x614 <OLED_DisplayChar>
+                    break;
+ a4e:	02 c0       	rjmp	.+4      	; 0xa54 <__stack+0x155>
+            }
+        }
+        else
+        {
+            /* As '%' is not detected display/transmit the char passed */
+            OLED_DisplayChar(ch);
+ a50:	0e 94 0a 03 	call	0x614	; 0x614 <OLED_DisplayChar>
+#endif
+    
+    va_start(argp, argList);
+    
+    /* Loop through the list to extract all the input arguments */
+    for(ptr = argList; *ptr != '\0'; ptr++)
+ a54:	ff ef       	ldi	r31, 0xFF	; 255
+ a56:	ef 1a       	sub	r14, r31
+ a58:	ff 0a       	sbc	r15, r31
+ a5a:	d7 01       	movw	r26, r14
+ a5c:	8c 91       	ld	r24, X
+ a5e:	81 11       	cpse	r24, r1
+ a60:	0a cf       	rjmp	.-492    	; 0x876 <OLED_Printf+0x26>
+            OLED_DisplayChar(ch);
+        }
+    }
+    
+    va_end(argp);
+}
+ a62:	df 91       	pop	r29
+ a64:	cf 91       	pop	r28
+ a66:	1f 91       	pop	r17
+ a68:	ff 90       	pop	r15
+ a6a:	ef 90       	pop	r14
+ a6c:	bf 90       	pop	r11
+ a6e:	af 90       	pop	r10
+ a70:	7f 90       	pop	r7
+ a72:	6f 90       	pop	r6
+ a74:	5f 90       	pop	r5
+ a76:	4f 90       	pop	r4
+ a78:	08 95       	ret
+
+00000a7a <__subsf3>:
+ a7a:	50 58       	subi	r21, 0x80	; 128
+
+00000a7c <__addsf3>:
+ a7c:	bb 27       	eor	r27, r27
+ a7e:	aa 27       	eor	r26, r26
+ a80:	0e 94 55 05 	call	0xaaa	; 0xaaa <__addsf3x>
+ a84:	0c 94 34 06 	jmp	0xc68	; 0xc68 <__fp_round>
+ a88:	0e 94 26 06 	call	0xc4c	; 0xc4c <__fp_pscA>
+ a8c:	38 f0       	brcs	.+14     	; 0xa9c <__addsf3+0x20>
+ a8e:	0e 94 2d 06 	call	0xc5a	; 0xc5a <__fp_pscB>
+ a92:	20 f0       	brcs	.+8      	; 0xa9c <__addsf3+0x20>
+ a94:	39 f4       	brne	.+14     	; 0xaa4 <__addsf3+0x28>
+ a96:	9f 3f       	cpi	r25, 0xFF	; 255
+ a98:	19 f4       	brne	.+6      	; 0xaa0 <__addsf3+0x24>
+ a9a:	26 f4       	brtc	.+8      	; 0xaa4 <__addsf3+0x28>
+ a9c:	0c 94 23 06 	jmp	0xc46	; 0xc46 <__fp_nan>
+ aa0:	0e f4       	brtc	.+2      	; 0xaa4 <__addsf3+0x28>
+ aa2:	e0 95       	com	r30
+ aa4:	e7 fb       	bst	r30, 7
+ aa6:	0c 94 1d 06 	jmp	0xc3a	; 0xc3a <__fp_inf>
+
+00000aaa <__addsf3x>:
+ aaa:	e9 2f       	mov	r30, r25
+ aac:	0e 94 45 06 	call	0xc8a	; 0xc8a <__fp_split3>
+ ab0:	58 f3       	brcs	.-42     	; 0xa88 <__addsf3+0xc>
+ ab2:	ba 17       	cp	r27, r26
+ ab4:	62 07       	cpc	r22, r18
+ ab6:	73 07       	cpc	r23, r19
+ ab8:	84 07       	cpc	r24, r20
+ aba:	95 07       	cpc	r25, r21
+ abc:	20 f0       	brcs	.+8      	; 0xac6 <__addsf3x+0x1c>
+ abe:	79 f4       	brne	.+30     	; 0xade <__addsf3x+0x34>
+ ac0:	a6 f5       	brtc	.+104    	; 0xb2a <__addsf3x+0x80>
+ ac2:	0c 94 67 06 	jmp	0xcce	; 0xcce <__fp_zero>
+ ac6:	0e f4       	brtc	.+2      	; 0xaca <__addsf3x+0x20>
+ ac8:	e0 95       	com	r30
+ aca:	0b 2e       	mov	r0, r27
+ acc:	ba 2f       	mov	r27, r26
+ ace:	a0 2d       	mov	r26, r0
+ ad0:	0b 01       	movw	r0, r22
+ ad2:	b9 01       	movw	r22, r18
+ ad4:	90 01       	movw	r18, r0
+ ad6:	0c 01       	movw	r0, r24
+ ad8:	ca 01       	movw	r24, r20
+ ada:	a0 01       	movw	r20, r0
+ adc:	11 24       	eor	r1, r1
+ ade:	ff 27       	eor	r31, r31
+ ae0:	59 1b       	sub	r21, r25
+ ae2:	99 f0       	breq	.+38     	; 0xb0a <__addsf3x+0x60>
+ ae4:	59 3f       	cpi	r21, 0xF9	; 249
+ ae6:	50 f4       	brcc	.+20     	; 0xafc <__addsf3x+0x52>
+ ae8:	50 3e       	cpi	r21, 0xE0	; 224
+ aea:	68 f1       	brcs	.+90     	; 0xb46 <__addsf3x+0x9c>
+ aec:	1a 16       	cp	r1, r26
+ aee:	f0 40       	sbci	r31, 0x00	; 0
+ af0:	a2 2f       	mov	r26, r18
+ af2:	23 2f       	mov	r18, r19
+ af4:	34 2f       	mov	r19, r20
+ af6:	44 27       	eor	r20, r20
+ af8:	58 5f       	subi	r21, 0xF8	; 248
+ afa:	f3 cf       	rjmp	.-26     	; 0xae2 <__addsf3x+0x38>
+ afc:	46 95       	lsr	r20
+ afe:	37 95       	ror	r19
+ b00:	27 95       	ror	r18
+ b02:	a7 95       	ror	r26
+ b04:	f0 40       	sbci	r31, 0x00	; 0
+ b06:	53 95       	inc	r21
+ b08:	c9 f7       	brne	.-14     	; 0xafc <__addsf3x+0x52>
+ b0a:	7e f4       	brtc	.+30     	; 0xb2a <__addsf3x+0x80>
+ b0c:	1f 16       	cp	r1, r31
+ b0e:	ba 0b       	sbc	r27, r26
+ b10:	62 0b       	sbc	r22, r18
+ b12:	73 0b       	sbc	r23, r19
+ b14:	84 0b       	sbc	r24, r20
+ b16:	ba f0       	brmi	.+46     	; 0xb46 <__addsf3x+0x9c>
+ b18:	91 50       	subi	r25, 0x01	; 1
+ b1a:	a1 f0       	breq	.+40     	; 0xb44 <__addsf3x+0x9a>
+ b1c:	ff 0f       	add	r31, r31
+ b1e:	bb 1f       	adc	r27, r27
+ b20:	66 1f       	adc	r22, r22
+ b22:	77 1f       	adc	r23, r23
+ b24:	88 1f       	adc	r24, r24
+ b26:	c2 f7       	brpl	.-16     	; 0xb18 <__addsf3x+0x6e>
+ b28:	0e c0       	rjmp	.+28     	; 0xb46 <__addsf3x+0x9c>
+ b2a:	ba 0f       	add	r27, r26
+ b2c:	62 1f       	adc	r22, r18
+ b2e:	73 1f       	adc	r23, r19
+ b30:	84 1f       	adc	r24, r20
+ b32:	48 f4       	brcc	.+18     	; 0xb46 <__addsf3x+0x9c>
+ b34:	87 95       	ror	r24
+ b36:	77 95       	ror	r23
+ b38:	67 95       	ror	r22
+ b3a:	b7 95       	ror	r27
+ b3c:	f7 95       	ror	r31
+ b3e:	9e 3f       	cpi	r25, 0xFE	; 254
+ b40:	08 f0       	brcs	.+2      	; 0xb44 <__addsf3x+0x9a>
+ b42:	b0 cf       	rjmp	.-160    	; 0xaa4 <__addsf3+0x28>
+ b44:	93 95       	inc	r25
+ b46:	88 0f       	add	r24, r24
+ b48:	08 f0       	brcs	.+2      	; 0xb4c <__addsf3x+0xa2>
+ b4a:	99 27       	eor	r25, r25
+ b4c:	ee 0f       	add	r30, r30
+ b4e:	97 95       	ror	r25
+ b50:	87 95       	ror	r24
+ b52:	08 95       	ret
+
+00000b54 <__fixsfsi>:
+ b54:	0e 94 b1 05 	call	0xb62	; 0xb62 <__fixunssfsi>
+ b58:	68 94       	set
+ b5a:	b1 11       	cpse	r27, r1
+ b5c:	0c 94 68 06 	jmp	0xcd0	; 0xcd0 <__fp_szero>
+ b60:	08 95       	ret
+
+00000b62 <__fixunssfsi>:
+ b62:	0e 94 4d 06 	call	0xc9a	; 0xc9a <__fp_splitA>
+ b66:	88 f0       	brcs	.+34     	; 0xb8a <__fixunssfsi+0x28>
+ b68:	9f 57       	subi	r25, 0x7F	; 127
+ b6a:	98 f0       	brcs	.+38     	; 0xb92 <__fixunssfsi+0x30>
+ b6c:	b9 2f       	mov	r27, r25
+ b6e:	99 27       	eor	r25, r25
+ b70:	b7 51       	subi	r27, 0x17	; 23
+ b72:	b0 f0       	brcs	.+44     	; 0xba0 <__fixunssfsi+0x3e>
+ b74:	e1 f0       	breq	.+56     	; 0xbae <__fixunssfsi+0x4c>
+ b76:	66 0f       	add	r22, r22
+ b78:	77 1f       	adc	r23, r23
+ b7a:	88 1f       	adc	r24, r24
+ b7c:	99 1f       	adc	r25, r25
+ b7e:	1a f0       	brmi	.+6      	; 0xb86 <__fixunssfsi+0x24>
+ b80:	ba 95       	dec	r27
+ b82:	c9 f7       	brne	.-14     	; 0xb76 <__fixunssfsi+0x14>
+ b84:	14 c0       	rjmp	.+40     	; 0xbae <__fixunssfsi+0x4c>
+ b86:	b1 30       	cpi	r27, 0x01	; 1
+ b88:	91 f0       	breq	.+36     	; 0xbae <__fixunssfsi+0x4c>
+ b8a:	0e 94 67 06 	call	0xcce	; 0xcce <__fp_zero>
+ b8e:	b1 e0       	ldi	r27, 0x01	; 1
+ b90:	08 95       	ret
+ b92:	0c 94 67 06 	jmp	0xcce	; 0xcce <__fp_zero>
+ b96:	67 2f       	mov	r22, r23
+ b98:	78 2f       	mov	r23, r24
+ b9a:	88 27       	eor	r24, r24
+ b9c:	b8 5f       	subi	r27, 0xF8	; 248
+ b9e:	39 f0       	breq	.+14     	; 0xbae <__fixunssfsi+0x4c>
+ ba0:	b9 3f       	cpi	r27, 0xF9	; 249
+ ba2:	cc f3       	brlt	.-14     	; 0xb96 <__fixunssfsi+0x34>
+ ba4:	86 95       	lsr	r24
+ ba6:	77 95       	ror	r23
+ ba8:	67 95       	ror	r22
+ baa:	b3 95       	inc	r27
+ bac:	d9 f7       	brne	.-10     	; 0xba4 <__fixunssfsi+0x42>
+ bae:	3e f4       	brtc	.+14     	; 0xbbe <__fixunssfsi+0x5c>
+ bb0:	90 95       	com	r25
+ bb2:	80 95       	com	r24
+ bb4:	70 95       	com	r23
+ bb6:	61 95       	neg	r22
+ bb8:	7f 4f       	sbci	r23, 0xFF	; 255
+ bba:	8f 4f       	sbci	r24, 0xFF	; 255
+ bbc:	9f 4f       	sbci	r25, 0xFF	; 255
+ bbe:	08 95       	ret
+
+00000bc0 <__floatunsisf>:
+ bc0:	e8 94       	clt
+ bc2:	09 c0       	rjmp	.+18     	; 0xbd6 <__floatsisf+0x12>
+
+00000bc4 <__floatsisf>:
+ bc4:	97 fb       	bst	r25, 7
+ bc6:	3e f4       	brtc	.+14     	; 0xbd6 <__floatsisf+0x12>
+ bc8:	90 95       	com	r25
+ bca:	80 95       	com	r24
+ bcc:	70 95       	com	r23
+ bce:	61 95       	neg	r22
+ bd0:	7f 4f       	sbci	r23, 0xFF	; 255
+ bd2:	8f 4f       	sbci	r24, 0xFF	; 255
+ bd4:	9f 4f       	sbci	r25, 0xFF	; 255
+ bd6:	99 23       	and	r25, r25
+ bd8:	a9 f0       	breq	.+42     	; 0xc04 <__floatsisf+0x40>
+ bda:	f9 2f       	mov	r31, r25
+ bdc:	96 e9       	ldi	r25, 0x96	; 150
+ bde:	bb 27       	eor	r27, r27
+ be0:	93 95       	inc	r25
+ be2:	f6 95       	lsr	r31
+ be4:	87 95       	ror	r24
+ be6:	77 95       	ror	r23
+ be8:	67 95       	ror	r22
+ bea:	b7 95       	ror	r27
+ bec:	f1 11       	cpse	r31, r1
+ bee:	f8 cf       	rjmp	.-16     	; 0xbe0 <__floatsisf+0x1c>
+ bf0:	fa f4       	brpl	.+62     	; 0xc30 <__floatsisf+0x6c>
+ bf2:	bb 0f       	add	r27, r27
+ bf4:	11 f4       	brne	.+4      	; 0xbfa <__floatsisf+0x36>
+ bf6:	60 ff       	sbrs	r22, 0
+ bf8:	1b c0       	rjmp	.+54     	; 0xc30 <__floatsisf+0x6c>
+ bfa:	6f 5f       	subi	r22, 0xFF	; 255
+ bfc:	7f 4f       	sbci	r23, 0xFF	; 255
+ bfe:	8f 4f       	sbci	r24, 0xFF	; 255
+ c00:	9f 4f       	sbci	r25, 0xFF	; 255
+ c02:	16 c0       	rjmp	.+44     	; 0xc30 <__floatsisf+0x6c>
+ c04:	88 23       	and	r24, r24
+ c06:	11 f0       	breq	.+4      	; 0xc0c <__floatsisf+0x48>
+ c08:	96 e9       	ldi	r25, 0x96	; 150
+ c0a:	11 c0       	rjmp	.+34     	; 0xc2e <__floatsisf+0x6a>
+ c0c:	77 23       	and	r23, r23
+ c0e:	21 f0       	breq	.+8      	; 0xc18 <__floatsisf+0x54>
+ c10:	9e e8       	ldi	r25, 0x8E	; 142
+ c12:	87 2f       	mov	r24, r23
+ c14:	76 2f       	mov	r23, r22
+ c16:	05 c0       	rjmp	.+10     	; 0xc22 <__floatsisf+0x5e>
+ c18:	66 23       	and	r22, r22
+ c1a:	71 f0       	breq	.+28     	; 0xc38 <__floatsisf+0x74>
+ c1c:	96 e8       	ldi	r25, 0x86	; 134
+ c1e:	86 2f       	mov	r24, r22
+ c20:	70 e0       	ldi	r23, 0x00	; 0
+ c22:	60 e0       	ldi	r22, 0x00	; 0
+ c24:	2a f0       	brmi	.+10     	; 0xc30 <__floatsisf+0x6c>
+ c26:	9a 95       	dec	r25
+ c28:	66 0f       	add	r22, r22
+ c2a:	77 1f       	adc	r23, r23
+ c2c:	88 1f       	adc	r24, r24
+ c2e:	da f7       	brpl	.-10     	; 0xc26 <__floatsisf+0x62>
+ c30:	88 0f       	add	r24, r24
+ c32:	96 95       	lsr	r25
+ c34:	87 95       	ror	r24
+ c36:	97 f9       	bld	r25, 7
+ c38:	08 95       	ret
+
+00000c3a <__fp_inf>:
+ c3a:	97 f9       	bld	r25, 7
+ c3c:	9f 67       	ori	r25, 0x7F	; 127
+ c3e:	80 e8       	ldi	r24, 0x80	; 128
+ c40:	70 e0       	ldi	r23, 0x00	; 0
+ c42:	60 e0       	ldi	r22, 0x00	; 0
+ c44:	08 95       	ret
+
+00000c46 <__fp_nan>:
+ c46:	9f ef       	ldi	r25, 0xFF	; 255
+ c48:	80 ec       	ldi	r24, 0xC0	; 192
+ c4a:	08 95       	ret
+
+00000c4c <__fp_pscA>:
+ c4c:	00 24       	eor	r0, r0
+ c4e:	0a 94       	dec	r0
+ c50:	16 16       	cp	r1, r22
+ c52:	17 06       	cpc	r1, r23
+ c54:	18 06       	cpc	r1, r24
+ c56:	09 06       	cpc	r0, r25
+ c58:	08 95       	ret
+
+00000c5a <__fp_pscB>:
+ c5a:	00 24       	eor	r0, r0
+ c5c:	0a 94       	dec	r0
+ c5e:	12 16       	cp	r1, r18
+ c60:	13 06       	cpc	r1, r19
+ c62:	14 06       	cpc	r1, r20
+ c64:	05 06       	cpc	r0, r21
+ c66:	08 95       	ret
+
+00000c68 <__fp_round>:
+ c68:	09 2e       	mov	r0, r25
+ c6a:	03 94       	inc	r0
+ c6c:	00 0c       	add	r0, r0
+ c6e:	11 f4       	brne	.+4      	; 0xc74 <__fp_round+0xc>
+ c70:	88 23       	and	r24, r24
+ c72:	52 f0       	brmi	.+20     	; 0xc88 <__fp_round+0x20>
+ c74:	bb 0f       	add	r27, r27
+ c76:	40 f4       	brcc	.+16     	; 0xc88 <__fp_round+0x20>
+ c78:	bf 2b       	or	r27, r31
+ c7a:	11 f4       	brne	.+4      	; 0xc80 <__fp_round+0x18>
+ c7c:	60 ff       	sbrs	r22, 0
+ c7e:	04 c0       	rjmp	.+8      	; 0xc88 <__fp_round+0x20>
+ c80:	6f 5f       	subi	r22, 0xFF	; 255
+ c82:	7f 4f       	sbci	r23, 0xFF	; 255
+ c84:	8f 4f       	sbci	r24, 0xFF	; 255
+ c86:	9f 4f       	sbci	r25, 0xFF	; 255
+ c88:	08 95       	ret
+
+00000c8a <__fp_split3>:
+ c8a:	57 fd       	sbrc	r21, 7
+ c8c:	90 58       	subi	r25, 0x80	; 128
+ c8e:	44 0f       	add	r20, r20
+ c90:	55 1f       	adc	r21, r21
+ c92:	59 f0       	breq	.+22     	; 0xcaa <__fp_splitA+0x10>
+ c94:	5f 3f       	cpi	r21, 0xFF	; 255
+ c96:	71 f0       	breq	.+28     	; 0xcb4 <__fp_splitA+0x1a>
+ c98:	47 95       	ror	r20
+
+00000c9a <__fp_splitA>:
+ c9a:	88 0f       	add	r24, r24
+ c9c:	97 fb       	bst	r25, 7
+ c9e:	99 1f       	adc	r25, r25
+ ca0:	61 f0       	breq	.+24     	; 0xcba <__fp_splitA+0x20>
+ ca2:	9f 3f       	cpi	r25, 0xFF	; 255
+ ca4:	79 f0       	breq	.+30     	; 0xcc4 <__fp_splitA+0x2a>
+ ca6:	87 95       	ror	r24
+ ca8:	08 95       	ret
+ caa:	12 16       	cp	r1, r18
+ cac:	13 06       	cpc	r1, r19
+ cae:	14 06       	cpc	r1, r20
+ cb0:	55 1f       	adc	r21, r21
+ cb2:	f2 cf       	rjmp	.-28     	; 0xc98 <__fp_split3+0xe>
+ cb4:	46 95       	lsr	r20
+ cb6:	f1 df       	rcall	.-30     	; 0xc9a <__fp_splitA>
+ cb8:	08 c0       	rjmp	.+16     	; 0xcca <__fp_splitA+0x30>
+ cba:	16 16       	cp	r1, r22
+ cbc:	17 06       	cpc	r1, r23
+ cbe:	18 06       	cpc	r1, r24
+ cc0:	99 1f       	adc	r25, r25
+ cc2:	f1 cf       	rjmp	.-30     	; 0xca6 <__fp_splitA+0xc>
+ cc4:	86 95       	lsr	r24
+ cc6:	71 05       	cpc	r23, r1
+ cc8:	61 05       	cpc	r22, r1
+ cca:	08 94       	sec
+ ccc:	08 95       	ret
+
+00000cce <__fp_zero>:
+ cce:	e8 94       	clt
+
+00000cd0 <__fp_szero>:
+ cd0:	bb 27       	eor	r27, r27
+ cd2:	66 27       	eor	r22, r22
+ cd4:	77 27       	eor	r23, r23
+ cd6:	cb 01       	movw	r24, r22
+ cd8:	97 f9       	bld	r25, 7
+ cda:	08 95       	ret
+
+00000cdc <__mulsf3>:
+ cdc:	0e 94 81 06 	call	0xd02	; 0xd02 <__mulsf3x>
+ ce0:	0c 94 34 06 	jmp	0xc68	; 0xc68 <__fp_round>
+ ce4:	0e 94 26 06 	call	0xc4c	; 0xc4c <__fp_pscA>
+ ce8:	38 f0       	brcs	.+14     	; 0xcf8 <__mulsf3+0x1c>
+ cea:	0e 94 2d 06 	call	0xc5a	; 0xc5a <__fp_pscB>
+ cee:	20 f0       	brcs	.+8      	; 0xcf8 <__mulsf3+0x1c>
+ cf0:	95 23       	and	r25, r21
+ cf2:	11 f0       	breq	.+4      	; 0xcf8 <__mulsf3+0x1c>
+ cf4:	0c 94 1d 06 	jmp	0xc3a	; 0xc3a <__fp_inf>
+ cf8:	0c 94 23 06 	jmp	0xc46	; 0xc46 <__fp_nan>
+ cfc:	11 24       	eor	r1, r1
+ cfe:	0c 94 68 06 	jmp	0xcd0	; 0xcd0 <__fp_szero>
+
+00000d02 <__mulsf3x>:
+ d02:	0e 94 45 06 	call	0xc8a	; 0xc8a <__fp_split3>
+ d06:	70 f3       	brcs	.-36     	; 0xce4 <__mulsf3+0x8>
+
+00000d08 <__mulsf3_pse>:
+ d08:	95 9f       	mul	r25, r21
+ d0a:	c1 f3       	breq	.-16     	; 0xcfc <__mulsf3+0x20>
+ d0c:	95 0f       	add	r25, r21
+ d0e:	50 e0       	ldi	r21, 0x00	; 0
+ d10:	55 1f       	adc	r21, r21
+ d12:	62 9f       	mul	r22, r18
+ d14:	f0 01       	movw	r30, r0
+ d16:	72 9f       	mul	r23, r18
+ d18:	bb 27       	eor	r27, r27
+ d1a:	f0 0d       	add	r31, r0
+ d1c:	b1 1d       	adc	r27, r1
+ d1e:	63 9f       	mul	r22, r19
+ d20:	aa 27       	eor	r26, r26
+ d22:	f0 0d       	add	r31, r0
+ d24:	b1 1d       	adc	r27, r1
+ d26:	aa 1f       	adc	r26, r26
+ d28:	64 9f       	mul	r22, r20
+ d2a:	66 27       	eor	r22, r22
+ d2c:	b0 0d       	add	r27, r0
+ d2e:	a1 1d       	adc	r26, r1
+ d30:	66 1f       	adc	r22, r22
+ d32:	82 9f       	mul	r24, r18
+ d34:	22 27       	eor	r18, r18
+ d36:	b0 0d       	add	r27, r0
+ d38:	a1 1d       	adc	r26, r1
+ d3a:	62 1f       	adc	r22, r18
+ d3c:	73 9f       	mul	r23, r19
+ d3e:	b0 0d       	add	r27, r0
+ d40:	a1 1d       	adc	r26, r1
+ d42:	62 1f       	adc	r22, r18
+ d44:	83 9f       	mul	r24, r19
+ d46:	a0 0d       	add	r26, r0
+ d48:	61 1d       	adc	r22, r1
+ d4a:	22 1f       	adc	r18, r18
+ d4c:	74 9f       	mul	r23, r20
+ d4e:	33 27       	eor	r19, r19
+ d50:	a0 0d       	add	r26, r0
+ d52:	61 1d       	adc	r22, r1
+ d54:	23 1f       	adc	r18, r19
+ d56:	84 9f       	mul	r24, r20
+ d58:	60 0d       	add	r22, r0
+ d5a:	21 1d       	adc	r18, r1
+ d5c:	82 2f       	mov	r24, r18
+ d5e:	76 2f       	mov	r23, r22
+ d60:	6a 2f       	mov	r22, r26
+ d62:	11 24       	eor	r1, r1
+ d64:	9f 57       	subi	r25, 0x7F	; 127
+ d66:	50 40       	sbci	r21, 0x00	; 0
+ d68:	9a f0       	brmi	.+38     	; 0xd90 <__mulsf3_pse+0x88>
+ d6a:	f1 f0       	breq	.+60     	; 0xda8 <__mulsf3_pse+0xa0>
+ d6c:	88 23       	and	r24, r24
+ d6e:	4a f0       	brmi	.+18     	; 0xd82 <__mulsf3_pse+0x7a>
+ d70:	ee 0f       	add	r30, r30
+ d72:	ff 1f       	adc	r31, r31
+ d74:	bb 1f       	adc	r27, r27
+ d76:	66 1f       	adc	r22, r22
+ d78:	77 1f       	adc	r23, r23
+ d7a:	88 1f       	adc	r24, r24
+ d7c:	91 50       	subi	r25, 0x01	; 1
+ d7e:	50 40       	sbci	r21, 0x00	; 0
+ d80:	a9 f7       	brne	.-22     	; 0xd6c <__mulsf3_pse+0x64>
+ d82:	9e 3f       	cpi	r25, 0xFE	; 254
+ d84:	51 05       	cpc	r21, r1
+ d86:	80 f0       	brcs	.+32     	; 0xda8 <__mulsf3_pse+0xa0>
+ d88:	0c 94 1d 06 	jmp	0xc3a	; 0xc3a <__fp_inf>
+ d8c:	0c 94 68 06 	jmp	0xcd0	; 0xcd0 <__fp_szero>
+ d90:	5f 3f       	cpi	r21, 0xFF	; 255
+ d92:	e4 f3       	brlt	.-8      	; 0xd8c <__mulsf3_pse+0x84>
+ d94:	98 3e       	cpi	r25, 0xE8	; 232
+ d96:	d4 f3       	brlt	.-12     	; 0xd8c <__mulsf3_pse+0x84>
+ d98:	86 95       	lsr	r24
+ d9a:	77 95       	ror	r23
+ d9c:	67 95       	ror	r22
+ d9e:	b7 95       	ror	r27
+ da0:	f7 95       	ror	r31
+ da2:	e7 95       	ror	r30
+ da4:	9f 5f       	subi	r25, 0xFF	; 255
+ da6:	c1 f7       	brne	.-16     	; 0xd98 <__mulsf3_pse+0x90>
+ da8:	fe 2b       	or	r31, r30
+ daa:	88 0f       	add	r24, r24
+ dac:	91 1d       	adc	r25, r1
+ dae:	96 95       	lsr	r25
+ db0:	87 95       	ror	r24
+ db2:	97 f9       	bld	r25, 7
+ db4:	08 95       	ret
+
+00000db6 <__udivmodsi4>:
+ db6:	a1 e2       	ldi	r26, 0x21	; 33
+ db8:	1a 2e       	mov	r1, r26
+ dba:	aa 1b       	sub	r26, r26
+ dbc:	bb 1b       	sub	r27, r27
+ dbe:	fd 01       	movw	r30, r26
+ dc0:	0d c0       	rjmp	.+26     	; 0xddc <__udivmodsi4_ep>
+
+00000dc2 <__udivmodsi4_loop>:
+ dc2:	aa 1f       	adc	r26, r26
+ dc4:	bb 1f       	adc	r27, r27
+ dc6:	ee 1f       	adc	r30, r30
+ dc8:	ff 1f       	adc	r31, r31
+ dca:	a2 17       	cp	r26, r18
+ dcc:	b3 07       	cpc	r27, r19
+ dce:	e4 07       	cpc	r30, r20
+ dd0:	f5 07       	cpc	r31, r21
+ dd2:	20 f0       	brcs	.+8      	; 0xddc <__udivmodsi4_ep>
+ dd4:	a2 1b       	sub	r26, r18
+ dd6:	b3 0b       	sbc	r27, r19
+ dd8:	e4 0b       	sbc	r30, r20
+ dda:	f5 0b       	sbc	r31, r21
+
+00000ddc <__udivmodsi4_ep>:
+ ddc:	66 1f       	adc	r22, r22
+ dde:	77 1f       	adc	r23, r23
+ de0:	88 1f       	adc	r24, r24
+ de2:	99 1f       	adc	r25, r25
+ de4:	1a 94       	dec	r1
+ de6:	69 f7       	brne	.-38     	; 0xdc2 <__udivmodsi4_loop>
+ de8:	60 95       	com	r22
+ dea:	70 95       	com	r23
+ dec:	80 95       	com	r24
+ dee:	90 95       	com	r25
+ df0:	9b 01       	movw	r18, r22
+ df2:	ac 01       	movw	r20, r24
+ df4:	bd 01       	movw	r22, r26
+ df6:	cf 01       	movw	r24, r30
+ df8:	08 95       	ret
+
+00000dfa <__tablejump2__>:
+ dfa:	ee 0f       	add	r30, r30
+ dfc:	ff 1f       	adc	r31, r31
+ dfe:	05 90       	lpm	r0, Z+
+ e00:	f4 91       	lpm	r31, Z
+ e02:	e0 2d       	mov	r30, r0
+ e04:	09 94       	ijmp
+
+00000e06 <_exit>:
+ e06:	f8 94       	cli
+
+00000e08 <__stop_program>:
+ e08:	ff cf       	rjmp	.-2      	; 0xe08 <__stop_program>
